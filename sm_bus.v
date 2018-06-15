@@ -36,7 +36,7 @@ module sm_bus(
 			begin   
 				if (writeMiss || invalidate)
                 begin
-                    currrentState = 2'b00; // Invalid   
+                    currentState = 2'b00; // Invalid   
                 end
                 if (readMiss)
                 begin

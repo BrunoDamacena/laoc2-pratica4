@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for PraticaIV
-Fri Jun 15 11:30:44 2018
+Fri Jun 15 12:43:21 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -16,19 +16,42 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Datasheet Report
- 12. Fast Model Setup Summary
- 13. Fast Model Hold Summary
- 14. Fast Model Recovery Summary
- 15. Fast Model Removal Summary
- 16. Fast Model Minimum Pulse Width Summary
- 17. Fast Model Datasheet Report
- 18. Multicorner Timing Analysis Summary
- 19. Clock Transfers
- 20. Report TCCS
- 21. Report RSKM
- 22. Unconstrained Paths
- 23. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Setup: 'SW[17]'
+ 12. Slow Model Hold: 'SW[17]'
+ 13. Slow Model Minimum Pulse Width: 'SW[17]'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Fast Model Setup Summary
+ 21. Fast Model Hold Summary
+ 22. Fast Model Recovery Summary
+ 23. Fast Model Removal Summary
+ 24. Fast Model Minimum Pulse Width Summary
+ 25. Fast Model Setup: 'SW[17]'
+ 26. Fast Model Hold: 'SW[17]'
+ 27. Fast Model Minimum Pulse Width: 'SW[17]'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Propagation Delay
+ 33. Minimum Propagation Delay
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Progagation Delay
+ 40. Minimum Progagation Delay
+ 41. Setup Transfers
+ 42. Hold Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths
+ 46. TimeQuest Timing Analyzer Messages
 
 
 
@@ -75,28 +98,41 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-----------
-; Clocks ;
-----------
-No clocks to report.
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                             ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets    ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
+; SW[17]     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SW[17] } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
 
 
----------------------------
-; Slow Model Fmax Summary ;
----------------------------
-No paths to report.
++------------------------------------------------------------------------------------------------------------+
+; Slow Model Fmax Summary                                                                                    ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+; 1070.66 MHz ; 420.17 MHz      ; SW[17]     ; limit due to minimum period restriction (max I/O toggle rate) ;
++-------------+-----------------+------------+---------------------------------------------------------------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-----------------------------
-; Slow Model Setup Summary ;
-----------------------------
-No paths to report.
++--------------------------------+
+; Slow Model Setup Summary       ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; SW[17] ; 0.066 ; 0.000         ;
++--------+-------+---------------+
 
 
----------------------------
-; Slow Model Hold Summary ;
----------------------------
-No paths to report.
++--------------------------------+
+; Slow Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; SW[17] ; 0.391 ; 0.000         ;
++--------+-------+---------------+
 
 
 -------------------------------
@@ -111,28 +147,166 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
++----------------------------------------+
 ; Slow Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; SW[17] ; -1.380 ; -6.380               ;
++--------+--------+----------------------+
 
 
--------------------------------
-; Slow Model Datasheet Report ;
--------------------------------
-Nothing to report.
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'SW[17]'                                                                                                                  ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.066 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.970      ;
+; 0.097 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.939      ;
+; 0.099 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.937      ;
+; 0.099 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.937      ;
+; 0.230 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.806      ;
+; 0.233 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.803      ;
+; 0.233 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.803      ;
+; 0.234 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.802      ;
+; 0.379 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.657      ;
+; 0.379 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.657      ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-----------------------------
-; Fast Model Setup Summary ;
-----------------------------
-No paths to report.
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'SW[17]'                                                                                                                   ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.657      ;
+; 0.536 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.802      ;
+; 0.537 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.803      ;
+; 0.537 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.803      ;
+; 0.540 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.806      ;
+; 0.671 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.937      ;
+; 0.671 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.937      ;
+; 0.673 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.939      ;
+; 0.704 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.970      ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
 
 
----------------------------
-; Fast Model Hold Summary ;
----------------------------
-No paths to report.
++-----------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'SW[17]'                                                                        ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                        ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeBack       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeBack       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]|combout                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]|combout                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]~clkctrl|inclk[0]       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]~clkctrl|inclk[0]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]~clkctrl|outclk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]~clkctrl|outclk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|currentState[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|currentState[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|currentState[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|currentState[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|readMiss|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|readMiss|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeBack|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeBack|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk          ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 3.160 ; 3.160 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 3.149 ; 3.149 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 3.160 ; 3.160 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; -2.887 ; -2.887 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -2.887 ; -2.887 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -2.887 ; -2.887 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 6.348 ; 6.348 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 6.077 ; 6.077 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 6.348 ; 6.348 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 6.096 ; 6.096 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 6.077 ; 6.077 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 6.077 ; 6.077 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 6.348 ; 6.348 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 6.096 ; 6.096 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 8.004 ;    ;    ; 8.004 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 8.004 ;    ;    ; 8.004 ;
++------------+-------------+-------+----+----+-------+
+
+
++--------------------------------+
+; Fast Model Setup Summary       ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; SW[17] ; 0.561 ; 0.000         ;
++--------+-------+---------------+
+
+
++--------------------------------+
+; Fast Model Hold Summary        ;
++--------+-------+---------------+
+; Clock  ; Slack ; End Point TNS ;
++--------+-------+---------------+
+; SW[17] ; 0.215 ; 0.000         ;
++--------+-------+---------------+
 
 
 -------------------------------
@@ -147,32 +321,244 @@ No paths to report.
 No paths to report.
 
 
-------------------------------------------
++----------------------------------------+
 ; Fast Model Minimum Pulse Width Summary ;
-------------------------------------------
-No paths to report.
++--------+--------+----------------------+
+; Clock  ; Slack  ; End Point TNS        ;
++--------+--------+----------------------+
+; SW[17] ; -1.380 ; -6.380               ;
++--------+--------+----------------------+
 
 
--------------------------------
-; Fast Model Datasheet Report ;
--------------------------------
-Nothing to report.
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'SW[17]'                                                                                                                  ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.561 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.471      ;
+; 0.579 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.453      ;
+; 0.582 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.450      ;
+; 0.582 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.450      ;
+; 0.627 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.405      ;
+; 0.630 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.402      ;
+; 0.630 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.402      ;
+; 0.631 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.401      ;
+; 0.665 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.367      ;
+; 0.665 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 1.000        ; 0.000      ; 0.367      ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; N/A                 ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; 0.0                 ;
-+------------------+-------+------+----------+---------+---------------------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'SW[17]'                                                                                                                   ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                     ; To Node                       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.367      ;
+; 0.249 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|currentState[0] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.401      ;
+; 0.250 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.402      ;
+; 0.250 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.402      ;
+; 0.253 ; sm_cpu:sm_cpu|currentState[1] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.405      ;
+; 0.298 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|readMiss        ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.450      ;
+; 0.298 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeMiss       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.450      ;
+; 0.301 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|writeBack       ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.453      ;
+; 0.319 ; sm_cpu:sm_cpu|currentState[0] ; sm_cpu:sm_cpu|currentState[1] ; SW[17]       ; SW[17]      ; 0.000        ; 0.000      ; 0.471      ;
++-------+-------------------------------+-------------------------------+--------------+-------------+--------------+------------+------------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++-----------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'SW[17]'                                                                        ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                        ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|currentState[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeBack       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeBack       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]|combout                ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]|combout                ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]~clkctrl|inclk[0]       ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]~clkctrl|inclk[0]       ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]~clkctrl|outclk         ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]~clkctrl|outclk         ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|currentState[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|currentState[0]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|currentState[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|currentState[1]|clk    ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|readMiss|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|readMiss|clk           ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeBack|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeBack|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk          ;
+; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk          ;
++--------+--------------+----------------+------------------+--------+------------+-------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 1.744 ; 1.744 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 1.742 ; 1.742 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 1.744 ; 1.744 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; -1.616 ; -1.616 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -1.616 ; -1.616 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -1.618 ; -1.618 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 3.581 ; 3.581 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 3.466 ; 3.466 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 3.581 ; 3.581 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 3.486 ; 3.486 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 3.466 ; 3.466 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 3.466 ; 3.466 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 3.581 ; 3.581 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 3.486 ; 3.486 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Propagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 4.649 ;    ;    ; 4.649 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Propagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 4.649 ;    ;    ; 4.649 ;
++------------+-------------+-------+----+----+-------+
+
+
++-----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                         ;
++------------------+-------+-------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+-------+----------+---------+---------------------+
+; Worst-case Slack ; 0.066 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+;  SW[17]          ; 0.066 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; 0.0   ; 0.0   ; 0.0      ; 0.0     ; -6.38               ;
+;  SW[17]          ; 0.000 ; 0.000 ; N/A      ; N/A     ; -6.380              ;
++------------------+-------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 3.160 ; 3.160 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 3.149 ; 3.149 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 3.160 ; 3.160 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; -1.616 ; -1.616 ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -1.616 ; -1.616 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -1.618 ; -1.618 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 6.348 ; 6.348 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 6.077 ; 6.077 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 6.348 ; 6.348 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 6.096 ; 6.096 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 3.466 ; 3.466 ; Rise       ; SW[17]          ;
+;  LEDR[13] ; SW[17]     ; 3.466 ; 3.466 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 3.581 ; 3.581 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 3.486 ; 3.486 ; Rise       ; SW[17]          ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++----------------------------------------------------+
+; Progagation Delay                                  ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 8.004 ;    ;    ; 8.004 ;
++------------+-------------+-------+----+----+-------+
+
+
++----------------------------------------------------+
+; Minimum Progagation Delay                          ;
++------------+-------------+-------+----+----+-------+
+; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
++------------+-------------+-------+----+----+-------+
+; SW[16]     ; LEDR[17]    ; 4.649 ;    ;    ; 4.649 ;
++------------+-------------+-------+----+----+-------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SW[17]     ; SW[17]   ; 10       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SW[17]     ; SW[17]   ; 10       ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -194,10 +580,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 0     ; 0    ;
-; Unconstrained Input Port Paths  ; 0     ; 0    ;
-; Unconstrained Output Ports      ; 0     ; 0    ;
-; Unconstrained Output Port Paths ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 10    ; 10   ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
 +---------------------------------+-------+------+
 
 
@@ -207,7 +593,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Fri Jun 15 11:30:43 2018
+    Info: Processing started: Fri Jun 15 12:43:19 2018
 Info: Command: quartus_sta PraticaIV -c PraticaIV
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -215,34 +601,49 @@ Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'PraticaIV.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name SW[17] SW[17]
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
-Info (332159): No clocks to report
 Info: Analyzing Slow Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332146): Worst-case setup slack is 0.066
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.066         0.000 SW[17] 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 SW[17] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -6.380 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
-Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
-Warning (332068): No clocks defined in design.
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Info (332146): Worst-case setup slack is 0.561
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.561         0.000 SW[17] 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 SW[17] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332140): No Minimum Pulse Width paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380        -6.380 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
-Info (332101): Design is fully constrained for setup requirements
-Info (332101): Design is fully constrained for hold requirements
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 393 megabytes
-    Info: Processing ended: Fri Jun 15 11:30:44 2018
-    Info: Elapsed time: 00:00:01
+    Info: Processing ended: Fri Jun 15 12:43:21 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
