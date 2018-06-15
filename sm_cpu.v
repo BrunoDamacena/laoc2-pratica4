@@ -25,21 +25,19 @@ module sm_cpu(
 	
 	always @(posedge clock)
 	begin
+		writeMiss = 0;
+		readMiss = 0;
+		writeBack = 0;
+		invalidate = 0;
 		case(currentState)
 			2'b00: // Invalid
 			begin
 				if (write)
 				begin // CPU write
 					writeMiss = 1;
-					readMiss = 0;
-					writeBack = 0;
-					invalidate = 0;
 					currentState = 2'b10; // Modified
 				else // CPU read
-					writeMiss = 0;
 					readMiss = 1;
-					writeBack = 0;
-					invalidate = 0;
 					currentState = 2'b01; // Shared
 				end
 			end
@@ -50,30 +48,17 @@ module sm_cpu(
 					if (miss)
 					begin // CPU write miss
 						writeMiss = 1;
-						readMiss = 0;
-						writeBack = 0;
-						invalidate = 0;
 						currentState = 2'b10; // Modified
 					else // CPU write
-						writeMiss = 0;
-						readMiss = 0;
-						writeBack = 0;
 						invalidate = 1;
 						currentState = 2'b10; // Modified
 					end
 				else // CPU read
 					if (miss)
 					begin // CPU read miss
-						writeMiss = 0;
 						readMiss = 1;
-						writeBack = 0;
-						invalidate = 0;
 						currentState = 2'b01; // Shared
 					else // CPU read hit
-						writeMiss = 0;
-						readMiss = 0;
-						writeBack = 0;
-						invalidate = 0;
 						currentState = 2'b01; // Shared
 					end
 				end
@@ -85,30 +70,18 @@ module sm_cpu(
 					if (miss)
 					begin // CPU write miss
 						writeMiss = 1;
-						readMiss = 0;
 						writeBack = 1;
-						invalidate = 0;
 						currentState = 2'b10; // Modified
 					else // CPU write
-						writeMiss = 0;
-						readMiss = 0;
-						writeBack = 0;
-						invalidate = 0;
 						currentState = 2'b10; // Modified
 					end
 				else // CPU read
 					if (miss)
 					begin // CPU read miss
-						writeMiss = 0;
 						readMiss = 1;
 						writeBack = 1;
-						invalidate = 0;
 						currentState = 2'b01; // Shared
 					else // CPU read hit
-						writeMiss = 0;
-						readMiss = 0;
-						writeBack = 0;
-						invalidate = 0;
 						currentState = 2'b10; // Modified
 					end
 				end
