@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PraticaIV
-Thu Jun 14 14:42:01 2018
+Fri Jun 15 11:30:28 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -41,7 +41,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 14 14:42:01 2018      ;
+; Analysis & Synthesis Status        ; Successful - Fri Jun 15 11:30:28 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; PraticaIV                                  ;
 ; Top-level Entity Name              ; PraticaIV                                  ;
@@ -228,7 +228,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Thu Jun 14 14:42:00 2018
+    Info: Processing started: Fri Jun 15 11:30:24 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -290,9 +290,9 @@ Info (21057): Implemented 38 device resources after synthesis - the final resour
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 32 output pins
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 47 warnings
-    Info: Peak virtual memory: 463 megabytes
-    Info: Processing ended: Thu Jun 14 14:42:01 2018
-    Info: Elapsed time: 00:00:01
+    Info: Peak virtual memory: 456 megabytes
+    Info: Processing ended: Fri Jun 15 11:30:28 2018
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:01
 
 
