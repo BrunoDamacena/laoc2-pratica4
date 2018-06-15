@@ -36,7 +36,9 @@ module sm_cpu(
 				begin // CPU write
 					writeMiss = 1;
 					currentState = 2'b10; // Modified
+				end
 				else // CPU read
+				begin
 					readMiss = 1;
 					currentState = 2'b01; // Shared
 				end
@@ -49,16 +51,22 @@ module sm_cpu(
 					begin // CPU write miss
 						writeMiss = 1;
 						currentState = 2'b10; // Modified
+					end
 					else // CPU write
+					begin
 						invalidate = 1;
 						currentState = 2'b10; // Modified
 					end
+				end
 				else // CPU read
+				begin
 					if (miss)
 					begin // CPU read miss
 						readMiss = 1;
 						currentState = 2'b01; // Shared
+					end
 					else // CPU read hit
+					begin
 						currentState = 2'b01; // Shared
 					end
 				end
@@ -72,16 +80,22 @@ module sm_cpu(
 						writeMiss = 1;
 						writeBack = 1;
 						currentState = 2'b10; // Modified
+					end
 					else // CPU write
+					begin
 						currentState = 2'b10; // Modified
 					end
+				end
 				else // CPU read
+				begin
 					if (miss)
 					begin // CPU read miss
 						readMiss = 1;
 						writeBack = 1;
 						currentState = 2'b01; // Shared
+					end
 					else // CPU read hit
+					begin
 						currentState = 2'b10; // Modified
 					end
 				end
