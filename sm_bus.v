@@ -18,7 +18,7 @@ module sm_bus(
     output reg[1:0] currentState;
 	
 	initial begin
-		currentState = 2'b00;
+		currentState = 2'b10;
 		writeBack = 0;
 		abortMemoryAccess = 0;
 	end
