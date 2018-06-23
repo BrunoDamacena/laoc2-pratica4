@@ -1,6 +1,6 @@
 TimeQuest Timing Analyzer report for PraticaIV
-Fri Jun 15 13:50:39 2018
-Quartus II 32-bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+Sat Jun 23 17:38:22 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
 ---------------------
@@ -80,28 +80,34 @@ applicable agreement for further details.
 
 
 
-+----------------------------------------------------------------------------------------+
-; TimeQuest Timing Analyzer Summary                                                      ;
-+--------------------+-------------------------------------------------------------------+
-; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
-; Revision Name      ; PraticaIV                                                         ;
-; Device Family      ; Cyclone II                                                        ;
-; Device Name        ; EP2C35F672C6                                                      ;
-; Timing Models      ; Final                                                             ;
-; Delay Model        ; Combined                                                          ;
-; Rise/Fall Delays   ; Unavailable                                                       ;
-+--------------------+-------------------------------------------------------------------+
++-----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                       ;
++--------------------+--------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version ;
+; Revision Name      ; PraticaIV                                                          ;
+; Device Family      ; Cyclone II                                                         ;
+; Device Name        ; EP2C35F672C6                                                       ;
+; Timing Models      ; Final                                                              ;
+; Delay Model        ; Combined                                                           ;
+; Rise/Fall Delays   ; Unavailable                                                        ;
++--------------------+--------------------------------------------------------------------+
 
 
-Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
-+-------------------------------------+
-; Parallel Compilation                ;
-+----------------------------+--------+
-; Processors                 ; Number ;
-+----------------------------+--------+
-; Number detected on machine ; 4      ;
-; Maximum allowed            ; 1      ;
-+----------------------------+--------+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 6           ;
+; Maximum allowed            ; 6           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-6         ;   0.0%      ;
++----------------------------+-------------+
 
 
 +------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -119,7 +125,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------+-----------------+------------+---------------------------------------------------------------+
 ; Fmax        ; Restricted Fmax ; Clock Name ; Note                                                          ;
 +-------------+-----------------+------------+---------------------------------------------------------------+
-; 781.86 MHz  ; 420.17 MHz      ; SW[3]      ; limit due to minimum period restriction (max I/O toggle rate) ;
+; 773.99 MHz  ; 420.17 MHz      ; SW[3]      ; limit due to minimum period restriction (max I/O toggle rate) ;
 ; 1049.32 MHz ; 450.05 MHz      ; SW[17]     ; limit due to minimum period restriction (max I/O toggle rate) ;
 +-------------+-----------------+------------+---------------------------------------------------------------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
@@ -130,7 +136,7 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------+--------+---------------+
 ; Clock  ; Slack  ; End Point TNS ;
 +--------+--------+---------------+
-; SW[3]  ; -0.279 ; -0.443        ;
+; SW[3]  ; -0.292 ; -0.582        ;
 ; SW[17] ; 0.047  ; 0.000         ;
 +--------+--------+---------------+
 
@@ -172,12 +178,12 @@ No paths to report.
 +--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack  ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; -0.279 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.315      ;
-; -0.164 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.200      ;
-; -0.163 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.199      ;
-; 0.029  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.007      ;
-; 0.113  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.923      ;
-; 0.229  ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.807      ;
+; -0.292 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.328      ;
+; -0.290 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.326      ;
+; -0.158 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.194      ;
+; 0.099  ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.937      ;
+; 0.231  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.805      ;
+; 0.231  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.805      ;
 ; 0.379  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.657      ;
 ; 0.379  ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.657      ;
 +--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
@@ -230,12 +236,12 @@ No paths to report.
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 ; 0.391 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.657      ;
 ; 0.391 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.657      ;
-; 0.541 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.807      ;
-; 0.657 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.923      ;
-; 0.741 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.007      ;
-; 0.819 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.085      ;
-; 0.933 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.199      ;
-; 1.049 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.315      ;
+; 0.539 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.805      ;
+; 0.539 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.805      ;
+; 0.671 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.937      ;
+; 0.928 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.194      ;
+; 0.997 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.263      ;
+; 1.060 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.326      ;
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -313,10 +319,10 @@ No paths to report.
 ; SW[*]     ; SW[17]     ; 3.821 ; 3.821 ; Rise       ; SW[17]          ;
 ;  SW[15]   ; SW[17]     ; 3.821 ; 3.821 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; 3.797 ; 3.797 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 1.015 ; 1.015 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.941 ; 0.941 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 1.015 ; 1.015 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.919 ; 0.919 ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[3]      ; 1.010 ; 1.010 ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; 0.791 ; 0.791 ; Rise       ; SW[3]           ;
+;  SW[1]    ; SW[3]      ; 1.010 ; 1.010 ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; 0.912 ; 0.912 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -328,10 +334,10 @@ No paths to report.
 ; SW[*]     ; SW[17]     ; -3.491 ; -3.491 ; Rise       ; SW[17]          ;
 ;  SW[15]   ; SW[17]     ; -3.491 ; -3.491 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; -3.525 ; -3.525 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; -0.295 ; -0.295 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; -0.711 ; -0.711 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; -0.387 ; -0.387 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; -0.295 ; -0.295 ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[3]      ; -0.292 ; -0.292 ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; -0.561 ; -0.561 ; Rise       ; SW[3]           ;
+;  SW[1]    ; SW[3]      ; -0.390 ; -0.390 ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; -0.292 ; -0.292 ; Rise       ; SW[3]           ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -356,20 +362,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 8.174 ; 8.174 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 7.987 ; 7.987 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 8.325 ; 8.325 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 9.224 ; 9.224 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 9.224 ; 9.224 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 9.166 ; 9.166 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 9.188 ; 9.188 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 9.205 ; 9.205 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.222 ; 8.222 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.943 ; 8.943 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.943 ; 8.943 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.618 ; 6.618 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.618 ; 6.618 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.389 ; 6.389 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 9.179 ; 9.179 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 9.179 ; 9.179 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 8.950 ; 8.950 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 8.973 ; 8.973 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 9.171 ; 9.171 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 8.440 ; 8.440 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 9.161 ; 9.161 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 9.161 ; 9.161 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 6.403 ; 6.403 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 6.403 ; 6.403 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[3]      ; 6.808 ; 6.808 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 6.807 ; 6.807 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 6.808 ; 6.808 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -394,20 +400,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 8.174 ; 8.174 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 7.987 ; 7.987 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 8.325 ; 8.325 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 8.222 ; 8.222 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 8.886 ; 8.886 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 8.830 ; 8.830 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 8.844 ; 8.844 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 8.867 ; 8.867 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.222 ; 8.222 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.605 ; 8.605 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.605 ; 8.605 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.389 ; 6.389 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.618 ; 6.618 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.389 ; 6.389 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 8.440 ; 8.440 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 9.058 ; 9.058 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 8.803 ; 8.803 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 8.822 ; 8.822 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 9.050 ; 9.050 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 8.440 ; 8.440 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 9.040 ; 9.040 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 9.040 ; 9.040 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 6.403 ; 6.403 ; Rise       ; SW[3]           ;
 ; LEDR[*]   ; SW[3]      ; 6.807 ; 6.807 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 6.807 ; 6.807 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 6.808 ; 6.808 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -440,7 +446,7 @@ No paths to report.
 +--------+-------+---------------+
 ; Clock  ; Slack ; End Point TNS ;
 +--------+-------+---------------+
-; SW[3]  ; 0.424 ; 0.000         ;
+; SW[3]  ; 0.414 ; 0.000         ;
 ; SW[17] ; 0.539 ; 0.000         ;
 +--------+-------+---------------+
 
@@ -482,12 +488,12 @@ No paths to report.
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 ; Slack ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.424 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.608      ;
-; 0.446 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.586      ;
-; 0.466 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.566      ;
-; 0.540 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.492      ;
-; 0.587 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.445      ;
-; 0.629 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.403      ;
+; 0.414 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.618      ;
+; 0.419 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.613      ;
+; 0.471 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.561      ;
+; 0.581 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.451      ;
+; 0.633 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.399      ;
+; 0.633 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.399      ;
 ; 0.665 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.367      ;
 ; 0.665 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.367      ;
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
@@ -540,12 +546,12 @@ No paths to report.
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 ; 0.215 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.367      ;
 ; 0.215 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.367      ;
-; 0.251 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.403      ;
-; 0.293 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.445      ;
-; 0.340 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.492      ;
-; 0.375 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.527      ;
-; 0.414 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.566      ;
-; 0.456 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.608      ;
+; 0.247 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.399      ;
+; 0.299 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.451      ;
+; 0.409 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.561      ;
+; 0.459 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.611      ;
+; 0.461 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.613      ;
 +-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
 
 
@@ -624,9 +630,9 @@ No paths to report.
 ;  SW[15]   ; SW[17]     ; 2.268 ; 2.268 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; 2.267 ; 2.267 ; Rise       ; SW[17]          ;
 ; SW[*]     ; SW[3]      ; 0.186 ; 0.186 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.116 ; 0.116 ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; 0.054 ; 0.054 ; Rise       ; SW[3]           ;
 ;  SW[1]    ; SW[3]      ; 0.186 ; 0.186 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.116 ; 0.116 ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; 0.113 ; 0.113 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -638,10 +644,10 @@ No paths to report.
 ; SW[*]     ; SW[17]     ; -2.097 ; -2.097 ; Rise       ; SW[17]          ;
 ;  SW[15]   ; SW[17]     ; -2.097 ; -2.097 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; -2.142 ; -2.142 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 0.171  ; 0.171  ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.004  ; 0.004  ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[3]      ; 0.176  ; 0.176  ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; 0.066  ; 0.066  ; Rise       ; SW[3]           ;
 ;  SW[1]    ; SW[3]      ; 0.102  ; 0.102  ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.171  ; 0.171  ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; 0.176  ; 0.176  ; Rise       ; SW[3]           ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -666,20 +672,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 4.362 ; 4.362 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 4.295 ; 4.295 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 4.367 ; 4.367 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 4.931 ; 4.931 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.931 ; 4.931 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 4.885 ; 4.885 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.900 ; 4.900 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.916 ; 4.916 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.486 ; 4.486 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.791 ; 4.791 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.791 ; 4.791 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.778 ; 3.778 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.778 ; 3.778 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.671 ; 3.671 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 5.069 ; 5.069 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 5.069 ; 5.069 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 4.791 ; 4.791 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 4.807 ; 4.807 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 5.060 ; 5.060 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 4.695 ; 4.695 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 5.050 ; 5.050 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 5.050 ; 5.050 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -704,20 +710,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 4.362 ; 4.362 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 4.295 ; 4.295 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 4.367 ; 4.367 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 4.486 ; 4.486 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.790 ; 4.790 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 4.740 ; 4.740 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.755 ; 4.755 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.775 ; 4.775 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.486 ; 4.486 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.650 ; 4.650 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.650 ; 4.650 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.671 ; 3.671 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.778 ; 3.778 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.671 ; 3.671 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 4.695 ; 4.695 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 5.034 ; 5.034 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 4.736 ; 4.736 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 4.751 ; 4.751 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 5.025 ; 5.025 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 4.695 ; 4.695 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 5.015 ; 5.015 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 5.015 ; 5.015 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
 ; LEDR[*]   ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -750,12 +756,12 @@ No paths to report.
 +------------------+--------+-------+----------+---------+---------------------+
 ; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
 +------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -0.279 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Worst-case Slack ; -0.292 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
 ;  SW[17]          ; 0.047  ; 0.215 ; N/A      ; N/A     ; -1.222              ;
-;  SW[3]           ; -0.279 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
-; Design-wide TNS  ; -0.443 ; 0.0   ; 0.0      ; 0.0     ; -12.602             ;
+;  SW[3]           ; -0.292 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -0.582 ; 0.0   ; 0.0      ; 0.0     ; -12.602             ;
 ;  SW[17]          ; 0.000  ; 0.000 ; N/A      ; N/A     ; -7.222              ;
-;  SW[3]           ; -0.443 ; 0.000 ; N/A      ; N/A     ; -5.380              ;
+;  SW[3]           ; -0.582 ; 0.000 ; N/A      ; N/A     ; -5.380              ;
 +------------------+--------+-------+----------+---------+---------------------+
 
 
@@ -767,10 +773,10 @@ No paths to report.
 ; SW[*]     ; SW[17]     ; 3.821 ; 3.821 ; Rise       ; SW[17]          ;
 ;  SW[15]   ; SW[17]     ; 3.821 ; 3.821 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; 3.797 ; 3.797 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 1.015 ; 1.015 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.941 ; 0.941 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 1.015 ; 1.015 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.919 ; 0.919 ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[3]      ; 1.010 ; 1.010 ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; 0.791 ; 0.791 ; Rise       ; SW[3]           ;
+;  SW[1]    ; SW[3]      ; 1.010 ; 1.010 ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; 0.912 ; 0.912 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -782,10 +788,10 @@ No paths to report.
 ; SW[*]     ; SW[17]     ; -2.097 ; -2.097 ; Rise       ; SW[17]          ;
 ;  SW[15]   ; SW[17]     ; -2.097 ; -2.097 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; -2.142 ; -2.142 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 0.171  ; 0.171  ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.004  ; 0.004  ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[3]      ; 0.176  ; 0.176  ; Rise       ; SW[3]           ;
+;  SW[0]    ; SW[3]      ; 0.066  ; 0.066  ; Rise       ; SW[3]           ;
 ;  SW[1]    ; SW[3]      ; 0.102  ; 0.102  ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.171  ; 0.171  ; Rise       ; SW[3]           ;
+;  SW[2]    ; SW[3]      ; 0.176  ; 0.176  ; Rise       ; SW[3]           ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -810,20 +816,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 8.174 ; 8.174 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 7.987 ; 7.987 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 8.325 ; 8.325 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 9.224 ; 9.224 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 9.224 ; 9.224 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 9.166 ; 9.166 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 9.188 ; 9.188 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 9.205 ; 9.205 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.222 ; 8.222 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.943 ; 8.943 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.943 ; 8.943 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.618 ; 6.618 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.618 ; 6.618 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.389 ; 6.389 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 9.179 ; 9.179 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 9.179 ; 9.179 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 8.950 ; 8.950 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 8.973 ; 8.973 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 9.171 ; 9.171 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 8.440 ; 8.440 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 9.161 ; 9.161 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 9.161 ; 9.161 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 6.403 ; 6.403 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 6.403 ; 6.403 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[3]      ; 6.808 ; 6.808 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 6.807 ; 6.807 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 6.808 ; 6.808 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -848,20 +854,20 @@ No paths to report.
 ;  LEDR[14] ; SW[17]     ; 4.362 ; 4.362 ; Rise       ; SW[17]          ;
 ;  LEDR[15] ; SW[17]     ; 4.295 ; 4.295 ; Rise       ; SW[17]          ;
 ;  LEDR[16] ; SW[17]     ; 4.367 ; 4.367 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 4.486 ; 4.486 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.790 ; 4.790 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 4.740 ; 4.740 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.755 ; 4.755 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.775 ; 4.775 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.486 ; 4.486 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.650 ; 4.650 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.650 ; 4.650 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.671 ; 3.671 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.778 ; 3.778 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.671 ; 3.671 ; Rise       ; SW[3]           ;
+; HEX0[*]   ; SW[3]      ; 4.695 ; 4.695 ; Rise       ; SW[3]           ;
+;  HEX0[0]  ; SW[3]      ; 5.034 ; 5.034 ; Rise       ; SW[3]           ;
+;  HEX0[1]  ; SW[3]      ; 4.736 ; 4.736 ; Rise       ; SW[3]           ;
+;  HEX0[2]  ; SW[3]      ; 4.751 ; 4.751 ; Rise       ; SW[3]           ;
+;  HEX0[3]  ; SW[3]      ; 5.025 ; 5.025 ; Rise       ; SW[3]           ;
+;  HEX0[4]  ; SW[3]      ; 4.695 ; 4.695 ; Rise       ; SW[3]           ;
+;  HEX0[5]  ; SW[3]      ; 5.015 ; 5.015 ; Rise       ; SW[3]           ;
+;  HEX0[6]  ; SW[3]      ; 5.015 ; 5.015 ; Rise       ; SW[3]           ;
+; LEDG[*]   ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
+;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
+;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
 ; LEDR[*]   ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 ;  LEDR[0]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+;  LEDR[1]  ; SW[3]      ; 3.857 ; 3.857 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -941,12 +947,12 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; TimeQuest Timing Analyzer Messages ;
 +------------------------------------+
 Info: *******************************************************************
-Info: Running Quartus II 32-bit TimeQuest Timing Analyzer
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Fri Jun 15 13:50:38 2018
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+    Info: Processing started: Sat Jun 23 17:38:20 2018
 Info: Command: quartus_sta PraticaIV -c PraticaIV
 Info: qsta_default_script.tcl version: #1
-Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (21077): Low junction temperature is 0 degrees C
 Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'PraticaIV.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
@@ -957,10 +963,10 @@ Info (332105): Deriving Clocks
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.279
+Info (332146): Worst-case setup slack is -0.292
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -0.279        -0.443 SW[3] 
+    Info (332119):    -0.292        -0.582 SW[3] 
     Info (332119):     0.047         0.000 SW[17] 
 Info (332146): Worst-case hold slack is 0.391
     Info (332119):     Slack End Point TNS Clock 
@@ -976,10 +982,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.380
     Info (332119):    -1.222        -7.222 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332146): Worst-case setup slack is 0.424
+Info (332146): Worst-case setup slack is 0.414
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):     0.424         0.000 SW[3] 
+    Info (332119):     0.414         0.000 SW[3] 
     Info (332119):     0.539         0.000 SW[17] 
 Info (332146): Worst-case hold slack is 0.215
     Info (332119):     Slack End Point TNS Clock 
@@ -997,10 +1003,10 @@ Info (332146): Worst-case minimum pulse width slack is -1.380
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
-Info: Quartus II 32-bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 376 megabytes
-    Info: Processing ended: Fri Jun 15 13:50:39 2018
-    Info: Elapsed time: 00:00:01
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 501 megabytes
+    Info: Processing ended: Sat Jun 23 17:38:22 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 
 
