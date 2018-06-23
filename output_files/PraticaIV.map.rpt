@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PraticaIV
-Sat Jun 23 17:38:07 2018
+Sat Jun 23 17:59:55 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -16,8 +16,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   8. General Register Statistics
   9. Inverted Register Statistics
  10. Multiplexer Restructuring Statistics (Restructuring Performed)
- 11. Elapsed Time Per Partition
- 12. Analysis & Synthesis Messages
+ 11. Port Connectivity Checks: "memory:memory"
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Messages
 
 
 
@@ -43,7 +44,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 23 17:38:07 2018            ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 23 17:59:54 2018            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; PraticaIV                                        ;
 ; Top-level Entity Name              ; PraticaIV                                        ;
@@ -169,6 +170,7 @@ applicable agreement for further details.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
 ; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v ;         ;
 ; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v    ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v    ;         ;
 ; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v    ;         ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
 
@@ -249,6 +251,20 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------+
 
 
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "memory:memory"                                                                                                                                                                        ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                                                                                                                          ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; write     ; Input  ; Warning  ; Input port expression (3 bits) is wider than the input port (1 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; write[-1] ; Input  ; Info     ; Stuck at GND                                                                                                                                                                     ;
+; address   ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (3 bits) it drives.  Extra input bit(s) "address[2..1]" will be connected to GND.                                  ;
+; data_in   ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (4 bits) it drives.  Extra input bit(s) "data_in[3..1]" will be connected to GND.                                  ;
+; data_out  ; Output ; Warning  ; Output or bidir port (4 bits) is wider than the port expression (1 bits) it drives; bit(s) "data_out[3..1]" have no fanouts                                                      ;
+; data_out  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                                                              ;
++-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -264,7 +280,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Jun 23 17:38:05 2018
+    Info: Processing started: Sat Jun 23 17:59:51 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -275,12 +291,18 @@ Info (12021): Found 1 design units, including 1 entities, in source file bcd_7se
     Info (12023): Found entity 1: bcd_7seg
 Info (12021): Found 1 design units, including 1 entities, in source file memory.v
     Info (12023): Found entity 1: memory
+Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "clock_memory"
+Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "memory_address"
+Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_in"
+Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_out"
 Info (12127): Elaborating entity "PraticaIV" for the top level hierarchy
 Warning (10034): Output port "LEDR[12..5]" at PraticaIV.v(11) has no driver
 Info (12128): Elaborating entity "sm_cpu" for hierarchy "sm_cpu:sm_cpu"
 Warning (12125): Using design file sm_bus.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
     Info (12023): Found entity 1: sm_bus
 Info (12128): Elaborating entity "sm_bus" for hierarchy "sm_bus:sm_bus"
+Info (12128): Elaborating entity "memory" for hierarchy "memory:memory"
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[5]" is stuck at VCC
@@ -350,10 +372,10 @@ Info (21057): Implemented 114 device resources after synthesis - the final resou
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
     Info (21061): Implemented 18 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 65 warnings
-    Info: Peak virtual memory: 527 megabytes
-    Info: Processing ended: Sat Jun 23 17:38:07 2018
-    Info: Elapsed time: 00:00:02
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
+    Info: Peak virtual memory: 530 megabytes
+    Info: Processing ended: Sat Jun 23 17:59:55 2018
+    Info: Elapsed time: 00:00:04
     Info: Total CPU time (on all processors): 00:00:02
 
 
