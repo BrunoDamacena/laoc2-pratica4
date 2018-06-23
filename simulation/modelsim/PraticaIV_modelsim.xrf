@@ -3,6 +3,7 @@ source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v
 source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v
 source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/bcd_7seg.v
 source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v
+source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/cache.v
 source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/db/PraticaIV.cbx.xml
 source_file = 1, C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v
 design_name = PraticaIV

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PraticaIV
-Sat Jun 23 17:59:55 2018
+Sat Jun 23 18:55:59 2018
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
 
 
@@ -44,7 +44,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                          ;
 +------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 23 17:59:54 2018            ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 23 18:55:59 2018            ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
 ; Revision Name                      ; PraticaIV                                        ;
 ; Top-level Entity Name              ; PraticaIV                                        ;
@@ -280,7 +280,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Jun 23 17:59:51 2018
+    Info: Processing started: Sat Jun 23 18:55:57 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -291,6 +291,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file bcd_7se
     Info (12023): Found entity 1: bcd_7seg
 Info (12021): Found 1 design units, including 1 entities, in source file memory.v
     Info (12023): Found entity 1: memory
+Info (12021): Found 1 design units, including 1 entities, in source file cache.v
+    Info (12023): Found entity 1: cache
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "clock_memory"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "memory_address"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_in"
@@ -374,8 +376,8 @@ Info (21057): Implemented 114 device resources after synthesis - the final resou
     Info (21061): Implemented 18 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
     Info: Peak virtual memory: 530 megabytes
-    Info: Processing ended: Sat Jun 23 17:59:55 2018
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Sat Jun 23 18:55:59 2018
+    Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 
 
