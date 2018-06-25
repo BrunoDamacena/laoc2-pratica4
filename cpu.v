@@ -1,6 +1,6 @@
-module cache(
+module cpu(
 			clock,
-			write,
+			instruction,
 			state,
 			address,
 			data_in,
@@ -9,7 +9,7 @@ module cache(
 			current_data
 );
 	input clock;
-	input write;
+	input instruction;
 	input [1:0] state;
 	input [2:0] address;
 	input [3:0] data_in;
@@ -26,6 +26,8 @@ module cache(
 	wire [1:0] current_state_cb2;
 	wire [2:0] current_address_cb2;
 	wire [3:0] current_data_cb2;
+	
+	wire write = instruction;
 	
 	initial begin
 		current_state = 2'b00; // Invalid
