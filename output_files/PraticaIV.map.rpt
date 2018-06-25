@@ -1,6 +1,6 @@
 Analysis & Synthesis report for PraticaIV
-Sat Jun 23 18:55:59 2018
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+Mon Jun 25 12:30:48 2018
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
 ---------------------
@@ -41,24 +41,24 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                          ;
-+------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Jun 23 18:55:59 2018            ;
-; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
-; Revision Name                      ; PraticaIV                                        ;
-; Top-level Entity Name              ; PraticaIV                                        ;
-; Family                             ; Cyclone II                                       ;
-; Total logic elements               ; 17                                               ;
-;     Total combinational functions  ; 16                                               ;
-;     Dedicated logic registers      ; 10                                               ;
-; Total registers                    ; 10                                               ;
-; Total pins                         ; 96                                               ;
-; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 0                                                ;
-; Embedded Multiplier 9-bit elements ; 0                                                ;
-; Total PLLs                         ; 0                                                ;
-+------------------------------------+--------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Jun 25 12:30:48 2018      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; PraticaIV                                  ;
+; Top-level Entity Name              ; PraticaIV                                  ;
+; Family                             ; Cyclone II                                 ;
+; Total logic elements               ; 17                                         ;
+;     Total combinational functions  ; 16                                         ;
+;     Dedicated logic registers      ; 10                                         ;
+; Total registers                    ; 10                                         ;
+; Total pins                         ; 96                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -146,33 +146,28 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                              ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
-; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v ;         ;
-; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v    ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v    ;         ;
-; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v    ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
+; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v   ;         ;
+; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v      ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v      ;         ;
+; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v ;         ;
+; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v      ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------+
@@ -210,9 +205,9 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; |PraticaIV                 ; 16 (5)            ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ; work         ;
-;    |sm_bus:sm_bus|         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_bus:sm_bus ; work         ;
-;    |sm_cpu:sm_cpu|         ; 7 (7)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_cpu:sm_cpu ; work         ;
+; |PraticaIV                 ; 16 (5)            ; 10 (0)       ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ;              ;
+;    |sm_bus:sm_bus|         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_bus:sm_bus ;              ;
+;    |sm_cpu:sm_cpu|         ; 7 (7)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_cpu:sm_cpu ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -279,10 +274,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Sat Jun 23 18:55:57 2018
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Mon Jun 25 12:30:46 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
     Info (12023): Found entity 1: PraticaIV
 Info (12021): Found 1 design units, including 1 entities, in source file sm_cpu.v
@@ -293,6 +288,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file memory.
     Info (12023): Found entity 1: memory
 Info (12021): Found 1 design units, including 1 entities, in source file cache.v
     Info (12023): Found entity 1: cache
+Info (12021): Found 1 design units, including 1 entities, in source file cache_block.v
+    Info (12023): Found entity 1: cache_block
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "clock_memory"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "memory_address"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_in"
@@ -304,6 +301,8 @@ Warning (12125): Using design file sm_bus.v, which is not specified as a design 
     Info (12023): Found entity 1: sm_bus
 Info (12128): Elaborating entity "sm_bus" for hierarchy "sm_bus:sm_bus"
 Info (12128): Elaborating entity "memory" for hierarchy "memory:memory"
+Info (12128): Elaborating entity "cache_block" for hierarchy "cache_block:cache_block"
+Warning (10855): Verilog HDL warning at cache_block.v(20): initial value for variable current_address should be constant
 Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
@@ -374,9 +373,9 @@ Info (21057): Implemented 114 device resources after synthesis - the final resou
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
     Info (21061): Implemented 18 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 70 warnings
-    Info: Peak virtual memory: 530 megabytes
-    Info: Processing ended: Sat Jun 23 18:55:59 2018
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 521 megabytes
+    Info: Processing ended: Mon Jun 25 12:30:48 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:02
 

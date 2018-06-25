@@ -1,60 +1,72 @@
-# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading C:/altera/13.0/modelsim_ase/tcl/vsim/pref.tcl 
 # do PraticaIV_run_msim_rtl_verilog.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+# ** Warning: Copied C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module PraticaIV
 # 
 # Top level modules:
 # 	PraticaIV
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_cpu
 # 
 # Top level modules:
 # 	sm_cpu
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module memory
 # 
 # Top level modules:
 # 	memory
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v}
+# Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
+# -- Compiling module cache_block
+# 
+# Top level modules:
+# 	cache_block
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_bus
 # 
 # Top level modules:
 # 	sm_bus
 # 
-vsim work.memory
-# vsim work.memory 
-# Loading work.memory
-wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/memory/clock
-wave create -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 1000ps sim:/memory/write
-wave create -driver freeze -pattern constant -value 000 -range 2 0 -starttime 0ps -endtime 1000ps sim:/memory/address
-wave create -driver freeze -pattern constant -value 0000 -range 3 0 -starttime 0ps -endtime 1000ps sim:/memory/data_in
-add wave -position end  sim:/memory/data_out
-add wave -position end  sim:/memory/memory_data
-wave create -driver freeze -pattern constant -value 100 -range 2 0 -starttime 0ps -endtime 250ps sim:/memory/address
-# /memory/address already exists in the wave, cannot add twice
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-wave modify -driver freeze -pattern constant -value 100 -range 2 0 -starttime 0ps -endtime 250ps Edit:/memory/address
-wave modify -driver freeze -pattern constant -value 000 -range 2 0 -starttime 225ps -endtime 250ps Edit:/memory/address
-wave modify -driver freeze -pattern constant -value 1 -starttime 25ps -endtime 75ps Edit:/memory/write
-wave modify -driver freeze -pattern constant -value 0110 -range 3 0 -starttime 0ps -endtime 250ps Edit:/memory/data_in
-wave modify -driver freeze -pattern constant -value 0000 -range 3 0 -starttime 125ps -endtime 250ps Edit:/memory/data_in
+vsim work.cache_block
+# vsim work.cache_block 
+# Loading work.cache_block
+wave create -driver freeze -pattern clock -initialvalue 0 -period 100ps -dutycycle 50 -starttime 0ps -endtime 1000ps sim:/cache_block/clock
+wave create -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 1000ps sim:/cache_block/write
+wave create -driver freeze -pattern constant -value 00 -range 1 0 -starttime 0ps -endtime 1000ps sim:/cache_block/state
+wave create -driver freeze -pattern constant -value 000 -range 2 0 -starttime 0ps -endtime 1000ps sim:/cache_block/address
+wave create -driver freeze -pattern constant -value 0000 -range 3 0 -starttime 0ps -endtime 1000ps sim:/cache_block/data_in
+add wave -position end  sim:/cache_block/current_state
+add wave -position end  sim:/cache_block/current_address
+add wave -position end  sim:/cache_block/current_data
+run
+wave modify -driver freeze -pattern constant -value 1 -starttime 125ps -endtime 175ps Edit:/cache_block/write
+wave modify -driver freeze -pattern constant -value 01 -range 1 0 -starttime 125ps -endtime 150ps Edit:/cache_block/state
+wave modify -driver freeze -pattern constant -value 01 -range 1 0 -starttime 125ps -endtime 175ps Edit:/cache_block/state
+wave modify -driver freeze -pattern constant -value 110 -range 2 0 -starttime 125ps -endtime 175ps Edit:/cache_block/address
+wave modify -driver freeze -pattern constant -value 1000 -range 3 0 -starttime 125ps -endtime 175ps Edit:/cache_block/data_in
+run
+run
+wave modify -driver freeze -pattern constant -value 10 -range 1 0 -starttime 325ps -endtime 375ps Edit:/cache_block/state
+run
+restart
+wave modify -driver freeze -pattern constant -value 1 -starttime 325ps -endtime 375ps Edit:/cache_block/write
+restart
 run
 run
 run
-write format wave -window .main_pane.wave.interior.cs.body.pw.wf C:/Users/Gabriel/Documents/laoc2-pratica4/simulation/modelsim/wave.do
-wave editwrite -file C:/Users/Gabriel/Documents/laoc2-pratica4/simulation/modelsim/wave.do -append
+run
+wave editwrite -file C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do
