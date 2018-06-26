@@ -2,21 +2,23 @@ module sm_cpu(
 	clock,
 	write,
 	miss,
+	state,
 	writeMiss,
 	readMiss,
 	writeBack,
 	invalidate,
-	currentState
+	newState
 );
 	input clock;
 	input write;
 	input miss;
+	input [1:0] state;
 	output reg writeMiss, readMiss, writeBack, invalidate;
 	
-	output reg[1:0] currentState;
+	output reg[1:0] newState;
 	
 	initial begin
-		currentState = 2'b00;
+		newState = 2'b00;
 		writeMiss = 0;
 		readMiss = 0;
 		writeBack = 0;
@@ -29,18 +31,18 @@ module sm_cpu(
 		readMiss = 0;
 		writeBack = 0;
 		invalidate = 0;
-		case(currentState)
+		case(state)
 			2'b00: // Invalid
 			begin
 				if (write)
 				begin // CPU write
 					writeMiss = 1;
-					currentState = 2'b10; // Modified
+					newState = 2'b10; // Modified
 				end
 				else // CPU read
 				begin
 					readMiss = 1;
-					currentState = 2'b01; // Shared
+					newState = 2'b01; // Shared
 				end
 			end
 			2'b01: // Shared
@@ -50,12 +52,12 @@ module sm_cpu(
 					if (miss)
 					begin // CPU write miss
 						writeMiss = 1;
-						currentState = 2'b10; // Modified
+						newState = 2'b10; // Modified
 					end
 					else // CPU write
 					begin
 						invalidate = 1;
-						currentState = 2'b10; // Modified
+						newState = 2'b10; // Modified
 					end
 				end
 				else // CPU read
@@ -63,11 +65,11 @@ module sm_cpu(
 					if (miss)
 					begin // CPU read miss
 						readMiss = 1;
-						currentState = 2'b01; // Shared
+						newState = 2'b01; // Shared
 					end
 					else // CPU read hit
 					begin
-						currentState = 2'b01; // Shared
+						newState = 2'b01; // Shared
 					end
 				end
 			end
@@ -79,11 +81,11 @@ module sm_cpu(
 					begin // CPU write miss
 						writeMiss = 1;
 						writeBack = 1;
-						currentState = 2'b10; // Modified
+						newState = 2'b10; // Modified
 					end
 					else // CPU write
 					begin
-						currentState = 2'b10; // Modified
+						newState = 2'b10; // Modified
 					end
 				end
 				else // CPU read
@@ -92,11 +94,11 @@ module sm_cpu(
 					begin // CPU read miss
 						readMiss = 1;
 						writeBack = 1;
-						currentState = 2'b01; // Shared
+						newState = 2'b01; // Shared
 					end
 					else // CPU read hit
 					begin
-						currentState = 2'b10; // Modified
+						newState = 2'b10; // Modified
 					end
 				end
 			end
