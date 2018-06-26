@@ -50,11 +50,13 @@ module cpu(
 	
 	wire activate_sm_cb1 = clock & ~address[0] & execute_instruction & state == 2'b00;
 	wire miss_sm_cb1 = address != current_address_cb1;
+	wire miss_sm_cb2 = address != current_address_cb2;
+	
+	wire miss = (address != current_address_cb1 & ~address[0]) | (address != current_address_cb1 & address[0])
 	
 	sm_cpu sm_cb1(activate_sm_cb1, instruction, miss_sm_cb1, current_state_cb1, writeMiss_sm_cb1, readMiss_sm_cb1, writeBack_sm_cb1, invalidate_sm_cb1, currentState_sm_cb1);
 	
 	wire activate_sm_cb2 = clock & address[0] & execute_instruction & state == 2'b00;
-	wire miss_sm_cb2 = address != current_address_cb2;
 	
 	sm_cpu sm_cb2(activate_sm_cb2, instruction, miss_sm_cb2, current_state_cb2, writeMiss_sm_cb2, readMiss_sm_cb2, writeBack_sm_cb2, invalidate_sm_cb2, currentState_sm2);
 		
