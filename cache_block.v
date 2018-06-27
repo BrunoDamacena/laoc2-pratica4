@@ -19,7 +19,7 @@ module cache_block(
 	
 	initial begin
 		current_state = 2'b00; // Invalid
-		current_address = address;
+		current_address = 3'b000;
 		current_data = 4'b0000;
 	end
 	

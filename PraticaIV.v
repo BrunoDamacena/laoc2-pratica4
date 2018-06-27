@@ -90,5 +90,6 @@ module PraticaIV(SW, HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7, LEDR, LEDG)
 	sm_bus sm_bus(clock_bus, writeMiss_bus, readMiss_bus, invalidate_bus, writeBack_bus, abortMemoryAccess_bus, currentState_bus);
 	memory memory(clock_memory, 3'b000, memory_address, data_in, data_out);
 	cache_block cache_block();
+	cpu cpu();
 	
 endmodule

@@ -4,7 +4,7 @@ module sm_bus(
 	readMiss,
 	invalidate,
 	writeBack,
-    abortMemoryAccess,
+   abortMemoryAccess,
 	currentState
 );
     input clock;

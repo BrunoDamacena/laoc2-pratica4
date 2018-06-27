@@ -18,7 +18,7 @@ module sm_cpu(
 	output reg[1:0] newState;
 	
 	initial begin
-		newState = 2'b00;
+		newState = 2'b01;
 		writeMiss = 0;
 		readMiss = 0;
 		writeBack = 0;
