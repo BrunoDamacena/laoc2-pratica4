@@ -5,28 +5,28 @@ module cpu(
 			instruction,
 			address,
 			data_in,
-			readMiss,
-			writeMiss,
 			data_out,
 			done,
 			bus_out
 );
-	input [5:0] bus_in; //  
+	input [9:0] bus_in; //  
 	input clock;
 	input instruction;
 	input execute_instruction;
 	input [2:0] address;
 	input [3:0] data_in;
-	output readMiss;
-	output writeMiss;
 	output reg [3:0] data_out;
 	output reg done;
-	output reg [5:0] bus_out;
+	output reg [9:0] bus_out;
 	
 	// Regs to save instruction in execution
 	reg instruction_reg;
 	reg [2:0] address_reg;
 	reg [3:0] data_in_reg;
+	
+	wire readMiss;
+	wire writeMiss;
+	wire invalidate;
 	
 	reg write_cb1;
 	reg write_cb2;
@@ -58,9 +58,11 @@ module cpu(
 	
 	initial begin
 		data_out = 4'b0000;
+		bus_out = 10'b0000000000;
 		state = 2'b00;
 		write_cb1 = 0;
 		write_cb2 = 0;
+		done = 0;
 	end
 	
 	// The Cache Block state machine is activated with the following conditions:
@@ -99,19 +101,38 @@ module cpu(
 					instruction_reg = instruction;
 					address_reg = address;
 					data_in_reg = data_in;
+					bus_out = 10'b0000000000;
 					state = 2'b01;
 					done = 0;
 				end
 			end
 			2'b01:
 			begin				
-				if(~instruction_reg & ~readMiss) // read hit - 1 cycle and it's done
+				if(readMiss | writeMiss | invalidate) // if any message must be send in the bus, add one cycle to send it
+				begin
+					bus_out[9] = readMiss;
+					bus_out[8] = writeMiss;
+					bus_out[7] = invalidate;
+					if(invalidate)
+					begin
+						bus_out[6:4] = (current_address_cb1 & ~{3{address_reg[0]}}) | (current_address_cb2 & {3{address_reg[0]}});
+					end
+					else
+					begin
+						bus_out[6:4] = address_reg;
+					end
+					bus_out[3:0] = 4'b0000;
+					state = 2'b11;
+				end
+				else
+				if(~instruction_reg) // read hit - 1 cycle and it's done
 				begin
 					data_out = (current_data_cb1 & ~{4{address_reg[0]}}) | (current_data_cb2 & {4{address_reg[0]}});
 					done = 1;
 					state = 2'b00;	
 				end
-				if(instruction_reg & ~writeMiss) // write hit
+				else
+				if(instruction_reg) // write hit
 				begin
 					// write on supposed cache
 					write_cb1 = ~address_reg[0];

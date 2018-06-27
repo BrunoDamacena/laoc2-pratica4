@@ -47,37 +47,79 @@
 # Top level modules:
 # 	sm_bus
 # 
+vsim work.cache_block
+# vsim work.cache_block 
+# Loading work.cache_block
 vsim work.cpu
 # vsim work.cpu 
 # Loading work.cpu
 # Loading work.sm_cpu
 # Loading work.cache_block
 # Loading work.sm_bus
-# ** Warning: (vsim-3017) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Too few port connections. Expected 7, found 0.
+# ** Warning: (vsim-3017) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Too few port connections. Expected 7, found 0.
 # 
 #         Region: /cpu/sm_bus1
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'clock'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'clock'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'writeMiss'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'writeMiss'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'readMiss'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'readMiss'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'invalidate'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'invalidate'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'writeBack'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'writeBack'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'abortMemoryAccess'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'abortMemoryAccess'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'currentState'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'currentState'.
 # 
 do C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do
 # .main_pane.wave.interior.cs.body.pw.wf
+# cache_block
+# cache_block
+# cache_block
+# cache_block
 # 1
+# cache_block
 # 1
+# cache_block
+# cache_block
+# cache_block
+# cache_block
+# cache_block
+# cache_block
+# cache_block
+# cache_block
+# cache_block
 # 1
-add wave -position end  sim:/cpu/readMiss
-add wave -position end  sim:/cpu/writeMiss
 add wave -position end  sim:/cpu/data_out
 add wave -position end  sim:/cpu/done
+add wave -position end  sim:/cpu/bus_out
 run
 run
+run
+run
+add wave -position end  sim:/cpu/state
+restart
+# ** Warning: (vsim-3017) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Too few port connections. Expected 7, found 0.
+# 
+#         Region: /cpu/sm_bus1
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'clock'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'writeMiss'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'readMiss'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'invalidate'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'writeBack'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'abortMemoryAccess'.
+# 
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(88): [TFMPC] - Missing connection for port 'currentState'.
+# 
+run
+run
+run
+run
+wave editwrite -file C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do
