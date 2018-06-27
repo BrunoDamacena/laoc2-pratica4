@@ -28,7 +28,12 @@ module cpu(
 	reg [2:0] address_reg;
 	reg [3:0] data_in_reg;
 	
-	reg current_cb;
+	reg write_cb1;
+	reg write_cb2;
+	reg [1:0] state_cb;
+	reg [2:0] address_cb;
+	reg [3:0] data_cb;
+	
 	reg [1:0] state;
 	
 	wire [1:0] current_state_cb1;
@@ -54,6 +59,8 @@ module cpu(
 	initial begin
 		data_out = 4'b0000;
 		state = 2'b00;
+		write_cb1 = 0;
+		write_cb2 = 0;
 	end
 	
 	// The Cache Block state machine is activated with the following conditions:
@@ -67,18 +74,22 @@ module cpu(
 	wire miss_sm_cb1 = address_reg != current_address_cb1;
 	wire miss_sm_cb2 = address_reg != current_address_cb2;
 	
-	wire miss = (miss_sm_cb1 & ~address[0]) | (miss_sm_cb2 & address[0]);
+	wire miss = (miss_sm_cb1 & ~address_reg[0]) | (miss_sm_cb2 & address_reg[0]);
 	
 	sm_cpu sm_cb1(activate_sm_cb1, instruction, miss_sm_cb1, current_state_cb1, writeMiss_sm_cb1, readMiss_sm_cb1, writeBack_sm_cb1, invalidate_sm_cb1, current_state_sm_cb1);
 	sm_cpu sm_cb2(activate_sm_cb2, instruction, miss_sm_cb2, current_state_cb2, writeMiss_sm_cb2, readMiss_sm_cb2, writeBack_sm_cb2, invalidate_sm_cb2, current_state_sm_cb2);
 		
-	cache_block cb1(clock, write & ~current_cb, state & ~{2{state}}, address & ~{3{address[0]}}, data_in & ~{4{data_in}}, current_state_cb1, current_address_cb1, current_data_cb1);
-	cache_block cb2(clock, write & current_cb, state & {2{state}}, address & {3{address[0]}}, data_in & {4{data_in}}, current_state_cb2, current_address_cb2, current_data_cb2);
+	wire activate_cb_1 = clock & ~address_reg[0] & state == 2'b10;
+	wire activate_cb_2 = clock & address_reg[0] & state == 2'b10; 
+	cache_block cb1(activate_cb_1, write_cb1, state_cb, address_cb, data_cb, current_state_cb1, current_address_cb1, current_data_cb1);
+	cache_block cb2(activate_cb_2, write_cb2, state_cb, address_cb, data_cb, current_state_cb2, current_address_cb2, current_data_cb2);
 	
 	sm_bus sm_bus1();
 	
 	always @(posedge clock)
 	begin
+		write_cb1 = 0;
+		write_cb2 = 0;
 	
 		case(state)
 			2'b00: // Verify state machine
@@ -87,39 +98,38 @@ module cpu(
 				begin
 					instruction_reg = instruction;
 					address_reg = address;
-					data_in_reg = address;
+					data_in_reg = data_in;
 					state = 2'b01;
 					done = 0;
 				end
 			end
 			2'b01:
 			begin				
-				if(~instruction_reg & ~miss) // read hit - 1 cycle and it's done
+				if(~instruction_reg & ~readMiss) // read hit - 1 cycle and it's done
 				begin
 					data_out = (current_data_cb1 & ~{4{address_reg[0]}}) | (current_data_cb2 & {4{address_reg[0]}});
 					done = 1;
-					state = 2'b00;
+					state = 2'b00;	
 				end
-				if(instruction_reg & ~miss) // write hit
+				if(instruction_reg & ~writeMiss) // write hit
 				begin
 					// write on supposed cache
+					write_cb1 = ~address_reg[0];
+					write_cb2 = address_reg[0];
+					state_cb = (~{2{address_reg[0]}} & current_state_sm_cb1) | ({2{address_reg[0]}} & current_state_sm_cb2);
+					address_cb = address_reg;
+					data_cb = data_in_reg;
+					state = 2'b10;
 				end
 			end
+			2'b10:
+			begin
+				// Write hit - 2 cycles and done
+				data_out = (current_data_cb1 & ~{4{address_reg[0]}}) | (current_data_cb2 & {4{address_reg[0]}});
+				done = 1;
+				state = 2'b00;
+			end
 		endcase
-		
-		// Direct Mapping
-		if(address[0])
-		begin
-			current_cb = 0;
-		end
-		else
-		begin
-			current_cb = 1;
-		end
-		
-		if(write)
-		begin
-		end
 	end
 
 endmodule

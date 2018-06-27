@@ -12,5 +12,8 @@ wave modify -driver freeze -pattern constant -value 000 -range 2 0 -starttime 17
 wave modify -driver freeze -pattern constant -value 000 -range 2 0 -starttime 225ps -endtime 275ps Edit:/cpu/address 
 wave modify -driver freeze -pattern constant -value 1 -starttime 225ps -endtime 275ps Edit:/cpu/instruction 
 wave modify -driver freeze -pattern constant -value 000 -range 2 0 -starttime 0ps -endtime 275ps Edit:/cpu/address 
+wave modify -driver freeze -pattern constant -value St1 -starttime 225ps -endtime 275ps Edit:/cpu/execute_instruction 
+wave modify -driver freeze -pattern constant -value St1 -starttime 525ps -endtime 575ps Edit:/cpu/execute_instruction 
+wave modify -driver freeze -pattern constant -value 000 -range 2 0 -starttime 0ps -endtime 775ps Edit:/cpu/address 
 WaveCollapseAll -1
 wave clipboard restore

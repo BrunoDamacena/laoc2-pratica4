@@ -1,137 +1,83 @@
-# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading C:/altera/13.0/modelsim_ase/tcl/vsim/pref.tcl 
 # do PraticaIV_run_msim_rtl_verilog.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+# ** Warning: Copied C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module PraticaIV
 # 
 # Top level modules:
 # 	PraticaIV
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_cpu
 # 
 # Top level modules:
 # 	sm_cpu
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module memory
 # 
 # Top level modules:
 # 	memory
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module cache_block
 # 
 # Top level modules:
 # 	cache_block
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module cpu
 # 
 # Top level modules:
 # 	cpu
-# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/laoc2-pratica4 {C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_bus
 # 
 # Top level modules:
 # 	sm_bus
 # 
-do C:/Users/Gabriel/Documents/laoc2-pratica4/simulation/modelsim/wave.do
-# .main_pane.wave.interior.cs.body.pw.wf
-# ** Error: (vish-4014) No objects found matching 'NewSig:sim:/cpu/clock'.
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 39
-# ** Error: (vish-4014) No objects found matching 'NewSig:sim:/cpu/instruction'.
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 40
-# ** Error: (vish-4014) No objects found matching 'NewSig:sim:/cpu/execute_instruction'.
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 41
-# ** Error: (vish-4014) No objects found matching 'NewSig:sim:/cpu/address'.
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 42
-# 0
-# ** Error: (vish-4014) No objects found matching 'NewSig:sim:/cpu/data_in'.
-# Usage: wave create -pattern <clock|constant|random|repeater|counter|none> <args>
-# See Command Reference manual for pattern specific <args>
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 44
-# 0
-# ** Error: Netname is not editable or not present in the active waveform window
-# Usage: wave modify -driver <freeze|deposit|drive|expectedOutput> -pattern constant -value <value> [-range <msb lsb>] -starttime <Time> -endtime <Time> netName
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 46
-# ** Error: Netname is not editable or not present in the active waveform window
-# Usage: wave modify -driver <freeze|deposit|drive|expectedOutput> -pattern constant -value <value> [-range <msb lsb>] -starttime <Time> -endtime <Time> netName
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 47
-# ** Error: Netname is not editable or not present in the active waveform window
-# Usage: wave modify -driver <freeze|deposit|drive|expectedOutput> -pattern constant -value <value> [-range <msb lsb>] -starttime <Time> -endtime <Time> netName
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 48
-# ** Error: Netname is not editable or not present in the active waveform window
-# Usage: wave modify -driver <freeze|deposit|drive|expectedOutput> -pattern constant -value <value> [-range <msb lsb>] -starttime <Time> -endtime <Time> netName
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 49
-# ** Error: Netname is not editable or not present in the active waveform window
-# Usage: wave modify -driver <freeze|deposit|drive|expectedOutput> -pattern constant -value <value> [-range <msb lsb>] -starttime <Time> -endtime <Time> netName
-# Executing ONERROR command at macro C:\Users\Gabriel\Documents\laoc2-pratica4\simulation\modelsim\wave.do line 50
-# 0
 vsim work.cpu
 # vsim work.cpu 
 # Loading work.cpu
 # Loading work.sm_cpu
 # Loading work.cache_block
 # Loading work.sm_bus
-# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(77): [PCDPC] - Port size (2 or 2) does not match connection size (4) for port 'state'. The port definition is at: C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v(4).
-# 
-#         Region: /cpu/cb1
-# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(77): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'data_in'. The port definition is at: C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v(6).
-# 
-#         Region: /cpu/cb1
-# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(78): [PCDPC] - Port size (2 or 2) does not match connection size (4) for port 'state'. The port definition is at: C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v(4).
-# 
-#         Region: /cpu/cb2
-# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(78): [PCDPC] - Port size (4 or 4) does not match connection size (16) for port 'data_in'. The port definition is at: C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v(6).
-# 
-#         Region: /cpu/cb2
-# ** Warning: (vsim-3017) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Too few port connections. Expected 7, found 0.
+# ** Warning: (vsim-3017) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Too few port connections. Expected 7, found 0.
 # 
 #         Region: /cpu/sm_bus1
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'clock'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'clock'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'writeMiss'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'writeMiss'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'readMiss'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'readMiss'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'invalidate'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'invalidate'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'writeBack'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'writeBack'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'abortMemoryAccess'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'abortMemoryAccess'.
 # 
-# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v(80): [TFMPC] - Missing connection for port 'currentState'.
+# ** Warning: (vsim-3722) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(87): [TFMPC] - Missing connection for port 'currentState'.
 # 
-do C:/Users/Gabriel/Documents/laoc2-pratica4/simulation/modelsim/wave.do
+do C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do
 # .main_pane.wave.interior.cs.body.pw.wf
 # 1
 # 1
 # 1
-add wave -position 0 -format Logic -height 17 -editable 2 Edit:/cpu/clock
-add wave -position 1 -format Logic -height 17 -editable 2 Edit:/cpu/instruction
-add wave -position 2 -format Logic -height 17 -editable 2 Edit:/cpu/execute_instruction
-add wave -position 3 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/cpu/address
-add wave -position 4 -autoscale 1 -format Literal -height 17 -editable 2 Edit:/cpu/data_in
+add wave -position end  sim:/cpu/readMiss
+add wave -position end  sim:/cpu/writeMiss
+add wave -position end  sim:/cpu/data_out
+add wave -position end  sim:/cpu/done
 run
 run
-wave editwrite -file C:/Users/Gabriel/Documents/laoc2-pratica4/simulation/modelsim/wave.do

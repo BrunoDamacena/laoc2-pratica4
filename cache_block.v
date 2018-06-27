@@ -18,7 +18,7 @@ module cache_block(
 	output reg [3:0] current_data;
 	
 	initial begin
-		current_state = 2'b00; // Invalid
+		current_state = 2'b01; // Shared
 		current_address = 3'b000;
 		current_data = 4'b0000;
 	end

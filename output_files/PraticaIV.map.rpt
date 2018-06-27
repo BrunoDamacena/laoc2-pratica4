@@ -1,6 +1,6 @@
 Analysis & Synthesis report for PraticaIV
-Tue Jun 26 22:59:42 2018
-Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
+Wed Jun 27 12:36:08 2018
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
 ---------------------
@@ -13,11 +13,11 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Ver
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Port Connectivity Checks: "cpu:cpu|cache_block:cb2"
- 12. Port Connectivity Checks: "cpu:cpu|cache_block:cb1"
+  8. State Machine - |PraticaIV|cpu:cpu|state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
  13. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb2"
  14. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb1"
  15. Port Connectivity Checks: "memory:memory"
@@ -46,24 +46,24 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                          ;
-+------------------------------------+--------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Jun 26 22:59:42 2018            ;
-; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Full Version ;
-; Revision Name                      ; PraticaIV                                        ;
-; Top-level Entity Name              ; PraticaIV                                        ;
-; Family                             ; Cyclone II                                       ;
-; Total logic elements               ; 10                                               ;
-;     Total combinational functions  ; 8                                                ;
-;     Dedicated logic registers      ; 6                                                ;
-; Total registers                    ; 6                                                ;
-; Total pins                         ; 96                                               ;
-; Total virtual pins                 ; 0                                                ;
-; Total memory bits                  ; 0                                                ;
-; Embedded Multiplier 9-bit elements ; 0                                                ;
-; Total PLLs                         ; 0                                                ;
-+------------------------------------+--------------------------------------------------+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 27 12:36:08 2018      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
+; Revision Name                      ; PraticaIV                                  ;
+; Top-level Entity Name              ; PraticaIV                                  ;
+; Family                             ; Cyclone II                                 ;
+; Total logic elements               ; 10                                         ;
+;     Total combinational functions  ; 8                                          ;
+;     Dedicated logic registers      ; 6                                          ;
+; Total registers                    ; 6                                          ;
+; Total pins                         ; 96                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -151,35 +151,29 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------+--------------------+--------------------+
 
 
-+------------------------------------------+
-; Parallel Compilation                     ;
-+----------------------------+-------------+
-; Processors                 ; Number      ;
-+----------------------------+-------------+
-; Number detected on machine ; 6           ;
-; Maximum allowed            ; 6           ;
-;                            ;             ;
-; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
-;                            ;             ;
-; Usage by Processor         ; % Time Used ;
-;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
-+----------------------------+-------------+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                            ; Library ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
-; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/PraticaIV.v   ;         ;
-; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_cpu.v      ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/memory.v      ;         ;
-; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/cache_block.v ;         ;
-; cpu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/laoc2-pratica4/cpu.v         ;         ;
-; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/laoc2-pratica4/sm_bus.v      ;         ;
-+----------------------------------+-----------------+------------------------------+---------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
+; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v   ;         ;
+; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v      ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v      ;         ;
+; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v ;         ;
+; cpu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v         ;         ;
+; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v      ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------+
@@ -217,22 +211,79 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; |PraticaIV                 ; 8 (3)             ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ; work         ;
-;    |sm_bus:sm_bus|         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_bus:sm_bus ; work         ;
-;    |sm_cpu:sm_cpu|         ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_cpu:sm_cpu ; work         ;
+; |PraticaIV                 ; 8 (3)             ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ;              ;
+;    |sm_bus:sm_bus|         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_bus:sm_bus ;              ;
+;    |sm_cpu:sm_cpu|         ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_cpu:sm_cpu ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+--------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                             ;
-+---------------------------------------+----------------------------------------+
-; Register name                         ; Reason for Removal                     ;
-+---------------------------------------+----------------------------------------+
-; sm_cpu:sm_cpu|invalidate              ; Stuck at GND due to stuck port data_in ;
-; sm_cpu:sm_cpu|writeBack               ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2 ;                                        ;
-+---------------------------------------+----------------------------------------+
+Encoding Type:  One-Hot
++-------------------------------------------+
+; State Machine - |PraticaIV|cpu:cpu|state  ;
++----------+----------+----------+----------+
+; Name     ; state.00 ; state.10 ; state.01 ;
++----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ;
+; state.01 ; 1        ; 0        ; 1        ;
+; state.10 ; 1        ; 1        ; 0        ;
++----------+----------+----------+----------+
+
+
++----------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                     ;
++-----------------------------------------------+----------------------------------------+
+; Register name                                 ; Reason for Removal                     ;
++-----------------------------------------------+----------------------------------------+
+; cpu:cpu|address_cb[0..2]                      ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|state_cb[0,1]                         ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|address_reg[0..2]                     ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|instruction_reg                       ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|write_cb2                             ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|write_cb1                             ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb2|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb2|current_state[0]      ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|cache_block:cb2|current_state[1]      ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb1|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb1|current_state[0]      ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|cache_block:cb1|current_state[1]      ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|readMiss                ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|readMiss                ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; sm_cpu:sm_cpu|invalidate                      ; Stuck at GND due to stuck port data_in ;
+; sm_cpu:sm_cpu|writeBack                       ; Stuck at GND due to stuck port data_in ;
+; cpu:cpu|sm_cpu:sm_cb2|newState[1]             ; Lost fanout                            ;
+; cpu:cpu|sm_cpu:sm_cb1|newState[1]             ; Lost fanout                            ;
+; cpu:cpu|state.00                              ; Lost fanout                            ;
+; cpu:cpu|state.01                              ; Lost fanout                            ;
+; cpu:cpu|state.10                              ; Lost fanout                            ;
+; Total Number of Removed Registers = 34        ;                                        ;
++-----------------------------------------------+----------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                            ;
++------------------------+-------------------------+-------------------------------------------------------------------------------------+
+; Register name          ; Reason for Removal      ; Registers Removed due to This Register                                              ;
++------------------------+-------------------------+-------------------------------------------------------------------------------------+
+; cpu:cpu|address_reg[0] ; Stuck at GND            ; cpu:cpu|write_cb2, cpu:cpu|write_cb1, cpu:cpu|sm_cpu:sm_cb2|newState[0],            ;
+;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|readMiss, cpu:cpu|sm_cpu:sm_cb2|writeMiss,                    ;
+;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|newState[0], cpu:cpu|sm_cpu:sm_cb1|readMiss,                  ;
+;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|writeMiss                                                     ;
+; cpu:cpu|state_cb[1]    ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[1], cpu:cpu|cache_block:cb1|current_state[1], ;
+;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|newState[1], cpu:cpu|sm_cpu:sm_cb1|newState[1]                ;
+; cpu:cpu|address_cb[1]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[1],                                         ;
+;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[1]                                          ;
+; cpu:cpu|address_cb[0]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[0],                                         ;
+;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[0]                                          ;
+; cpu:cpu|address_cb[2]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[2],                                         ;
+;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[2]                                          ;
+; cpu:cpu|state_cb[0]    ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[0], cpu:cpu|cache_block:cb1|current_state[0]  ;
+;                        ; due to stuck port clock ;                                                                                     ;
++------------------------+-------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -260,29 +311,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu:cpu|cache_block:cb2"                                                                                                                                                             ;
-+---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port    ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; state   ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (2 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
-; data_in ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (4 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-+---------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "cpu:cpu|cache_block:cb1"                                                                                                                                                                   ;
-+---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Port          ; Type  ; Severity ; Details                                                                                                                                                                            ;
-+---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; state         ; Input ; Warning  ; Input port expression (4 bits) is wider than the input port (2 bits) it drives.  The 2 most-significant bit(s) in the expression will be dangling if they have no other fanouts.   ;
-; state[1..0]   ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; address[0]    ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-; data_in       ; Input ; Warning  ; Input port expression (16 bits) is wider than the input port (4 bits) it drives.  The 12 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
-; data_in[3..0] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
-+---------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-
-
 +----------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb2"                                                                    ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
@@ -290,7 +318,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 ; writeBack  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; invalidate ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; newState   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -301,7 +328,6 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 ; writeBack  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 ; invalidate ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-; newState   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
 +------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
@@ -344,10 +370,10 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Full Version
-    Info: Processing started: Tue Jun 26 22:59:40 2018
+    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+    Info: Processing started: Wed Jun 27 12:36:06 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
-Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
+Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
     Info (12023): Found entity 1: PraticaIV
 Info (12021): Found 1 design units, including 1 entities, in source file sm_cpu.v
@@ -367,9 +393,9 @@ Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created im
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_in"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_out"
 Warning (10236): Verilog HDL Implicit Net warning at cache.v(38): created implicit net for "adrress"
-Warning (10236): Verilog HDL Implicit Net warning at cpu.v(52): created implicit net for "invalidate"
-Warning (10236): Verilog HDL Implicit Net warning at cpu.v(71): created implicit net for "writeBack_sm_cb1"
-Warning (10236): Verilog HDL Implicit Net warning at cpu.v(75): created implicit net for "writeBack_sm_cb2"
+Warning (10236): Verilog HDL Implicit Net warning at cpu.v(57): created implicit net for "invalidate"
+Warning (10236): Verilog HDL Implicit Net warning at cpu.v(79): created implicit net for "writeBack_sm_cb1"
+Warning (10236): Verilog HDL Implicit Net warning at cpu.v(80): created implicit net for "writeBack_sm_cb2"
 Info (12127): Elaborating entity "PraticaIV" for the top level hierarchy
 Warning (10034): Output port "LEDR[12..5]" at PraticaIV.v(11) has no driver
 Info (12128): Elaborating entity "sm_cpu" for hierarchy "sm_cpu:sm_cpu"
@@ -379,11 +405,11 @@ Info (12128): Elaborating entity "sm_bus" for hierarchy "sm_bus:sm_bus"
 Info (12128): Elaborating entity "memory" for hierarchy "memory:memory"
 Info (12128): Elaborating entity "cache_block" for hierarchy "cache_block:cache_block"
 Info (12128): Elaborating entity "cpu" for hierarchy "cpu:cpu"
-Warning (10036): Verilog HDL or VHDL warning at cpu.v(52): object "invalidate" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cpu.v(27): object "instruction_reg" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cpu.v(29): object "data_in_reg" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(57): object "invalidate" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(50): object "write" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(77): object "miss" assigned a value but never read
 Warning (10034): Output port "bus_out" at cpu.v(24) has no driver
-Warning (12241): 4 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[5]" is stuck at VCC
@@ -446,6 +472,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[16]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
+Info (17049): 5 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
@@ -465,10 +492,10 @@ Info (21057): Implemented 107 device resources after synthesis - the final resou
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
     Info (21061): Implemented 11 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 90 warnings
-    Info: Peak virtual memory: 530 megabytes
-    Info: Processing ended: Tue Jun 26 22:59:42 2018
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 91 warnings
+    Info: Peak virtual memory: 524 megabytes
+    Info: Processing ended: Wed Jun 27 12:36:08 2018
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
