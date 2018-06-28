@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PraticaIV
-Wed Jun 27 13:53:58 2018
+Thu Jun 28 08:23:02 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -49,7 +49,7 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Jun 27 13:53:58 2018      ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 28 08:23:02 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; PraticaIV                                  ;
 ; Top-level Entity Name              ; PraticaIV                                  ;
@@ -219,15 +219,16 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 
 
 Encoding Type:  One-Hot
-+-------------------------------------------+
-; State Machine - |PraticaIV|cpu:cpu|state  ;
-+----------+----------+----------+----------+
-; Name     ; state.00 ; state.10 ; state.01 ;
-+----------+----------+----------+----------+
-; state.00 ; 0        ; 0        ; 0        ;
-; state.01 ; 1        ; 0        ; 1        ;
-; state.10 ; 1        ; 1        ; 0        ;
-+----------+----------+----------+----------+
++------------------------------------------------------+
+; State Machine - |PraticaIV|cpu:cpu|state             ;
++----------+----------+----------+----------+----------+
+; Name     ; state.11 ; state.10 ; state.01 ; state.00 ;
++----------+----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ; 0        ;
+; state.01 ; 0        ; 0        ; 1        ; 1        ;
+; state.10 ; 0        ; 1        ; 0        ; 1        ;
+; state.11 ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
 
 
 +----------------------------------------------------------------------------------------+
@@ -262,7 +263,10 @@ Encoding Type:  One-Hot
 ; cpu:cpu|state.00                              ; Lost fanout                            ;
 ; cpu:cpu|state.01                              ; Lost fanout                            ;
 ; cpu:cpu|state.10                              ; Lost fanout                            ;
-; Total Number of Removed Registers = 36        ;                                        ;
+; cpu:cpu|state~4                               ; Lost fanout                            ;
+; cpu:cpu|state~5                               ; Lost fanout                            ;
+; cpu:cpu|state.11                              ; Stuck at GND due to stuck port clock   ;
+; Total Number of Removed Registers = 39        ;                                        ;
 +-----------------------------------------------+----------------------------------------+
 
 
@@ -277,7 +281,7 @@ Encoding Type:  One-Hot
 ;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|invalidate, cpu:cpu|sm_cpu:sm_cb1|readMiss,                   ;
 ;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|writeMiss                                                     ;
 ; cpu:cpu|state_cb[1]    ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[1], cpu:cpu|cache_block:cb1|current_state[1], ;
-;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb1|newState[1]                                                   ;
+;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|newState[1], cpu:cpu|sm_cpu:sm_cb1|newState[1]                ;
 ; cpu:cpu|address_cb[0]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[0],                                         ;
 ;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[0]                                          ;
 ; cpu:cpu|address_cb[1]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[1],                                         ;
@@ -372,7 +376,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Wed Jun 27 13:53:56 2018
+    Info: Processing started: Thu Jun 28 08:23:00 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -389,13 +393,15 @@ Info (12021): Found 1 design units, including 1 entities, in source file cache_b
     Info (12023): Found entity 1: cache_block
 Info (12021): Found 1 design units, including 1 entities, in source file cpu.v
     Info (12023): Found entity 1: cpu
+Info (12021): Found 1 design units, including 1 entities, in source file bus.v
+    Info (12023): Found entity 1: bus
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "clock_memory"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "memory_address"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_in"
 Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(91): created implicit net for "data_out"
 Warning (10236): Verilog HDL Implicit Net warning at cache.v(38): created implicit net for "adrress"
-Warning (10236): Verilog HDL Implicit Net warning at cpu.v(80): created implicit net for "writeBack_sm_cb1"
-Warning (10236): Verilog HDL Implicit Net warning at cpu.v(81): created implicit net for "writeBack_sm_cb2"
+Warning (10236): Verilog HDL Implicit Net warning at cpu.v(84): created implicit net for "writeBack_sm_cb1"
+Warning (10236): Verilog HDL Implicit Net warning at cpu.v(85): created implicit net for "writeBack_sm_cb2"
 Info (12127): Elaborating entity "PraticaIV" for the top level hierarchy
 Warning (10034): Output port "LEDR[12..5]" at PraticaIV.v(11) has no driver
 Info (12128): Elaborating entity "sm_cpu" for hierarchy "sm_cpu:sm_cpu"
@@ -405,8 +411,9 @@ Info (12128): Elaborating entity "sm_bus" for hierarchy "sm_bus:sm_bus"
 Info (12128): Elaborating entity "memory" for hierarchy "memory:memory"
 Info (12128): Elaborating entity "cache_block" for hierarchy "cache_block:cache_block"
 Info (12128): Elaborating entity "cpu" for hierarchy "cpu:cpu"
-Warning (10036): Verilog HDL or VHDL warning at cpu.v(50): object "write" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at cpu.v(78): object "miss" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(27): object "message_sent" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(52): object "write" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at cpu.v(82): object "miss" assigned a value but never read
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
@@ -470,7 +477,7 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[16]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
-Info (17049): 5 registers lost all their fanouts during netlist optimizations.
+Info (17049): 7 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
 Warning (21074): Design contains 12 input pin(s) that do not drive logic
@@ -490,9 +497,9 @@ Info (21057): Implemented 107 device resources after synthesis - the final resou
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
     Info (21061): Implemented 11 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 88 warnings
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 89 warnings
     Info: Peak virtual memory: 524 megabytes
-    Info: Processing ended: Wed Jun 27 13:53:58 2018
+    Info: Processing ended: Thu Jun 28 08:23:02 2018
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

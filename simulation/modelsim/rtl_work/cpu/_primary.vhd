@@ -2,7 +2,7 @@ library verilog;
 use verilog.vl_types.all;
 entity cpu is
     port(
-        bus_in          : in     vl_logic_vector(9 downto 0);
+        bus_in          : in     vl_logic_vector(10 downto 0);
         clock           : in     vl_logic;
         execute_instruction: in     vl_logic;
         instruction     : in     vl_logic;

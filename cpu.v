@@ -64,7 +64,7 @@ module cpu(
 		state = 2'b00;
 		write_cb1 = 0;
 		write_cb2 = 0;
-		done = 0;
+		done = 1;
 		message_sent = 0;
 	end
 	
@@ -157,7 +157,7 @@ module cpu(
 			2'b11:
 			begin
 				bus_out = 10'b0000000000;
-				if(bus_in[9])
+				if(bus_in[10])
 				begin
 					write_cb1 = ~address_reg[0];
 					write_cb2 = address_reg[0];			

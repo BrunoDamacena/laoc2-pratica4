@@ -6,6 +6,7 @@ source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v
 source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache.v
 source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v
 source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v
+source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v
 source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/db/PraticaIV.cbx.xml
 source_file = 1, C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v
 design_name = PraticaIV
