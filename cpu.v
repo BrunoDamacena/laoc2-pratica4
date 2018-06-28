@@ -9,7 +9,7 @@ module cpu(
 			done,
 			bus_out
 );
-	input [9:0] bus_in; //  
+	input [10:0] bus_in; //  
 	input clock;
 	input instruction;
 	input execute_instruction;
@@ -24,6 +24,8 @@ module cpu(
 	reg [2:0] address_reg;
 	reg [3:0] data_in_reg;
 	
+	reg message_sent;
+	
 	wire readMiss;
 	wire writeMiss;
 	wire invalidate;
@@ -34,7 +36,7 @@ module cpu(
 	reg [2:0] address_cb;
 	reg [3:0] data_cb;
 	
-	reg [1:0] state;
+	reg [1:0] state; // 00 is Idle (waiting for instruction); 01 is execute CB State Machine changes
 	
 	wire [1:0] current_state_cb1;
 	wire [2:0] current_address_cb1;
@@ -63,13 +65,14 @@ module cpu(
 		write_cb1 = 0;
 		write_cb2 = 0;
 		done = 0;
+		message_sent = 0;
 	end
 	
 	// The Cache Block state machine is activated with the following conditions:
 	// - Clock is high (clock)
 	// - The address is mapped to this cache block (~address[0] or adddress[0])
 	// - Execute instruction is enabled (which means this is the current CPU)
-	// - It's the FIRST state of the CPU (state == 2'b00)
+	// - It's the FIRST state of the CPU (state == 2'b01)
 	
 	wire activate_sm_cb1 = clock & ~address_reg[0] & state == 2'b01;
 	wire activate_sm_cb2 = clock & address_reg[0] & state == 2'b01;
@@ -104,6 +107,7 @@ module cpu(
 					bus_out = 10'b0000000000;
 					state = 2'b01;
 					done = 0;
+					message_sent = 0;
 				end
 			end
 			2'b01:
@@ -149,6 +153,26 @@ module cpu(
 				data_out = (current_data_cb1 & ~{4{address_reg[0]}}) | (current_data_cb2 & {4{address_reg[0]}});
 				done = 1;
 				state = 2'b00;
+			end
+			2'b11:
+			begin
+				bus_out = 10'b0000000000;
+				if(bus_in[9])
+				begin
+					write_cb1 = ~address_reg[0];
+					write_cb2 = address_reg[0];			
+					state_cb = (~{2{address_reg[0]}} & current_state_sm_cb1) | ({2{address_reg[0]}} & current_state_sm_cb2);
+					if(instruction_reg)
+					begin
+						data_cb = data_in_reg; // Write instruction - data was in the instruction
+					end
+					else
+					begin
+						data_cb = bus_in[3:0]; // Read instruction - data comes from the bus
+					end
+					address_cb = address_reg;
+					state = 2'b10;
+				end
 			end
 		endcase
 	end
