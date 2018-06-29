@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PraticaIV
-Thu Jun 28 08:23:02 2018
+Thu Jun 28 21:28:03 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -13,17 +13,22 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |PraticaIV|cpu:cpu|state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Inverted Register Statistics
- 13. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb2"
- 14. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb1"
- 15. Port Connectivity Checks: "memory:memory"
- 16. Port Connectivity Checks: "sm_cpu:sm_cpu"
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+  8. State Machine - |PraticaIV|bus:bus|state
+  9. State Machine - |PraticaIV|bus:bus|cpu:cpu2|state
+ 10. State Machine - |PraticaIV|bus:bus|cpu:cpu1|state
+ 11. State Machine - |PraticaIV|cpu:cpu|state
+ 12. Registers Removed During Synthesis
+ 13. Removed Registers Triggering Further Register Optimizations
+ 14. General Register Statistics
+ 15. Port Connectivity Checks: "cpu:cpu|sm_bus:sm_bus2"
+ 16. Port Connectivity Checks: "cpu:cpu|sm_bus:sm_bus1"
+ 17. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb2"
+ 18. Port Connectivity Checks: "cpu:cpu|sm_cpu:sm_cb1"
+ 19. Port Connectivity Checks: "memory:memory"
+ 20. Port Connectivity Checks: "sm_bus:sm_bus"
+ 21. Port Connectivity Checks: "sm_cpu:sm_cpu"
+ 22. Elapsed Time Per Partition
+ 23. Analysis & Synthesis Messages
 
 
 
@@ -49,15 +54,15 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Jun 28 08:23:02 2018      ;
+; Analysis & Synthesis Status        ; Successful - Thu Jun 28 21:28:03 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; PraticaIV                                  ;
 ; Top-level Entity Name              ; PraticaIV                                  ;
 ; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 10                                         ;
-;     Total combinational functions  ; 8                                          ;
-;     Dedicated logic registers      ; 6                                          ;
-; Total registers                    ; 6                                          ;
+; Total logic elements               ; 2                                          ;
+;     Total combinational functions  ; 1                                          ;
+;     Dedicated logic registers      ; 2                                          ;
+; Total registers                    ; 2                                          ;
 ; Total pins                         ; 96                                         ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0                                          ;
@@ -172,38 +177,39 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v      ;         ;
 ; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v ;         ;
 ; cpu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v         ;         ;
+; bus.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v         ;         ;
 ; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v      ;         ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
 
 
-+-----------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                                 ;
-+---------------------------------------------+-------------------------------+
-; Resource                                    ; Usage                         ;
-+---------------------------------------------+-------------------------------+
-; Estimated Total logic elements              ; 10                            ;
-;                                             ;                               ;
-; Total combinational functions               ; 8                             ;
-; Logic element usage by number of LUT inputs ;                               ;
-;     -- 4 input functions                    ; 4                             ;
-;     -- 3 input functions                    ; 0                             ;
-;     -- <=2 input functions                  ; 4                             ;
-;                                             ;                               ;
-; Logic elements by mode                      ;                               ;
-;     -- normal mode                          ; 8                             ;
-;     -- arithmetic mode                      ; 0                             ;
-;                                             ;                               ;
-; Total registers                             ; 6                             ;
-;     -- Dedicated logic registers            ; 6                             ;
-;     -- I/O registers                        ; 0                             ;
-;                                             ;                               ;
-; I/O pins                                    ; 96                            ;
-; Embedded Multiplier 9-bit elements          ; 0                             ;
-; Maximum fan-out node                        ; sm_bus:sm_bus|currentState[1] ;
-; Maximum fan-out                             ; 9                             ;
-; Total fan-out                               ; 52                            ;
-; Average fan-out                             ; 0.47                          ;
-+---------------------------------------------+-------------------------------+
++------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary          ;
++---------------------------------------------+--------+
+; Resource                                    ; Usage  ;
++---------------------------------------------+--------+
+; Estimated Total logic elements              ; 2      ;
+;                                             ;        ;
+; Total combinational functions               ; 1      ;
+; Logic element usage by number of LUT inputs ;        ;
+;     -- 4 input functions                    ; 0      ;
+;     -- 3 input functions                    ; 0      ;
+;     -- <=2 input functions                  ; 1      ;
+;                                             ;        ;
+; Logic elements by mode                      ;        ;
+;     -- normal mode                          ; 1      ;
+;     -- arithmetic mode                      ; 0      ;
+;                                             ;        ;
+; Total registers                             ; 2      ;
+;     -- Dedicated logic registers            ; 2      ;
+;     -- I/O registers                        ; 0      ;
+;                                             ;        ;
+; I/O pins                                    ; 96     ;
+; Embedded Multiplier 9-bit elements          ; 0      ;
+; Maximum fan-out node                        ; SW[16] ;
+; Maximum fan-out                             ; 3      ;
+; Total fan-out                               ; 11     ;
+; Average fan-out                             ; 0.11   ;
++---------------------------------------------+--------+
 
 
 +----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -211,11 +217,49 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name      ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
-; |PraticaIV                 ; 8 (3)             ; 6 (0)        ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ;              ;
-;    |sm_bus:sm_bus|         ; 4 (4)             ; 4 (4)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_bus:sm_bus ;              ;
+; |PraticaIV                 ; 1 (0)             ; 2 (0)        ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV               ;              ;
 ;    |sm_cpu:sm_cpu|         ; 1 (1)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|sm_cpu:sm_cpu ;              ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+--------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |PraticaIV|bus:bus|state             ;
++----------+----------+----------+----------+----------+
+; Name     ; state.11 ; state.10 ; state.01 ; state.00 ;
++----------+----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ; 0        ;
+; state.01 ; 0        ; 0        ; 1        ; 1        ;
+; state.10 ; 0        ; 1        ; 0        ; 1        ;
+; state.11 ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |PraticaIV|bus:bus|cpu:cpu2|state    ;
++----------+----------+----------+----------+----------+
+; Name     ; state.11 ; state.10 ; state.01 ; state.00 ;
++----------+----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ; 0        ;
+; state.01 ; 0        ; 0        ; 1        ; 1        ;
+; state.10 ; 0        ; 1        ; 0        ; 1        ;
+; state.11 ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------+
+; State Machine - |PraticaIV|bus:bus|cpu:cpu1|state    ;
++----------+----------+----------+----------+----------+
+; Name     ; state.11 ; state.10 ; state.01 ; state.00 ;
++----------+----------+----------+----------+----------+
+; state.00 ; 0        ; 0        ; 0        ; 0        ;
+; state.01 ; 0        ; 0        ; 1        ; 1        ;
+; state.10 ; 0        ; 1        ; 0        ; 1        ;
+; state.11 ; 1        ; 0        ; 0        ; 1        ;
++----------+----------+----------+----------+----------+
 
 
 Encoding Type:  One-Hot
@@ -231,66 +275,210 @@ Encoding Type:  One-Hot
 +----------+----------+----------+----------+----------+
 
 
-+----------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                     ;
-+-----------------------------------------------+----------------------------------------+
-; Register name                                 ; Reason for Removal                     ;
-+-----------------------------------------------+----------------------------------------+
-; cpu:cpu|address_cb[0..2]                      ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|state_cb[0,1]                         ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|address_reg[0..2]                     ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|instruction_reg                       ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|write_cb2                             ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|write_cb1                             ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|cache_block:cb2|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|cache_block:cb2|current_state[0]      ; Stuck at VCC due to stuck port clock   ;
-; cpu:cpu|cache_block:cb2|current_state[1]      ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|cache_block:cb1|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|cache_block:cb1|current_state[0]      ; Stuck at VCC due to stuck port clock   ;
-; cpu:cpu|cache_block:cb1|current_state[1]      ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb2|newState[0]             ; Stuck at VCC due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb2|invalidate              ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb2|readMiss                ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb2|writeMiss               ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb1|newState[0]             ; Stuck at VCC due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb1|invalidate              ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb1|readMiss                ; Stuck at GND due to stuck port clock   ;
-; cpu:cpu|sm_cpu:sm_cb1|writeMiss               ; Stuck at GND due to stuck port clock   ;
-; sm_cpu:sm_cpu|invalidate                      ; Stuck at GND due to stuck port data_in ;
-; sm_cpu:sm_cpu|writeBack                       ; Stuck at GND due to stuck port data_in ;
-; cpu:cpu|sm_cpu:sm_cb2|newState[1]             ; Lost fanout                            ;
-; cpu:cpu|sm_cpu:sm_cb1|newState[1]             ; Lost fanout                            ;
-; cpu:cpu|state.00                              ; Lost fanout                            ;
-; cpu:cpu|state.01                              ; Lost fanout                            ;
-; cpu:cpu|state.10                              ; Lost fanout                            ;
-; cpu:cpu|state~4                               ; Lost fanout                            ;
-; cpu:cpu|state~5                               ; Lost fanout                            ;
-; cpu:cpu|state.11                              ; Stuck at GND due to stuck port clock   ;
-; Total Number of Removed Registers = 39        ;                                        ;
-+-----------------------------------------------+----------------------------------------+
++-------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                              ;
++--------------------------------------------------------+----------------------------------------+
+; Register name                                          ; Reason for Removal                     ;
++--------------------------------------------------------+----------------------------------------+
+; bus:bus|memory_address[0..2]                           ; Stuck at GND due to stuck port clock   ;
+; bus:bus|bus_in_cpu1[4..10]                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|bus_in_cpu2[4..10]                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus1|abortMemoryAccess      ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus1|writeBack              ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus2|abortMemoryAccess      ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus2|writeBack              ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|address_cb[0..2]                      ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|state_cb[0,1]                         ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|bus_out[4..12]                        ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|address_reg[0..2]                     ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|instruction_reg                       ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|write_cb2                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|write_cb1                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus2|currentState[0]        ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_bus:sm_bus1|currentState[0]        ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0,1]    ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0,1]    ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|invalidate              ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|readMiss                ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate              ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss                ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess      ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus1|writeBack              ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess      ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus2|writeBack              ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|address_cb[0..2]                      ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|state_cb[0,1]                         ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|bus_out[4..10,12]                     ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|address_reg[0..2]                     ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|instruction_reg                       ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|write_cb2                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|write_cb1                             ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]        ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]        ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0,1]    ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0..2] ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0,1]    ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate              ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss                ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]             ; Stuck at VCC due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate              ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss                ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss               ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|address_cb[0..2]                               ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|state_cb[0,1]                                  ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|address_reg[0..2]                              ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|instruction_reg                                ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|write_cb2                                      ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|write_cb1                                      ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_bus:sm_bus2|currentState[0]                 ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_bus:sm_bus1|currentState[0]                 ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb2|current_address[0..2]          ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb2|current_state[0,1]             ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb1|current_address[0..2]          ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|cache_block:cb1|current_state[0,1]             ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|newState[0]                      ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|invalidate                       ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|readMiss                         ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb2|writeMiss                        ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|newState[0]                      ; Stuck at VCC due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|invalidate                       ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|readMiss                         ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|sm_cpu:sm_cb1|writeMiss                        ; Stuck at GND due to stuck port clock   ;
+; sm_bus:sm_bus|abortMemoryAccess                        ; Stuck at GND due to stuck port data_in ;
+; sm_bus:sm_bus|writeBack                                ; Stuck at GND due to stuck port data_in ;
+; sm_cpu:sm_cpu|invalidate                               ; Stuck at GND due to stuck port data_in ;
+; sm_cpu:sm_cpu|writeBack                                ; Stuck at GND due to stuck port data_in ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|newState[1]             ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[1]             ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[1]             ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]             ; Lost fanout                            ;
+; cpu:cpu|sm_cpu:sm_cb2|newState[1]                      ; Lost fanout                            ;
+; cpu:cpu|sm_cpu:sm_cb1|newState[1]                      ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state.00                              ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state.01                              ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state.10                              ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|state.00                              ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|state.01                              ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|state.10                              ; Lost fanout                            ;
+; cpu:cpu|state.00                                       ; Lost fanout                            ;
+; cpu:cpu|state.01                                       ; Lost fanout                            ;
+; cpu:cpu|state.10                                       ; Lost fanout                            ;
+; bus:bus|state~6                                        ; Lost fanout                            ;
+; bus:bus|state~7                                        ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state~4                               ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state~5                               ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|state~4                               ; Lost fanout                            ;
+; bus:bus|cpu:cpu1|state~5                               ; Lost fanout                            ;
+; cpu:cpu|state~4                                        ; Lost fanout                            ;
+; cpu:cpu|state~5                                        ; Lost fanout                            ;
+; bus:bus|state.00                                       ; Stuck at GND due to stuck port clock   ;
+; bus:bus|state.11                                       ; Lost fanout                            ;
+; bus:bus|state.01                                       ; Lost fanout                            ;
+; bus:bus|state.10                                       ; Lost fanout                            ;
+; bus:bus|cpu:cpu2|state.11                              ; Stuck at GND due to stuck port clock   ;
+; bus:bus|cpu:cpu1|state.11                              ; Stuck at GND due to stuck port clock   ;
+; cpu:cpu|state.11                                       ; Stuck at GND due to stuck port clock   ;
+; Total Number of Removed Registers = 169                ;                                        ;
++--------------------------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                            ;
-+------------------------+-------------------------+-------------------------------------------------------------------------------------+
-; Register name          ; Reason for Removal      ; Registers Removed due to This Register                                              ;
-+------------------------+-------------------------+-------------------------------------------------------------------------------------+
-; cpu:cpu|address_reg[0] ; Stuck at GND            ; cpu:cpu|write_cb2, cpu:cpu|write_cb1, cpu:cpu|sm_cpu:sm_cb2|newState[0],            ;
-;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|invalidate, cpu:cpu|sm_cpu:sm_cb2|readMiss,                   ;
-;                        ;                         ; cpu:cpu|sm_cpu:sm_cb2|writeMiss, cpu:cpu|sm_cpu:sm_cb1|newState[0],                 ;
-;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|invalidate, cpu:cpu|sm_cpu:sm_cb1|readMiss,                   ;
-;                        ;                         ; cpu:cpu|sm_cpu:sm_cb1|writeMiss                                                     ;
-; cpu:cpu|state_cb[1]    ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[1], cpu:cpu|cache_block:cb1|current_state[1], ;
-;                        ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|newState[1], cpu:cpu|sm_cpu:sm_cb1|newState[1]                ;
-; cpu:cpu|address_cb[0]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[0],                                         ;
-;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[0]                                          ;
-; cpu:cpu|address_cb[1]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[1],                                         ;
-;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[1]                                          ;
-; cpu:cpu|address_cb[2]  ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[2],                                         ;
-;                        ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[2]                                          ;
-; cpu:cpu|state_cb[0]    ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[0], cpu:cpu|cache_block:cb1|current_state[0]  ;
-;                        ; due to stuck port clock ;                                                                                     ;
-+------------------------+-------------------------+-------------------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                     ;
++---------------------------------+-------------------------+-------------------------------------------------------------------------------------+
+; Register name                   ; Reason for Removal      ; Registers Removed due to This Register                                              ;
++---------------------------------+-------------------------+-------------------------------------------------------------------------------------+
+; bus:bus|memory_address[0]       ; Stuck at GND            ; bus:bus|bus_in_cpu1[4], bus:bus|bus_in_cpu2[4],                                     ;
+;                                 ; due to stuck port clock ; bus:bus|cpu:cpu2|sm_bus:sm_bus1|abortMemoryAccess,                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_bus:sm_bus1|writeBack,                                          ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_bus:sm_bus2|abortMemoryAccess,                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_bus:sm_bus2|writeBack, bus:bus|cpu:cpu2|address_cb[0],          ;
+;                                 ;                         ; bus:bus|cpu:cpu2|address_cb[1], bus:bus|cpu:cpu2|address_cb[2],                     ;
+;                                 ;                         ; bus:bus|cpu:cpu2|state_cb[0], bus:bus|cpu:cpu2|state_cb[1],                         ;
+;                                 ;                         ; bus:bus|cpu:cpu2|bus_out[4], bus:bus|cpu:cpu2|bus_out[5],                           ;
+;                                 ;                         ; bus:bus|cpu:cpu2|bus_out[6], bus:bus|cpu:cpu2|bus_out[11],                          ;
+;                                 ;                         ; bus:bus|cpu:cpu2|bus_out[12], bus:bus|cpu:cpu2|write_cb1,                           ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[1],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[2],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[1],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[1],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[2],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess,                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|writeBack,                                          ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess,                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|writeBack, bus:bus|cpu:cpu1|address_cb[0],          ;
+;                                 ;                         ; bus:bus|cpu:cpu1|address_cb[1], bus:bus|cpu:cpu1|address_cb[2],                     ;
+;                                 ;                         ; bus:bus|cpu:cpu1|state_cb[0], bus:bus|cpu:cpu1|state_cb[1],                         ;
+;                                 ;                         ; bus:bus|cpu:cpu1|bus_out[4], bus:bus|cpu:cpu1|bus_out[5],                           ;
+;                                 ;                         ; bus:bus|cpu:cpu1|bus_out[6], bus:bus|cpu:cpu1|bus_out[12],                          ;
+;                                 ;                         ; bus:bus|cpu:cpu1|write_cb1, bus:bus|cpu:cpu1|cache_block:cb2|current_address[0],    ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2],                                ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0],                                  ;
+;                                 ;                         ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]                                   ;
+; cpu:cpu|address_reg[0]          ; Stuck at GND            ; cpu:cpu|write_cb2, cpu:cpu|write_cb1, cpu:cpu|sm_cpu:sm_cb2|newState[0],            ;
+;                                 ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb2|invalidate, cpu:cpu|sm_cpu:sm_cb2|readMiss,                   ;
+;                                 ;                         ; cpu:cpu|sm_cpu:sm_cb2|writeMiss, cpu:cpu|sm_cpu:sm_cb1|newState[0],                 ;
+;                                 ;                         ; cpu:cpu|sm_cpu:sm_cb1|invalidate, cpu:cpu|sm_cpu:sm_cb1|readMiss,                   ;
+;                                 ;                         ; cpu:cpu|sm_cpu:sm_cb1|writeMiss                                                     ;
+; bus:bus|cpu:cpu2|address_reg[0] ; Stuck at GND            ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|newState[0],                                         ;
+;                                 ; due to stuck port clock ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|invalidate, bus:bus|cpu:cpu2|sm_cpu:sm_cb2|readMiss, ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss,                                           ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[0],                                         ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate, bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss, ;
+;                                 ;                         ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss                                            ;
+; bus:bus|cpu:cpu1|address_reg[0] ; Stuck at GND            ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[0],                                         ;
+;                                 ; due to stuck port clock ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate, bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss, ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss,                                           ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0],                                         ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate, bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss, ;
+;                                 ;                         ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss                                            ;
+; bus:bus|bus_in_cpu1[7]          ; Stuck at GND            ; bus:bus|cpu:cpu1|bus_out[7], bus:bus|cpu:cpu1|bus_out[8],                           ;
+;                                 ; due to stuck port clock ; bus:bus|cpu:cpu1|bus_out[9], bus:bus|cpu:cpu1|bus_out[10],                          ;
+;                                 ;                         ; bus:bus|cpu:cpu1|write_cb2                                                          ;
+; bus:bus|bus_in_cpu2[7]          ; Stuck at GND            ; bus:bus|cpu:cpu2|bus_out[7], bus:bus|cpu:cpu2|bus_out[8],                           ;
+;                                 ; due to stuck port clock ; bus:bus|cpu:cpu2|bus_out[9], bus:bus|cpu:cpu2|bus_out[10],                          ;
+;                                 ;                         ; bus:bus|cpu:cpu2|write_cb2                                                          ;
+; cpu:cpu|state_cb[1]             ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[1], cpu:cpu|cache_block:cb1|current_state[1], ;
+;                                 ; due to stuck port clock ; cpu:cpu|sm_cpu:sm_cb1|newState[1]                                                   ;
+; bus:bus|memory_address[1]       ; Stuck at GND            ; bus:bus|bus_in_cpu1[5], bus:bus|bus_in_cpu2[5]                                      ;
+;                                 ; due to stuck port clock ;                                                                                     ;
+; bus:bus|memory_address[2]       ; Stuck at GND            ; bus:bus|bus_in_cpu1[6], bus:bus|bus_in_cpu2[6]                                      ;
+;                                 ; due to stuck port clock ;                                                                                     ;
+; cpu:cpu|address_cb[0]           ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[0],                                         ;
+;                                 ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[0]                                          ;
+; cpu:cpu|address_cb[1]           ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[1],                                         ;
+;                                 ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[1]                                          ;
+; cpu:cpu|address_cb[2]           ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_address[2],                                         ;
+;                                 ; due to stuck port clock ; cpu:cpu|cache_block:cb1|current_address[2]                                          ;
+; cpu:cpu|state_cb[0]             ; Stuck at GND            ; cpu:cpu|cache_block:cb2|current_state[0], cpu:cpu|cache_block:cb1|current_state[0]  ;
+;                                 ; due to stuck port clock ;                                                                                     ;
+; bus:bus|state~6                 ; Lost Fanouts            ; bus:bus|state.01, bus:bus|state.10                                                  ;
+; bus:bus|bus_in_cpu1[10]         ; Stuck at GND            ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]                                          ;
+;                                 ; due to stuck port clock ;                                                                                     ;
+; bus:bus|bus_in_cpu2[10]         ; Stuck at GND            ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[1]                                          ;
+;                                 ; due to stuck port clock ;                                                                                     ;
+; bus:bus|state.00                ; Stuck at GND            ; bus:bus|state.11                                                                    ;
+;                                 ; due to stuck port clock ;                                                                                     ;
++---------------------------------+-------------------------+-------------------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -298,7 +486,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 6     ;
+; Total registers                              ; 2     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -308,14 +496,22 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; sm_bus:sm_bus|currentState[1]          ; 9       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:cpu|sm_bus:sm_bus2"                                                                                                                 ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                         ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; currentState ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "currentState[1..1]" have no fanouts ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:cpu|sm_bus:sm_bus1"                                                                                                                 ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                                                                         ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
+; currentState ; Output ; Warning  ; Output or bidir port (2 bits) is wider than the port expression (1 bits) it drives; bit(s) "currentState[1..1]" have no fanouts ;
++--------------+--------+----------+---------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------+
@@ -350,6 +546,17 @@ Encoding Type:  One-Hot
 +-----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "sm_bus:sm_bus"                                                                                                                                                                     ;
++-------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port              ; Type   ; Severity ; Details                                                                                                                                                               ;
++-------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; state             ; Input  ; Warning  ; Input port expression (1 bits) is smaller than the input port (2 bits) it drives.  Extra input bit(s) "state[1..1]" will be connected to GND.                         ;
+; abortMemoryAccess ; Output ; Warning  ; Output or bidir port (1 bits) is smaller than the port expression (2 bits) it drives.  The 1 most-significant bit(s) in the port expression will be connected to GND. ;
+; currentState      ; Output ; Warning  ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed.                                                              ;
++-------------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
 +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "sm_cpu:sm_cpu"                                                                                                                                                              ;
 +------------+--------+----------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -376,7 +583,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Thu Jun 28 08:23:00 2018
+    Info: Processing started: Thu Jun 28 21:28:01 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -414,8 +621,20 @@ Info (12128): Elaborating entity "cpu" for hierarchy "cpu:cpu"
 Warning (10036): Verilog HDL or VHDL warning at cpu.v(27): object "message_sent" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at cpu.v(52): object "write" assigned a value but never read
 Warning (10036): Verilog HDL or VHDL warning at cpu.v(82): object "miss" assigned a value but never read
-Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (12128): Elaborating entity "bus" for hierarchy "bus:bus"
+Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus2" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
+Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus1" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
+Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus2" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
+Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus1" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
+Warning (12241): 5 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[6]" is stuck at GND
+    Warning (13410): Pin "HEX0[5]" is stuck at GND
+    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[3]" is stuck at GND
+    Warning (13410): Pin "HEX0[2]" is stuck at GND
+    Warning (13410): Pin "HEX0[1]" is stuck at GND
+    Warning (13410): Pin "HEX0[0]" is stuck at GND
     Warning (13410): Pin "HEX1[6]" is stuck at VCC
     Warning (13410): Pin "HEX1[5]" is stuck at VCC
     Warning (13410): Pin "HEX1[4]" is stuck at VCC
@@ -465,6 +684,8 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX7[2]" is stuck at GND
     Warning (13410): Pin "HEX7[1]" is stuck at GND
     Warning (13410): Pin "HEX7[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[0]" is stuck at GND
+    Warning (13410): Pin "LEDR[1]" is stuck at GND
     Warning (13410): Pin "LEDR[5]" is stuck at GND
     Warning (13410): Pin "LEDR[6]" is stuck at GND
     Warning (13410): Pin "LEDR[7]" is stuck at GND
@@ -475,12 +696,15 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[12]" is stuck at GND
     Warning (13410): Pin "LEDR[13]" is stuck at GND
     Warning (13410): Pin "LEDR[16]" is stuck at GND
+    Warning (13410): Pin "LEDG[4]" is stuck at GND
+    Warning (13410): Pin "LEDG[5]" is stuck at GND
     Warning (13410): Pin "LEDG[6]" is stuck at GND
     Warning (13410): Pin "LEDG[7]" is stuck at GND
-Info (17049): 7 registers lost all their fanouts during netlist optimizations.
+Info (17049): 34 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 12 input pin(s) that do not drive logic
+Warning (21074): Design contains 13 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[3]"
     Warning (15610): No output dependent on input pin "SW[4]"
     Warning (15610): No output dependent on input pin "SW[5]"
     Warning (15610): No output dependent on input pin "SW[6]"
@@ -493,14 +717,14 @@ Warning (21074): Design contains 12 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[13]"
     Warning (15610): No output dependent on input pin "SW[14]"
     Warning (15610): No output dependent on input pin "SW[15]"
-Info (21057): Implemented 107 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 98 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
-    Info (21061): Implemented 11 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 89 warnings
+    Info (21061): Implemented 2 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
     Info: Peak virtual memory: 524 megabytes
-    Info: Processing ended: Thu Jun 28 08:23:02 2018
+    Info: Processing ended: Thu Jun 28 21:28:03 2018
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Total CPU time (on all processors): 00:00:02
 
 

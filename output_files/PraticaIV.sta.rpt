@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for PraticaIV
-Thu Jun 28 08:23:17 2018
+Thu Jun 28 21:28:16 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -16,44 +16,37 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Setup: 'SW[3]'
- 12. Slow Model Hold: 'SW[3]'
- 13. Slow Model Minimum Pulse Width: 'SW[3]'
- 14. Slow Model Minimum Pulse Width: 'SW[17]'
- 15. Setup Times
- 16. Hold Times
- 17. Clock to Output Times
- 18. Minimum Clock to Output Times
- 19. Propagation Delay
- 20. Minimum Propagation Delay
- 21. Fast Model Setup Summary
- 22. Fast Model Hold Summary
- 23. Fast Model Recovery Summary
- 24. Fast Model Removal Summary
- 25. Fast Model Minimum Pulse Width Summary
- 26. Fast Model Setup: 'SW[3]'
- 27. Fast Model Hold: 'SW[3]'
- 28. Fast Model Minimum Pulse Width: 'SW[3]'
- 29. Fast Model Minimum Pulse Width: 'SW[17]'
- 30. Setup Times
- 31. Hold Times
- 32. Clock to Output Times
- 33. Minimum Clock to Output Times
- 34. Propagation Delay
- 35. Minimum Propagation Delay
- 36. Multicorner Timing Analysis Summary
- 37. Setup Times
- 38. Hold Times
- 39. Clock to Output Times
- 40. Minimum Clock to Output Times
- 41. Progagation Delay
- 42. Minimum Progagation Delay
- 43. Setup Transfers
- 44. Hold Transfers
- 45. Report TCCS
- 46. Report RSKM
- 47. Unconstrained Paths
- 48. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Minimum Pulse Width: 'SW[17]'
+ 12. Setup Times
+ 13. Hold Times
+ 14. Clock to Output Times
+ 15. Minimum Clock to Output Times
+ 16. Propagation Delay
+ 17. Minimum Propagation Delay
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Minimum Pulse Width: 'SW[17]'
+ 24. Setup Times
+ 25. Hold Times
+ 26. Clock to Output Times
+ 27. Minimum Clock to Output Times
+ 28. Propagation Delay
+ 29. Minimum Propagation Delay
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Progagation Delay
+ 36. Minimum Progagation Delay
+ 37. Clock Transfers
+ 38. Report TCCS
+ 39. Report RSKM
+ 40. Unconstrained Paths
+ 41. TimeQuest Timing Analyzer Messages
 
 
 
@@ -105,37 +98,26 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
 ; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets    ;
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
-; SW[3]      ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SW[3] }  ;
 ; SW[17]     ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { SW[17] } ;
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
 
 
-+----------------------------------------------------------------------------------------------------------+
-; Slow Model Fmax Summary                                                                                  ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
-; Fmax      ; Restricted Fmax ; Clock Name ; Note                                                          ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
-; 777.6 MHz ; 420.17 MHz      ; SW[3]      ; limit due to minimum period restriction (max I/O toggle rate) ;
-+-----------+-----------------+------------+---------------------------------------------------------------+
-This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+---------------------------
+; Slow Model Fmax Summary ;
+---------------------------
+No paths to report.
 
 
-+--------------------------------+
-; Slow Model Setup Summary       ;
-+-------+--------+---------------+
-; Clock ; Slack  ; End Point TNS ;
-+-------+--------+---------------+
-; SW[3] ; -0.286 ; -0.516        ;
-+-------+--------+---------------+
+----------------------------
+; Slow Model Setup Summary ;
+----------------------------
+No paths to report.
 
 
-+-------------------------------+
-; Slow Model Hold Summary       ;
-+-------+-------+---------------+
-; Clock ; Slack ; End Point TNS ;
-+-------+-------+---------------+
-; SW[3] ; 0.391 ; 0.000         ;
-+-------+-------+---------------+
+---------------------------
+; Slow Model Hold Summary ;
+---------------------------
+No paths to report.
 
 
 -------------------------------
@@ -155,72 +137,8 @@ No paths to report.
 +--------+--------+----------------------+
 ; Clock  ; Slack  ; End Point TNS        ;
 +--------+--------+----------------------+
-; SW[3]  ; -1.380 ; -5.380               ;
 ; SW[17] ; -1.222 ; -3.222               ;
 +--------+--------+----------------------+
-
-
-+------------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Setup: 'SW[3]'                                                                                                                      ;
-+--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack  ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; -0.286 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.322      ;
-; -0.230 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.266      ;
-; -0.159 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.195      ;
-; 0.024  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 1.012      ;
-; 0.105  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.931      ;
-; 0.232  ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.804      ;
-; 0.379  ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.657      ;
-; 0.379  ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.657      ;
-+--------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Slow Model Hold: 'SW[3]'                                                                                                                      ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.391 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.657      ;
-; 0.391 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.657      ;
-; 0.538 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.804      ;
-; 0.665 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.931      ;
-; 0.746 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.012      ;
-; 0.929 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.195      ;
-; 0.934 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.200      ;
-; 1.056 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 1.322      ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Slow Model Minimum Pulse Width: 'SW[3]'                                                                          ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                          ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
-; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; SW[3] ; Rise       ; SW[3]                           ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|abortMemoryAccess ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|abortMemoryAccess ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[0]   ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[0]   ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[1]   ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[1]   ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|writeBack         ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|writeBack         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]|combout                   ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]|combout                   ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]~clkctrl|inclk[0]          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]~clkctrl|inclk[0]          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]~clkctrl|outclk            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]~clkctrl|outclk            ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|abortMemoryAccess|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|abortMemoryAccess|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|currentState[0]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|currentState[0]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|currentState[1]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|currentState[1]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|writeBack|clk            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|writeBack|clk            ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -249,10 +167,6 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; SW[*]     ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 1.018 ; 1.018 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.942 ; 0.942 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 1.018 ; 1.018 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.919 ; 0.919 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -263,10 +177,6 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; SW[*]     ; SW[17]     ; -3.259 ; -3.259 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; -3.259 ; -3.259 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; -0.294 ; -0.294 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; -0.712 ; -0.712 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; -0.387 ; -0.387 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; -0.294 ; -0.294 ; Rise       ; SW[3]           ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -275,23 +185,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 8.081 ; 8.081 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 7.622 ; 7.622 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 8.081 ; 8.081 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 9.209 ; 9.209 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 8.986 ; 8.986 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 9.209 ; 9.209 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 8.280 ; 8.280 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 8.970 ; 8.970 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.805 ; 8.805 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.713 ; 8.713 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.713 ; 8.713 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.402 ; 6.402 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.402 ; 6.402 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 6.815 ; 6.815 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -300,23 +196,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 7.622 ; 7.622 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 7.622 ; 7.622 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 8.081 ; 8.081 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 8.176 ; 8.176 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 8.888 ; 8.888 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 9.112 ; 9.112 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 8.176 ; 8.176 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 8.872 ; 8.872 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.805 ; 8.805 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.615 ; 8.615 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.615 ; 8.615 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.402 ; 6.402 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 6.815 ; 6.815 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 6.815 ; 6.815 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -325,9 +207,9 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.153 ;    ;    ; 5.153 ;
-; SW[1]      ; LEDR[3]     ; 5.668 ;    ;    ; 5.668 ;
-; SW[2]      ; LEDR[4]     ; 5.647 ;    ;    ; 5.647 ;
+; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
+; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
+; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
 ; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
 +------------+-------------+-------+----+----+-------+
 
@@ -337,29 +219,23 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.153 ;    ;    ; 5.153 ;
-; SW[1]      ; LEDR[3]     ; 5.668 ;    ;    ; 5.668 ;
-; SW[2]      ; LEDR[4]     ; 5.647 ;    ;    ; 5.647 ;
+; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
+; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
+; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
 ; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
 +------------+-------------+-------+----+----+-------+
 
 
-+-------------------------------+
-; Fast Model Setup Summary      ;
-+-------+-------+---------------+
-; Clock ; Slack ; End Point TNS ;
-+-------+-------+---------------+
-; SW[3] ; 0.411 ; 0.000         ;
-+-------+-------+---------------+
+----------------------------
+; Fast Model Setup Summary ;
+----------------------------
+No paths to report.
 
 
-+-------------------------------+
-; Fast Model Hold Summary       ;
-+-------+-------+---------------+
-; Clock ; Slack ; End Point TNS ;
-+-------+-------+---------------+
-; SW[3] ; 0.215 ; 0.000         ;
-+-------+-------+---------------+
+---------------------------
+; Fast Model Hold Summary ;
+---------------------------
+No paths to report.
 
 
 -------------------------------
@@ -379,72 +255,8 @@ No paths to report.
 +--------+--------+----------------------+
 ; Clock  ; Slack  ; End Point TNS        ;
 +--------+--------+----------------------+
-; SW[3]  ; -1.380 ; -5.380               ;
 ; SW[17] ; -1.222 ; -3.222               ;
 +--------+--------+----------------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Setup: 'SW[3]'                                                                                                                     ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.411 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.621      ;
-; 0.421 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.611      ;
-; 0.470 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.562      ;
-; 0.537 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.495      ;
-; 0.584 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.448      ;
-; 0.633 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.399      ;
-; 0.665 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.367      ;
-; 0.665 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 1.000        ; 0.000      ; 0.367      ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+-----------------------------------------------------------------------------------------------------------------------------------------------+
-; Fast Model Hold: 'SW[3]'                                                                                                                      ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; Slack ; From Node                     ; To Node                         ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-; 0.215 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.367      ;
-; 0.215 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.367      ;
-; 0.247 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.399      ;
-; 0.296 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|abortMemoryAccess ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.448      ;
-; 0.343 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|currentState[1]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.495      ;
-; 0.410 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.562      ;
-; 0.432 ; sm_bus:sm_bus|currentState[1] ; sm_bus:sm_bus|currentState[0]   ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.584      ;
-; 0.459 ; sm_bus:sm_bus|currentState[0] ; sm_bus:sm_bus|writeBack         ; SW[3]        ; SW[3]       ; 0.000        ; 0.000      ; 0.611      ;
-+-------+-------------------------------+---------------------------------+--------------+-------------+--------------+------------+------------+
-
-
-+------------------------------------------------------------------------------------------------------------------+
-; Fast Model Minimum Pulse Width: 'SW[3]'                                                                          ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock ; Clock Edge ; Target                          ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
-; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; SW[3] ; Rise       ; SW[3]                           ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|abortMemoryAccess ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|abortMemoryAccess ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[0]   ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[0]   ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[1]   ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|currentState[1]   ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus:sm_bus|writeBack         ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus:sm_bus|writeBack         ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]|combout                   ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]|combout                   ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]~clkctrl|inclk[0]          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]~clkctrl|inclk[0]          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; SW[3]~clkctrl|outclk            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; SW[3]~clkctrl|outclk            ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|abortMemoryAccess|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|abortMemoryAccess|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|currentState[0]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|currentState[0]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|currentState[1]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|currentState[1]|clk      ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[3] ; Rise       ; sm_bus|writeBack|clk            ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[3] ; Rise       ; sm_bus|writeBack|clk            ;
-+--------+--------------+----------------+------------------+-------+------------+---------------------------------+
 
 
 +-----------------------------------------------------------------------------------------------------------+
@@ -471,12 +283,8 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; SW[17]     ; 2.146 ; 2.146 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; 2.146 ; 2.146 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 0.186 ; 0.186 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.116 ; 0.116 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 0.186 ; 0.186 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.115 ; 0.115 ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[17]     ; 2.147 ; 2.147 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 2.147 ; 2.147 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -485,12 +293,8 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; SW[17]     ; -2.006 ; -2.006 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; -2.006 ; -2.006 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 0.173  ; 0.173  ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.004  ; 0.004  ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 0.102  ; 0.102  ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.173  ; 0.173  ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -499,23 +303,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.269 ; 4.269 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.067 ; 4.067 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.269 ; 4.269 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 5.029 ; 5.029 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.834 ; 4.834 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 5.029 ; 5.029 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.545 ; 4.545 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.820 ; 4.820 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.909 ; 4.909 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.698 ; 4.698 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.698 ; 4.698 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 3.860 ; 3.860 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -524,23 +314,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.067 ; 4.067 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.067 ; 4.067 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.269 ; 4.269 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 4.494 ; 4.494 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.789 ; 4.789 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 4.980 ; 4.980 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.494 ; 4.494 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.775 ; 4.775 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.909 ; 4.909 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.653 ; 4.653 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.653 ; 4.653 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 3.860 ; 3.860 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 3.860 ; 3.860 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -549,9 +325,9 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.804 ;    ;    ; 2.804 ;
-; SW[1]      ; LEDR[3]     ; 3.049 ;    ;    ; 3.049 ;
-; SW[2]      ; LEDR[4]     ; 3.028 ;    ;    ; 3.028 ;
+; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
+; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
+; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
 ; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
 +------------+-------------+-------+----+----+-------+
 
@@ -561,25 +337,23 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.804 ;    ;    ; 2.804 ;
-; SW[1]      ; LEDR[3]     ; 3.049 ;    ;    ; 3.049 ;
-; SW[2]      ; LEDR[4]     ; 3.028 ;    ;    ; 3.028 ;
+; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
+; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
+; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
 ; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
 +------------+-------------+-------+----+----+-------+
 
 
-+------------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                          ;
-+------------------+--------+-------+----------+---------+---------------------+
-; Clock            ; Setup  ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+--------+-------+----------+---------+---------------------+
-; Worst-case Slack ; -0.286 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
-;  SW[17]          ; N/A    ; N/A   ; N/A      ; N/A     ; -1.222              ;
-;  SW[3]           ; -0.286 ; 0.215 ; N/A      ; N/A     ; -1.380              ;
-; Design-wide TNS  ; -0.516 ; 0.0   ; 0.0      ; 0.0     ; -8.602              ;
-;  SW[17]          ; N/A    ; N/A   ; N/A      ; N/A     ; -3.222              ;
-;  SW[3]           ; -0.516 ; 0.000 ; N/A      ; N/A     ; -5.380              ;
-+------------------+--------+-------+----------+---------+---------------------+
++----------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                        ;
++------------------+-------+------+----------+---------+---------------------+
+; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+-------+------+----------+---------+---------------------+
+; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; -1.222              ;
+;  SW[17]          ; N/A   ; N/A  ; N/A      ; N/A     ; -1.222              ;
+; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; -3.222              ;
+;  SW[17]          ; N/A   ; N/A  ; N/A      ; N/A     ; -3.222              ;
++------------------+-------+------+----------+---------+---------------------+
 
 
 +-----------------------------------------------------------------------+
@@ -589,10 +363,6 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; SW[*]     ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
 ;  SW[16]   ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 1.018 ; 1.018 ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.942 ; 0.942 ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 1.018 ; 1.018 ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.919 ; 0.919 ; Rise       ; SW[3]           ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -601,12 +371,8 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; SW[17]     ; -2.006 ; -2.006 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; -2.006 ; -2.006 ; Rise       ; SW[17]          ;
-; SW[*]     ; SW[3]      ; 0.173  ; 0.173  ; Rise       ; SW[3]           ;
-;  SW[0]    ; SW[3]      ; 0.004  ; 0.004  ; Rise       ; SW[3]           ;
-;  SW[1]    ; SW[3]      ; 0.102  ; 0.102  ; Rise       ; SW[3]           ;
-;  SW[2]    ; SW[3]      ; 0.173  ; 0.173  ; Rise       ; SW[3]           ;
+; SW[*]     ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -615,23 +381,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 8.081 ; 8.081 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 7.622 ; 7.622 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 8.081 ; 8.081 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 9.209 ; 9.209 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 8.986 ; 8.986 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 9.209 ; 9.209 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 8.280 ; 8.280 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 8.970 ; 8.970 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 8.805 ; 8.805 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 8.713 ; 8.713 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 8.713 ; 8.713 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 6.402 ; 6.402 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 6.402 ; 6.402 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 6.401 ; 6.401 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 6.815 ; 6.815 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 6.822 ; 6.822 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -640,23 +392,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.067 ; 4.067 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.067 ; 4.067 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.269 ; 4.269 ; Rise       ; SW[17]          ;
-; HEX0[*]   ; SW[3]      ; 4.494 ; 4.494 ; Rise       ; SW[3]           ;
-;  HEX0[0]  ; SW[3]      ; 4.789 ; 4.789 ; Rise       ; SW[3]           ;
-;  HEX0[1]  ; SW[3]      ; 4.980 ; 4.980 ; Rise       ; SW[3]           ;
-;  HEX0[2]  ; SW[3]      ; 4.494 ; 4.494 ; Rise       ; SW[3]           ;
-;  HEX0[3]  ; SW[3]      ; 4.775 ; 4.775 ; Rise       ; SW[3]           ;
-;  HEX0[4]  ; SW[3]      ; 4.909 ; 4.909 ; Rise       ; SW[3]           ;
-;  HEX0[5]  ; SW[3]      ; 4.653 ; 4.653 ; Rise       ; SW[3]           ;
-;  HEX0[6]  ; SW[3]      ; 4.653 ; 4.653 ; Rise       ; SW[3]           ;
-; LEDG[*]   ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
-;  LEDG[4]  ; SW[3]      ; 3.681 ; 3.681 ; Rise       ; SW[3]           ;
-;  LEDG[5]  ; SW[3]      ; 3.677 ; 3.677 ; Rise       ; SW[3]           ;
-; LEDR[*]   ; SW[3]      ; 3.860 ; 3.860 ; Rise       ; SW[3]           ;
-;  LEDR[0]  ; SW[3]      ; 3.860 ; 3.860 ; Rise       ; SW[3]           ;
-;  LEDR[1]  ; SW[3]      ; 3.864 ; 3.864 ; Rise       ; SW[3]           ;
+; LEDR[*]   ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
+;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
+;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -665,9 +403,9 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.153 ;    ;    ; 5.153 ;
-; SW[1]      ; LEDR[3]     ; 5.668 ;    ;    ; 5.668 ;
-; SW[2]      ; LEDR[4]     ; 5.647 ;    ;    ; 5.647 ;
+; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
+; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
+; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
 ; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
 +------------+-------------+-------+----+----+-------+
 
@@ -677,31 +415,17 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.804 ;    ;    ; 2.804 ;
-; SW[1]      ; LEDR[3]     ; 3.049 ;    ;    ; 3.049 ;
-; SW[2]      ; LEDR[4]     ; 3.028 ;    ;    ; 3.028 ;
+; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
+; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
+; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
 ; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
 +------------+-------------+-------+----+----+-------+
 
 
-+-------------------------------------------------------------------+
-; Setup Transfers                                                   ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; SW[3]      ; SW[3]    ; 9        ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
-
-
-+-------------------------------------------------------------------+
-; Hold Transfers                                                    ;
-+------------+----------+----------+----------+----------+----------+
-; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
-+------------+----------+----------+----------+----------+----------+
-; SW[3]      ; SW[3]    ; 9        ; 0        ; 0        ; 0        ;
-+------------+----------+----------+----------+----------+----------+
-Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+-------------------
+; Clock Transfers ;
+-------------------
+Nothing to report.
 
 
 ---------------
@@ -724,9 +448,9 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
 ; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 15    ; 15   ;
-; Unconstrained Output Ports      ; 17    ; 17   ;
-; Unconstrained Output Port Paths ; 23    ; 23   ;
+; Unconstrained Input Port Paths  ; 6     ; 6    ;
+; Unconstrained Output Ports      ; 6     ; 6    ;
+; Unconstrained Output Port Paths ; 6     ; 6    ;
 +---------------------------------+-------+------+
 
 
@@ -736,7 +460,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Thu Jun 28 08:23:15 2018
+    Info: Processing started: Thu Jun 28 21:28:15 2018
 Info: Command: quartus_sta PraticaIV -c PraticaIV
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -745,51 +469,37 @@ Info (21077): High junction temperature is 85 degrees C
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'PraticaIV.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
 Info (332105): Deriving Clocks
-    Info (332105): create_clock -period 1.000 -name SW[3] SW[3]
     Info (332105): create_clock -period 1.000 -name SW[17] SW[17]
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
-Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case setup slack is -0.286
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):    -0.286        -0.516 SW[3] 
-Info (332146): Worst-case hold slack is 0.391
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.391         0.000 SW[3] 
+Info (332140): No fmax paths to report
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -1.380
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case minimum pulse width slack is -1.222
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.380        -5.380 SW[3] 
     Info (332119):    -1.222        -3.222 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332146): Worst-case setup slack is 0.411
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.411         0.000 SW[3] 
-Info (332146): Worst-case hold slack is 0.215
-    Info (332119):     Slack End Point TNS Clock 
-    Info (332119): ========= ============= =====================
-    Info (332119):     0.215         0.000 SW[3] 
+Info (332140): No Setup paths to report
+Info (332140): No Hold paths to report
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Critical Warning (332148): Timing requirements not met
-Info (332146): Worst-case minimum pulse width slack is -1.380
+Info (332146): Worst-case minimum pulse width slack is -1.222
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.380        -5.380 SW[3] 
     Info (332119):    -1.222        -3.222 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 463 megabytes
-    Info: Processing ended: Thu Jun 28 08:23:17 2018
-    Info: Elapsed time: 00:00:02
+    Info: Processing ended: Thu Jun 28 21:28:16 2018
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
 

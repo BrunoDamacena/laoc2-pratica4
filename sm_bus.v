@@ -1,5 +1,6 @@
 module sm_bus(
 	clock,
+	state,
 	writeMiss,
 	readMiss,
 	invalidate,
@@ -8,6 +9,7 @@ module sm_bus(
 	currentState
 );
     input clock;
+	 input [1:0] state;
     input writeMiss;
     input readMiss;
     input invalidate;
@@ -27,7 +29,7 @@ module sm_bus(
 	begin
         writeBack = 0;
         abortMemoryAccess = 0;
-		case(currentState)
+		case(state)
 			2'b00: // Invalid
 			begin
                 // Nothing to do here :)

@@ -9,7 +9,7 @@ module cpu(
 			done,
 			bus_out
 );
-	input [10:0] bus_in; //  
+	input [12:0] bus_in; //  
 	input clock;
 	input instruction;
 	input execute_instruction;
@@ -17,7 +17,7 @@ module cpu(
 	input [3:0] data_in;
 	output reg [3:0] data_out;
 	output reg done;
-	output reg [9:0] bus_out;
+	output reg [12:0] bus_out;
 	
 	// Regs to save instruction in execution
 	reg instruction_reg;
@@ -89,7 +89,14 @@ module cpu(
 	cache_block cb1(activate_cb_1, write_cb1, state_cb, address_cb, data_cb, current_state_cb1, current_address_cb1, current_data_cb1);
 	cache_block cb2(activate_cb_2, write_cb2, state_cb, address_cb, data_cb, current_state_cb2, current_address_cb2, current_data_cb2);
 	
-	sm_bus sm_bus1();
+	wire state_bus_cb1;
+	wire state_bus_cb2;
+	wire write_back_bus_cb1;
+	wire write_back_bus_cb2;
+	wire abort_bus_cb1;
+	wire abort_bus_cb2;
+	sm_bus sm_bus1(clock, current_state_cb1, bus_in[8], bus_in[9], bus_in[7], write_back_bus_cb1, abort_bus_cb1, state_bus_cb1);
+	sm_bus sm_bus2(clock, current_state_cb2, bus_in[8], bus_in[9], bus_in[7], write_back_bus_cb2, abort_bus_cb2, state_bus_cb2);
 	
 	always @(posedge clock)
 	begin
@@ -109,11 +116,52 @@ module cpu(
 					done = 0;
 					message_sent = 0;
 				end
+				if (bus_in[9] | bus_in[8] | bus_in[7])
+				begin
+					bus_out = 10'b0000000000;
+					if (bus_in[6:4] == current_address_cb1)
+					begin
+						bus_out[12] = write_back_bus_cb1;
+						bus_out[11] = abort_bus_cb1;
+						if(bus_out[12] | bus_out[11])
+						begin
+							bus_out[6:4] = current_address_cb1;
+							bus_out[3:0] = current_data_cb1;
+						end
+						if(current_state_cb1 != state_bus_cb1)
+						begin
+							write_cb1 = 1;
+							state_cb = state_bus_cb1;
+							address_cb = current_address_cb1;
+							data_cb = current_data_cb1;
+							state = 2'b10;
+						end
+					end
+					if (bus_in[6:4] == current_address_cb2)
+					begin
+						bus_out[12] = write_back_bus_cb2;
+						bus_out[11] = abort_bus_cb2;
+						if(bus_out[12] | bus_out[11])
+						begin
+							bus_out[6:4] = current_address_cb2;
+							bus_out[3:0] = current_data_cb2;
+						end		
+						if(current_state_cb2 != state_bus_cb2)
+						begin
+							write_cb2 = 1;
+							state_cb = state_bus_cb2;
+							address_cb = current_address_cb2;
+							data_cb = current_data_cb2;
+							state = 2'b10;
+						end				
+					end
+				end
 			end
 			2'b01:
 			begin				
 				if(readMiss | writeMiss | invalidate) // if any message must be send in the bus, add one cycle to send it
 				begin
+					bus_out[10] = 1;
 					bus_out[9] = readMiss;
 					bus_out[8] = writeMiss;
 					bus_out[7] = invalidate;
