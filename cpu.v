@@ -118,8 +118,8 @@ module cpu(
 				end
 				if (bus_in[9] | bus_in[8] | bus_in[7])
 				begin
-					bus_out = 10'b0000000000;
-					if (bus_in[6:4] == current_address_cb1)
+					bus_out = 12'b001000000000;
+					if ((bus_in[6:4] == current_address_cb1) & ~bus_in[4])
 					begin
 						bus_out[12] = write_back_bus_cb1;
 						bus_out[11] = abort_bus_cb1;
@@ -137,8 +137,7 @@ module cpu(
 							state = 2'b10;
 						end
 					end
-					else
-					if (bus_in[6:4] == current_address_cb2)
+					if ((bus_in[6:4] == current_address_cb2) & bus_in[4])
 					begin
 						bus_out[12] = write_back_bus_cb2;
 						bus_out[11] = abort_bus_cb2;
@@ -155,10 +154,6 @@ module cpu(
 							data_cb = current_data_cb2;
 							state = 2'b10;
 						end				
-					end
-					else
-					begin						
-						bus_out = 10'b0010000000;
 					end
 				end
 			end
@@ -217,6 +212,7 @@ module cpu(
 					state_cb = (~{2{address_reg[0]}} & current_state_sm_cb1) | ({2{address_reg[0]}} & current_state_sm_cb2);
 					if(instruction_reg)
 					begin
+						state_cb = 2'b10;
 						data_cb = data_in_reg; // Write instruction - data was in the instruction
 					end
 					else

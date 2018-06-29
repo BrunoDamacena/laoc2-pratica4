@@ -14,7 +14,7 @@ module memory(
 	reg [3:0] memory_data [7:0];
 	
 	initial begin
-		memory_data[0] = 4'b0000;
+		memory_data[0] = 4'b0011;
 		memory_data[1] = 4'b0000;
 		memory_data[2] = 4'b0000;
 		memory_data[3] = 4'b0000;
