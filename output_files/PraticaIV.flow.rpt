@@ -1,5 +1,5 @@
 Flow report for PraticaIV
-Thu Jun 28 21:28:18 2018
+Fri Jun 29 11:16:16 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -40,17 +40,17 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Thu Jun 28 21:28:18 2018      ;
+; Flow Status                        ; Successful - Fri Jun 29 11:16:16 2018      ;
 ; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; PraticaIV                                  ;
 ; Top-level Entity Name              ; PraticaIV                                  ;
 ; Family                             ; Cyclone II                                 ;
 ; Device                             ; EP2C35F672C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 2 / 33,216 ( < 1 % )                       ;
-;     Total combinational functions  ; 1 / 33,216 ( < 1 % )                       ;
-;     Dedicated logic registers      ; 2 / 33,216 ( < 1 % )                       ;
-; Total registers                    ; 2                                          ;
+; Total logic elements               ; 265 / 33,216 ( < 1 % )                     ;
+;     Total combinational functions  ; 255 / 33,216 ( < 1 % )                     ;
+;     Dedicated logic registers      ; 117 / 33,216 ( < 1 % )                     ;
+; Total registers                    ; 117                                        ;
 ; Total pins                         ; 96 / 475 ( 20 % )                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 483,840 ( 0 % )                        ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/28/2018 21:28:02 ;
+; Start date & time ; 06/29/2018 11:15:51 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; PraticaIV           ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                           ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+---------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 110073158127993.153023208206656 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 110073158127993.153028175103096 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                     ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (Verilog)       ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                              ; --            ; --          ; --             ;
@@ -92,12 +92,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 513 MB              ; 00:00:01                           ;
-; Fitter                    ; 00:00:07     ; 1.0                     ; 797 MB              ; 00:00:07                           ;
-; Assembler                 ; 00:00:02     ; 1.0                     ; 492 MB              ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 458 MB              ; 00:00:01                           ;
-; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 431 MB              ; 00:00:01                           ;
-; Total                     ; 00:00:13     ; --                      ; --                  ; 00:00:12                           ;
+; Analysis & Synthesis      ; 00:00:02     ; 1.0                     ; 521 MB              ; 00:00:02                           ;
+; Fitter                    ; 00:00:12     ; 1.0                     ; 804 MB              ; 00:00:11                           ;
+; Assembler                 ; 00:00:03     ; 1.0                     ; 483 MB              ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:01     ; 1.0                     ; 463 MB              ; 00:00:01                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 447 MB              ; 00:00:01                           ;
+; Total                     ; 00:00:19     ; --                      ; --                  ; 00:00:17                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

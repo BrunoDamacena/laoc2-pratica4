@@ -1,5 +1,5 @@
 TimeQuest Timing Analyzer report for PraticaIV
-Thu Jun 28 21:28:16 2018
+Fri Jun 29 11:16:14 2018
 Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
@@ -16,37 +16,42 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
   8. Slow Model Recovery Summary
   9. Slow Model Removal Summary
  10. Slow Model Minimum Pulse Width Summary
- 11. Slow Model Minimum Pulse Width: 'SW[17]'
- 12. Setup Times
- 13. Hold Times
- 14. Clock to Output Times
- 15. Minimum Clock to Output Times
- 16. Propagation Delay
- 17. Minimum Propagation Delay
- 18. Fast Model Setup Summary
- 19. Fast Model Hold Summary
- 20. Fast Model Recovery Summary
- 21. Fast Model Removal Summary
- 22. Fast Model Minimum Pulse Width Summary
- 23. Fast Model Minimum Pulse Width: 'SW[17]'
- 24. Setup Times
- 25. Hold Times
- 26. Clock to Output Times
- 27. Minimum Clock to Output Times
- 28. Propagation Delay
- 29. Minimum Propagation Delay
- 30. Multicorner Timing Analysis Summary
- 31. Setup Times
- 32. Hold Times
- 33. Clock to Output Times
- 34. Minimum Clock to Output Times
- 35. Progagation Delay
- 36. Minimum Progagation Delay
- 37. Clock Transfers
- 38. Report TCCS
- 39. Report RSKM
- 40. Unconstrained Paths
- 41. TimeQuest Timing Analyzer Messages
+ 11. Slow Model Setup: 'SW[17]'
+ 12. Slow Model Hold: 'SW[17]'
+ 13. Slow Model Minimum Pulse Width: 'SW[17]'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Propagation Delay
+ 19. Minimum Propagation Delay
+ 20. Fast Model Setup Summary
+ 21. Fast Model Hold Summary
+ 22. Fast Model Recovery Summary
+ 23. Fast Model Removal Summary
+ 24. Fast Model Minimum Pulse Width Summary
+ 25. Fast Model Setup: 'SW[17]'
+ 26. Fast Model Hold: 'SW[17]'
+ 27. Fast Model Minimum Pulse Width: 'SW[17]'
+ 28. Setup Times
+ 29. Hold Times
+ 30. Clock to Output Times
+ 31. Minimum Clock to Output Times
+ 32. Propagation Delay
+ 33. Minimum Propagation Delay
+ 34. Multicorner Timing Analysis Summary
+ 35. Setup Times
+ 36. Hold Times
+ 37. Clock to Output Times
+ 38. Minimum Clock to Output Times
+ 39. Progagation Delay
+ 40. Minimum Progagation Delay
+ 41. Setup Transfers
+ 42. Hold Transfers
+ 43. Report TCCS
+ 44. Report RSKM
+ 45. Unconstrained Paths
+ 46. TimeQuest Timing Analyzer Messages
 
 
 
@@ -102,22 +107,32 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+------------+
 
 
----------------------------
-; Slow Model Fmax Summary ;
----------------------------
-No paths to report.
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 151.91 MHz ; 151.91 MHz      ; SW[17]     ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
 
-----------------------------
-; Slow Model Setup Summary ;
-----------------------------
-No paths to report.
++---------------------------------+
+; Slow Model Setup Summary        ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; SW[17] ; -5.583 ; -277.111      ;
++--------+--------+---------------+
 
 
----------------------------
-; Slow Model Hold Summary ;
----------------------------
-No paths to report.
++---------------------------------+
+; Slow Model Hold Summary         ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; SW[17] ; -3.062 ; -44.718       ;
++--------+--------+---------------+
 
 
 -------------------------------
@@ -137,37 +152,347 @@ No paths to report.
 +--------+--------+----------------------+
 ; Clock  ; Slack  ; End Point TNS        ;
 +--------+--------+----------------------+
-; SW[17] ; -1.222 ; -3.222               ;
+; SW[17] ; -1.222 ; -118.222             ;
 +--------+--------+----------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Slow Model Minimum Pulse Width: 'SW[17]'                                                                  ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                  ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
-; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                  ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss  ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]|combout          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]|combout          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|readMiss|clk     ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|readMiss|clk     ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk    ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'SW[17]'                                                                                                                                        ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                           ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; -5.583 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 3.239      ;
+; -5.516 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 3.172      ;
+; -5.295 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.834      ;
+; -5.294 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.833      ;
+; -5.288 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.978      ;
+; -5.252 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 2.908      ;
+; -5.250 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.940      ;
+; -5.185 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 2.841      ;
+; -5.169 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.708      ;
+; -5.168 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.707      ;
+; -5.139 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.678      ;
+; -5.138 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.677      ;
+; -5.130 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 3.789      ;
+; -5.119 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.825      ;
+; -5.080 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.770      ;
+; -5.063 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 2.719      ;
+; -5.048 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.754      ;
+; -5.047 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.753      ;
+; -5.031 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.570      ;
+; -5.030 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.569      ;
+; -5.016 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.722      ;
+; -5.015 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.721      ;
+; -4.997 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.386     ; 2.647      ;
+; -4.996 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.380     ; 2.652      ;
+; -4.981 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 3.640      ;
+; -4.957 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.647      ;
+; -4.945 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.386     ; 2.595      ;
+; -4.945 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.651      ;
+; -4.944 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.650      ;
+; -4.944 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.650      ;
+; -4.943 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.649      ;
+; -4.919 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.609      ;
+; -4.884 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.590      ;
+; -4.878 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.417      ;
+; -4.877 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.416      ;
+; -4.813 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.519      ;
+; -4.812 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.518      ;
+; -4.773 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.312      ;
+; -4.768 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.458      ;
+; -4.730 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.420      ;
+; -4.713 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.419      ;
+; -4.693 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 2.383      ;
+; -4.647 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.186      ;
+; -4.645 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 3.304      ;
+; -4.642 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.348      ;
+; -4.641 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -3.330     ; 2.347      ;
+; -4.617 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.156      ;
+; -4.509 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 2.048      ;
+; -4.496 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 3.155      ;
+; -4.469 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.247     ; 4.258      ;
+; -4.425 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.386     ; 2.075      ;
+; -4.387 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state_cb[1] ; SW[17]       ; SW[17]      ; 1.000        ; -1.577     ; 3.846      ;
+; -4.356 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -3.497     ; 1.895      ;
+; -4.320 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.247     ; 4.109      ;
+; -4.292 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.577     ; 3.751      ;
+; -4.268 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 2.927      ;
+; -4.239 ; bus:bus|cpu:cpu1|state.11                           ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.845     ; 3.430      ;
+; -4.238 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state_cb[1] ; SW[17]       ; SW[17]      ; 1.000        ; -1.577     ; 3.697      ;
+; -4.235 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.378     ; 2.893      ;
+; -4.219 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 3.189      ;
+; -4.182 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.071     ; 3.147      ;
+; -4.174 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 4.094      ;
+; -4.173 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -3.346     ; 1.863      ;
+; -4.143 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.577     ; 3.602      ;
+; -4.141 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.652     ; 3.525      ;
+; -4.126 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.069     ; 3.093      ;
+; -4.091 ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 3.061      ;
+; -4.078 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.378     ; 2.736      ;
+; -4.048 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 3.968      ;
+; -4.048 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 3.968      ;
+; -4.037 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.071     ; 3.002      ;
+; -4.015 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.652     ; 3.399      ;
+; -3.999 ; bus:bus|cpu:cpu1|state.11                           ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.845     ; 3.190      ;
+; -3.985 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.652     ; 3.369      ;
+; -3.955 ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 2.925      ;
+; -3.954 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.535     ; 3.455      ;
+; -3.922 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 3.842      ;
+; -3.905 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.069     ; 2.872      ;
+; -3.898 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 3.818      ;
+; -3.897 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 2.867      ;
+; -3.887 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.535     ; 3.388      ;
+; -3.877 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.652     ; 3.261      ;
+; -3.865 ; bus:bus|bus_in_cpu2[10]                             ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -0.685     ; 4.216      ;
+; -3.808 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -2.068     ; 2.776      ;
+; -3.807 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 2.777      ;
+; -3.796 ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.845     ; 2.987      ;
+; -3.792 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[12] ; SW[17]       ; SW[17]      ; 1.000        ; -1.117     ; 3.711      ;
+; -3.783 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.377     ; 2.442      ;
+; -3.779 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -2.071     ; 2.744      ;
+; -3.772 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.116     ; 3.692      ;
+; -3.750 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.378     ; 2.408      ;
+; -3.725 ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.845     ; 2.916      ;
+; -3.724 ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.845     ; 2.915      ;
+; -3.724 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.652     ; 3.108      ;
+; -3.723 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -2.069     ; 2.690      ;
+; -3.720 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[9]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.594     ; 4.162      ;
+; -3.720 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[8]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.594     ; 4.162      ;
+; -3.679 ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -2.066     ; 2.649      ;
+; -3.677 ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.851     ; 2.862      ;
+; -3.676 ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.851     ; 2.861      ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------+
-; Setup Times                                                           ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'SW[17]'                                                                                                                                             ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -3.062 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.248      ; 1.452      ;
+; -2.357 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 1.945      ;
+; -2.357 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 1.945      ;
+; -2.357 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 1.945      ;
+; -2.202 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 3.572      ; 1.636      ;
+; -1.967 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 3.784      ; 2.083      ;
+; -1.937 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 3.321      ; 1.650      ;
+; -1.776 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.882      ; 1.372      ;
+; -1.763 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.882      ; 1.385      ;
+; -1.559 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.460      ; 1.167      ;
+; -1.497 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[9]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.786      ; 1.555      ;
+; -1.496 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[8]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.786      ; 1.556      ;
+; -1.422 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 3.321      ; 2.165      ;
+; -1.284 ; bus:bus|cpu:cpu1|address_reg[1]  ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.460      ; 1.442      ;
+; -1.222 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.785      ; 2.829      ;
+; -1.222 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.785      ; 2.829      ;
+; -1.222 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.785      ; 2.829      ;
+; -1.175 ; bus:bus|cpu:cpu2|address_reg[0]  ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.882      ; 1.973      ;
+; -1.138 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 3.554      ; 2.682      ;
+; -1.081 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 3.598      ; 2.783      ;
+; -1.048 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.029      ; 1.247      ;
+; -1.048 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.029      ; 1.247      ;
+; -1.048 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.029      ; 1.247      ;
+; -1.041 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.028      ; 1.253      ;
+; -1.024 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.593      ; 1.835      ;
+; -1.003 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 3.554      ; 2.817      ;
+; -0.966 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.883      ; 2.183      ;
+; -0.966 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.883      ; 2.183      ;
+; -0.966 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.883      ; 2.183      ;
+; -0.954 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.028      ; 1.340      ;
+; -0.948 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 3.558      ; 2.876      ;
+; -0.948 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 3.558      ; 2.876      ;
+; -0.933 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 2.068      ; 1.401      ;
+; -0.910 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.072      ;
+; -0.909 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.073      ;
+; -0.890 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 3.592      ; 2.968      ;
+; -0.884 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 3.572      ; 2.954      ;
+; -0.879 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 3.592      ; 2.979      ;
+; -0.877 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 3.592      ; 2.981      ;
+; -0.877 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 3.592      ; 2.981      ;
+; -0.870 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 2.067      ; 1.463      ;
+; -0.817 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 3.558      ; 3.007      ;
+; -0.796 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 3.572      ; 3.042      ;
+; -0.757 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.225      ;
+; -0.756 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.226      ;
+; -0.735 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 2.707      ;
+; -0.734 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 2.708      ;
+; -0.719 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.083      ; 1.630      ;
+; -0.719 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.083      ; 1.630      ;
+; -0.719 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.083      ; 1.630      ;
+; -0.710 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.056      ; 2.612      ;
+; -0.710 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.056      ; 2.612      ;
+; -0.710 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.056      ; 2.612      ;
+; -0.705 ; bus:bus|cpu:cpu2|state.01        ; bus:bus|cpu:cpu2|bus_out[8]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.029      ; 1.590      ;
+; -0.700 ; bus:bus|cpu:cpu1|state_cb[1]     ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.652      ; 1.218      ;
+; -0.697 ; bus:bus|cpu:cpu2|state.01        ; bus:bus|cpu:cpu2|bus_out[9]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.029      ; 1.598      ;
+; -0.685 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 3.617      ;
+; -0.685 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 3.617      ;
+; -0.685 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 4.036      ; 3.617      ;
+; -0.670 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 2.592      ; 2.188      ;
+; -0.624 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.358      ;
+; -0.619 ; bus:bus|cpu:cpu1|state_cb[1]     ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.485      ; 1.132      ;
+; -0.611 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 3.572      ; 3.227      ;
+; -0.533 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 2.068      ; 1.801      ;
+; -0.526 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 2.070      ; 1.810      ;
+; -0.524 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 2.070      ; 1.812      ;
+; -0.520 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; SW[17]       ; SW[17]      ; 0.000        ; 1.646      ; 1.392      ;
+; -0.520 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; SW[17]       ; SW[17]      ; 0.000        ; 1.646      ; 1.392      ;
+; -0.520 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; SW[17]       ; SW[17]      ; 0.000        ; 1.646      ; 1.392      ;
+; -0.520 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.646      ; 1.392      ;
+; -0.520 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.646      ; 1.392      ;
+; -0.520 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 2.070      ; 1.816      ;
+; -0.473 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.766      ; 1.559      ;
+; -0.471 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.511      ;
+; -0.449 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 2.993      ;
+; -0.412 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.381      ; 2.235      ;
+; -0.410 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.381      ; 2.237      ;
+; -0.396 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.381      ; 2.251      ;
+; -0.396 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.381      ; 2.251      ;
+; -0.396 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.381      ; 2.251      ;
+; -0.362 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 2.712      ; 2.616      ;
+; -0.358 ; bus:bus|cpu:cpu1|state_cb[0]     ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.652      ; 1.560      ;
+; -0.322 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 3.120      ;
+; -0.322 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 3.120      ;
+; -0.322 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.176      ; 3.120      ;
+; -0.304 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 2.067      ; 2.029      ;
+; -0.297 ; bus:bus|cpu:cpu2|address_reg[0]  ; bus:bus|cpu:cpu2|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 2.028      ; 1.997      ;
+; -0.297 ; bus:bus|bus_in_cpu1[8]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.685      ;
+; -0.297 ; bus:bus|bus_in_cpu1[8]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.685      ;
+; -0.297 ; bus:bus|bus_in_cpu1[8]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 3.716      ; 3.685      ;
+; -0.283 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.770      ; 1.753      ;
+; -0.283 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.770      ; 1.753      ;
+; -0.271 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.810      ; 1.805      ;
+; -0.265 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 2.067      ; 2.068      ;
+; -0.222 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|state.11                           ; SW[17]       ; SW[17]      ; 0.000        ; 1.845      ; 1.889      ;
+; -0.164 ; bus:bus|cpu:cpu2|state_cb[0]     ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.247      ; 1.349      ;
+; -0.158 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.770      ; 1.878      ;
+; -0.147 ; bus:bus|cpu:cpu2|write_cb2       ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.266      ; 1.385      ;
+; -0.147 ; bus:bus|cpu:cpu2|write_cb2       ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[1] ; SW[17]       ; SW[17]      ; 0.000        ; 1.266      ; 1.385      ;
+; -0.147 ; bus:bus|cpu:cpu2|write_cb2       ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0] ; SW[17]       ; SW[17]      ; 0.000        ; 1.266      ; 1.385      ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'SW[17]'                                                                                              ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                                              ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[0]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[0]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[1]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[1]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[2]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[2]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[0]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[0]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[1]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[1]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[2]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[2]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[10]                        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[10]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[12]                        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[12]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[4]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[4]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[5]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[5]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[6]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[6]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[7]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[7]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[8]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[8]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[9]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[9]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|done                               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|done                               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|instruction_reg                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|instruction_reg                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 5.763  ; 5.763  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; -0.076 ; -0.076 ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; -0.170 ; -0.170 ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; -0.183 ; -0.183 ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 4.054  ; 4.054  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 5.763  ; 5.763  ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 5.565  ; 5.565  ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -175,31 +500,36 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; SW[17]     ; -3.259 ; -3.259 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; -3.259 ; -3.259 ; Rise       ; SW[17]          ;
+; SW[*]     ; SW[17]     ; 2.280  ; 2.280  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; 0.386  ; 0.386  ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; 2.280  ; 2.280  ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; 2.254  ; 2.254  ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 0.367  ; 0.367  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -3.066 ; -3.066 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -0.535 ; -0.535 ; Rise       ; SW[17]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Clock to Output Times                                                 ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 11.266 ; 11.266 ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 9.334  ; 9.334  ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 11.266 ; 11.266 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Minimum Clock to Output Times                                         ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Minimum Clock to Output Times                                           ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 9.334  ; 9.334  ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 9.334  ; 9.334  ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 11.266 ; 11.266 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +----------------------------------------------------+
@@ -207,10 +537,8 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
-; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
-; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
-; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
+; SW[15]     ; HEX7[6]     ; 9.115 ;    ;    ; 9.115 ;
+; SW[16]     ; HEX0[6]     ; 9.777 ;    ;    ; 9.777 ;
 +------------+-------------+-------+----+----+-------+
 
 
@@ -219,23 +547,27 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
-; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
-; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
-; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
+; SW[15]     ; HEX7[6]     ; 9.115 ;    ;    ; 9.115 ;
+; SW[16]     ; HEX0[6]     ; 9.777 ;    ;    ; 9.777 ;
 +------------+-------------+-------+----+----+-------+
 
 
-----------------------------
-; Fast Model Setup Summary ;
-----------------------------
-No paths to report.
++---------------------------------+
+; Fast Model Setup Summary        ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; SW[17] ; -2.305 ; -82.495       ;
++--------+--------+---------------+
 
 
----------------------------
-; Fast Model Hold Summary ;
----------------------------
-No paths to report.
++---------------------------------+
+; Fast Model Hold Summary         ;
++--------+--------+---------------+
+; Clock  ; Slack  ; End Point TNS ;
++--------+--------+---------------+
+; SW[17] ; -1.517 ; -31.035       ;
++--------+--------+---------------+
 
 
 -------------------------------
@@ -255,37 +587,347 @@ No paths to report.
 +--------+--------+----------------------+
 ; Clock  ; Slack  ; End Point TNS        ;
 +--------+--------+----------------------+
-; SW[17] ; -1.222 ; -3.222               ;
+; SW[17] ; -1.222 ; -118.222             ;
 +--------+--------+----------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------+
-; Fast Model Minimum Pulse Width: 'SW[17]'                                                                  ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
-; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                  ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
-; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                  ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss  ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|readMiss  ;
-; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss ;
-; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu:sm_cpu|writeMiss ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; SW[17]|combout          ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; SW[17]|combout          ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|readMiss|clk     ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|readMiss|clk     ;
-; 0.500  ; 0.500        ; 0.000          ; High Pulse Width ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk    ;
-; 0.500  ; 0.500        ; 0.000          ; Low Pulse Width  ; SW[17] ; Rise       ; sm_cpu|writeMiss|clk    ;
-+--------+--------------+----------------+------------------+--------+------------+-------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'SW[17]'                                                                                                                                        ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                                           ; To Node                      ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
+; -2.305 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.460      ;
+; -2.281 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.436      ;
+; -2.204 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.367      ;
+; -2.194 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.357      ;
+; -2.186 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.267      ;
+; -2.185 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.266      ;
+; -2.143 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.224      ;
+; -2.143 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.298      ;
+; -2.142 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.223      ;
+; -2.120 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.201      ;
+; -2.119 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.200      ;
+; -2.119 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.274      ;
+; -2.109 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.298      ;
+; -2.093 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.248      ;
+; -2.079 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.242      ;
+; -2.072 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.261      ;
+; -2.071 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.260      ;
+; -2.069 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.877     ; 1.224      ;
+; -2.067 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.148      ;
+; -2.066 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.147      ;
+; -2.058 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.247      ;
+; -2.043 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.881     ; 1.194      ;
+; -2.042 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.205      ;
+; -2.032 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.195      ;
+; -2.029 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.218      ;
+; -2.021 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.210      ;
+; -2.020 ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.209      ;
+; -2.013 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.094      ;
+; -2.012 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.093      ;
+; -2.008 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.698      ;
+; -2.006 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.881     ; 1.157      ;
+; -1.992 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.155      ;
+; -1.992 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.181      ;
+; -1.991 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.180      ;
+; -1.982 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.145      ;
+; -1.980 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.169      ;
+; -1.974 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.055      ;
+; -1.943 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.132      ;
+; -1.942 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.131      ;
+; -1.940 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.630      ;
+; -1.931 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 1.012      ;
+; -1.920 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.109      ;
+; -1.919 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 1.082      ;
+; -1.908 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 0.989      ;
+; -1.883 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.072      ;
+; -1.882 ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ; bus:bus|cpu:cpu1|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -1.843     ; 1.071      ;
+; -1.855 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 0.936      ;
+; -1.805 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.495      ;
+; -1.801 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.951     ; 0.882      ;
+; -1.794 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.881     ; 0.945      ;
+; -1.737 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.427      ;
+; -1.707 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu1|bus_out[10] ; SW[17]       ; SW[17]      ; 1.000        ; -1.869     ; 0.870      ;
+; -1.683 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -0.824     ; 1.891      ;
+; -1.667 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state_cb[1] ; SW[17]       ; SW[17]      ; 1.000        ; -0.973     ; 1.726      ;
+; -1.639 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.329      ;
+; -1.630 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu2|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -0.973     ; 1.689      ;
+; -1.626 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.207     ; 1.451      ;
+; -1.615 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -0.824     ; 1.823      ;
+; -1.614 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.442      ;
+; -1.608 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.821      ;
+; -1.604 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.344     ; 1.292      ;
+; -1.604 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.206     ; 1.430      ;
+; -1.603 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.063     ; 1.572      ;
+; -1.599 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state_cb[1] ; SW[17]       ; SW[17]      ; 1.000        ; -0.973     ; 1.658      ;
+; -1.565 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.778      ;
+; -1.565 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.344     ; 1.253      ;
+; -1.562 ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu2|state.00    ; SW[17]       ; SW[17]      ; 1.000        ; -0.973     ; 1.621      ;
+; -1.560 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.063     ; 1.529      ;
+; -1.558 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.771      ;
+; -1.547 ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[0] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.375      ;
+; -1.537 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.063     ; 1.506      ;
+; -1.536 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss             ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.207     ; 1.361      ;
+; -1.522 ; bus:bus|cpu:cpu2|cache_block:cb2|current_address[1] ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.350      ;
+; -1.515 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.728      ;
+; -1.499 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -0.989     ; 1.542      ;
+; -1.486 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.699      ;
+; -1.484 ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.063     ; 1.453      ;
+; -1.483 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.206     ; 1.309      ;
+; -1.477 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[1]   ; bus:bus|cpu:cpu2|state.10    ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.305      ;
+; -1.475 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -0.989     ; 1.518      ;
+; -1.453 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu1|bus_out[12] ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.666      ;
+; -1.444 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.207     ; 1.269      ;
+; -1.443 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.656      ;
+; -1.441 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[9]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.499     ; 1.974      ;
+; -1.441 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[8]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.499     ; 1.974      ;
+; -1.439 ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.267      ;
+; -1.436 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.723      ;
+; -1.436 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.723      ;
+; -1.436 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.723      ;
+; -1.436 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.342     ; 1.126      ;
+; -1.436 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.204     ; 1.264      ;
+; -1.430 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; bus:bus|cpu:cpu1|state_cb[0] ; SW[17]       ; SW[17]      ; 1.000        ; -1.063     ; 1.399      ;
+; -1.422 ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu2|bus_out[7]  ; SW[17]       ; SW[17]      ; 1.000        ; -1.206     ; 1.248      ;
+; -1.417 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[9]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.499     ; 1.950      ;
+; -1.417 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[8]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.499     ; 1.950      ;
+; -1.412 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[5]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.699      ;
+; -1.412 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[6]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.699      ;
+; -1.412 ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; bus:bus|cpu:cpu1|bus_out[4]  ; SW[17]       ; SW[17]      ; 1.000        ; -0.745     ; 1.699      ;
+; -1.410 ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; bus:bus|cpu:cpu1|bus_out[12] ; SW[17]       ; SW[17]      ; 1.000        ; -0.819     ; 1.623      ;
+; -1.401 ; bus:bus|cpu:cpu2|cache_block:cb1|current_address[0] ; bus:bus|cpu:cpu2|state.01    ; SW[17]       ; SW[17]      ; 1.000        ; -1.344     ; 1.089      ;
++--------+-----------------------------------------------------+------------------------------+--------------+-------------+--------------+------------+------------+
 
 
-+-----------------------------------------------------------------------+
-; Setup Times                                                           ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; SW[17]     ; 2.147 ; 2.147 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; 2.147 ; 2.147 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'SW[17]'                                                                                                                                             ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node                                             ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; -1.517 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 2.087      ; 0.722      ;
+; -1.178 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 0.972      ;
+; -1.178 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 0.972      ;
+; -1.178 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 0.972      ;
+; -1.172 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 1.788      ; 0.768      ;
+; -1.060 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.877      ; 0.969      ;
+; -1.031 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.669      ; 0.790      ;
+; -0.871 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.956      ; 1.237      ;
+; -0.839 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.367      ; 0.680      ;
+; -0.830 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.367      ; 0.689      ;
+; -0.824 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 1.669      ; 0.997      ;
+; -0.813 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.956      ; 1.295      ;
+; -0.812 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.970      ; 1.310      ;
+; -0.790 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[8]                         ; SW[17]       ; SW[17]      ; 0.000        ; 1.378      ; 0.740      ;
+; -0.789 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|bus_out[9]                         ; SW[17]       ; SW[17]      ; 0.000        ; 1.378      ; 0.741      ;
+; -0.787 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.958      ; 1.323      ;
+; -0.786 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.958      ; 1.324      ;
+; -0.785 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.227      ; 0.594      ;
+; -0.758 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.966      ; 1.360      ;
+; -0.726 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.966      ; 1.392      ;
+; -0.724 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.966      ; 1.394      ;
+; -0.724 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.966      ; 1.394      ;
+; -0.699 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.958      ; 1.411      ;
+; -0.688 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.205      ; 0.669      ;
+; -0.670 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.879      ; 1.361      ;
+; -0.670 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.879      ; 1.361      ;
+; -0.670 ; bus:bus|cpu:cpu1|instruction_reg ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.879      ; 1.361      ;
+; -0.665 ; bus:bus|cpu:cpu1|address_reg[1]  ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.227      ; 0.714      ;
+; -0.651 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.203      ; 0.704      ;
+; -0.631 ; bus:bus|cpu:cpu1|state_cb[1]     ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.063      ; 0.584      ;
+; -0.608 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.385      ;
+; -0.607 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.386      ;
+; -0.582 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|done                               ; SW[17]       ; SW[17]      ; 0.000        ; 1.788      ; 1.358      ;
+; -0.560 ; bus:bus|cpu:cpu2|address_reg[0]  ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.367      ; 0.959      ;
+; -0.537 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.788      ; 1.403      ;
+; -0.536 ; bus:bus|cpu:cpu1|state_cb[1]     ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 0.955      ; 0.571      ;
+; -0.525 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.096      ; 0.723      ;
+; -0.522 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.967      ; 0.597      ;
+; -0.520 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.473      ;
+; -0.519 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.474      ;
+; -0.518 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.205      ; 0.839      ;
+; -0.517 ; bus:bus|cpu:cpu1|address_reg[0]  ; bus:bus|cpu:cpu1|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 1.221      ; 0.856      ;
+; -0.516 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.206      ; 0.842      ;
+; -0.513 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.206      ; 0.845      ;
+; -0.510 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.206      ; 0.848      ;
+; -0.494 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.254      ;
+; -0.493 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.255      ;
+; -0.491 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.967      ; 0.628      ;
+; -0.476 ; bus:bus|bus_in_cpu1[5]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.517      ;
+; -0.473 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.306      ; 0.985      ;
+; -0.472 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.788      ; 1.468      ;
+; -0.464 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ; SW[17]       ; SW[17]      ; 0.000        ; 1.062      ; 0.750      ;
+; -0.464 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ; SW[17]       ; SW[17]      ; 0.000        ; 1.062      ; 0.750      ;
+; -0.464 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ; SW[17]       ; SW[17]      ; 0.000        ; 1.062      ; 0.750      ;
+; -0.464 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.062      ; 0.750      ;
+; -0.464 ; bus:bus|cpu:cpu1|write_cb1       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.062      ; 0.750      ;
+; -0.459 ; bus:bus|cpu:cpu1|state_cb[0]     ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 1.063      ; 0.756      ;
+; -0.448 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.968      ; 0.672      ;
+; -0.448 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[4]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.968      ; 0.672      ;
+; -0.448 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.968      ; 0.672      ;
+; -0.441 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.098      ; 0.809      ;
+; -0.440 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.098      ; 0.810      ;
+; -0.434 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 1.716      ;
+; -0.434 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 1.716      ;
+; -0.434 ; bus:bus|cpu:cpu1|state.01        ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.998      ; 1.716      ;
+; -0.425 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.203      ; 0.930      ;
+; -0.422 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.368      ; 1.098      ;
+; -0.422 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.368      ; 1.098      ;
+; -0.422 ; bus:bus|cpu:cpu2|state.11        ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.368      ; 1.098      ;
+; -0.404 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.110      ; 0.858      ;
+; -0.394 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.203      ; 0.961      ;
+; -0.388 ; bus:bus|bus_in_cpu1[4]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.841      ; 1.605      ;
+; -0.384 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.516      ; 1.284      ;
+; -0.384 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.516      ; 1.284      ;
+; -0.384 ; bus:bus|bus_in_cpu1[10]          ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.516      ; 1.284      ;
+; -0.367 ; bus:bus|cpu:cpu2|state.01        ; bus:bus|cpu:cpu2|bus_out[8]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.968      ; 0.753      ;
+; -0.362 ; bus:bus|bus_in_cpu1[6]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.386      ;
+; -0.360 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.098      ; 0.890      ;
+; -0.358 ; bus:bus|cpu:cpu2|state.01        ; bus:bus|cpu:cpu2|bus_out[9]                         ; SW[17]       ; SW[17]      ; 0.000        ; 0.968      ; 0.762      ;
+; -0.357 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|invalidate           ; SW[17]       ; SW[17]      ; 0.000        ; 1.205      ; 1.000      ;
+; -0.354 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.386      ; 1.184      ;
+; -0.348 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.106      ; 0.910      ;
+; -0.335 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.106      ; 0.923      ;
+; -0.333 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|newState[1]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.106      ; 0.925      ;
+; -0.333 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.106      ; 0.925      ;
+; -0.329 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 0.999      ; 0.822      ;
+; -0.329 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 0.999      ; 0.822      ;
+; -0.329 ; bus:bus|cpu:cpu2|state.00        ; bus:bus|cpu:cpu2|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 0.999      ; 0.822      ;
+; -0.310 ; bus:bus|cpu:cpu2|state_cb[0]     ; bus:bus|cpu:cpu2|cache_block:cb1|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 0.824      ; 0.666      ;
+; -0.296 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|readMiss             ; SW[17]       ; SW[17]      ; 0.000        ; 1.205      ; 1.061      ;
+; -0.294 ; bus:bus|cpu:cpu1|address_reg[2]  ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.096      ; 0.954      ;
+; -0.293 ; bus:bus|cpu:cpu2|address_reg[2]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb2|writeMiss            ; SW[17]       ; SW[17]      ; 0.000        ; 1.205      ; 1.064      ;
+; -0.255 ; bus:bus|cpu:cpu2|state_cb[0]     ; bus:bus|cpu:cpu2|cache_block:cb2|current_state[0]   ; SW[17]       ; SW[17]      ; 0.000        ; 0.686      ; 0.583      ;
+; -0.249 ; bus:bus|cpu:cpu2|address_reg[1]  ; bus:bus|cpu:cpu2|sm_cpu:sm_cb1|newState[0]          ; SW[17]       ; SW[17]      ; 0.000        ; 1.203      ; 1.106      ;
+; -0.247 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[2]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.501      ;
+; -0.247 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[1]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.501      ;
+; -0.247 ; bus:bus|bus_in_cpu1[7]           ; bus:bus|cpu:cpu1|address_cb[0]                      ; SW[17]       ; SW[17]      ; 0.000        ; 1.596      ; 1.501      ;
+; -0.246 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|bus_out[5]                         ; SW[17]       ; SW[17]      ; 0.000        ; 1.132      ; 1.038      ;
+; -0.246 ; bus:bus|bus_in_cpu1[8]           ; bus:bus|cpu:cpu1|write_cb2                          ; SW[17]       ; SW[17]      ; 0.000        ; 1.631      ; 1.537      ;
+; -0.244 ; bus:bus|cpu:cpu1|state.00        ; bus:bus|cpu:cpu1|bus_out[6]                         ; SW[17]       ; SW[17]      ; 0.000        ; 1.132      ; 1.040      ;
++--------+----------------------------------+-----------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'SW[17]'                                                                                              ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock  ; Clock Edge ; Target                                              ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+; -1.222 ; 1.000        ; 2.222          ; Port Rate        ; SW[17] ; Rise       ; SW[17]                                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu1[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[10]                             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[4]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[5]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[6]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[7]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[8]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|bus_in_cpu2[9]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[0]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[0]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[1]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[1]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[2]                      ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_cb[2]                      ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[0]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[0]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[1]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[1]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[2]                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|address_reg[2]                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[10]                        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[10]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[12]                        ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[12]                        ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[4]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[4]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[5]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[5]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[6]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[6]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[7]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[7]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[8]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[8]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[9]                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|bus_out[9]                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb1|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_address[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[0]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|cache_block:cb2|current_state[1]   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|done                               ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|done                               ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|instruction_reg                    ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|instruction_reg                    ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|currentState[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|invalidate           ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[0]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|newState[1]          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|readMiss             ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb1|writeMiss            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; SW[17] ; Rise       ; bus:bus|cpu:cpu1|sm_cpu:sm_cb2|invalidate           ;
++--------+--------------+----------------+------------------+--------+------------+-----------------------------------------------------+
+
+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 3.069  ; 3.069  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; -0.107 ; -0.107 ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; -0.180 ; -0.180 ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; -0.173 ; -0.173 ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 2.385  ; 2.385  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 3.069  ; 3.069  ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 3.017  ; 3.017  ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -293,8 +935,13 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
+; SW[*]     ; SW[17]     ; 1.210  ; 1.210  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; 0.288  ; 0.288  ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; 1.210  ; 1.210  ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; 1.192  ; 1.192  ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 0.002  ; 0.002  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -1.875 ; -1.875 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -0.596 ; -0.596 ; Rise       ; SW[17]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
@@ -303,9 +950,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
+; LEDR[*]   ; SW[17]     ; 5.889 ; 5.889 ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 4.837 ; 4.837 ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 5.889 ; 5.889 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -314,9 +961,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
+; LEDR[*]   ; SW[17]     ; 4.837 ; 4.837 ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 4.837 ; 4.837 ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 5.889 ; 5.889 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -325,10 +972,8 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
-; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
-; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
-; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
+; SW[15]     ; HEX7[6]     ; 5.180 ;    ;    ; 5.180 ;
+; SW[16]     ; HEX0[6]     ; 5.568 ;    ;    ; 5.568 ;
 +------------+-------------+-------+----+----+-------+
 
 
@@ -337,33 +982,36 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
-; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
-; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
-; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
+; SW[15]     ; HEX7[6]     ; 5.180 ;    ;    ; 5.180 ;
+; SW[16]     ; HEX0[6]     ; 5.568 ;    ;    ; 5.568 ;
 +------------+-------------+-------+----+----+-------+
 
 
-+----------------------------------------------------------------------------+
-; Multicorner Timing Analysis Summary                                        ;
-+------------------+-------+------+----------+---------+---------------------+
-; Clock            ; Setup ; Hold ; Recovery ; Removal ; Minimum Pulse Width ;
-+------------------+-------+------+----------+---------+---------------------+
-; Worst-case Slack ; N/A   ; N/A  ; N/A      ; N/A     ; -1.222              ;
-;  SW[17]          ; N/A   ; N/A  ; N/A      ; N/A     ; -1.222              ;
-; Design-wide TNS  ; 0.0   ; 0.0  ; 0.0      ; 0.0     ; -3.222              ;
-;  SW[17]          ; N/A   ; N/A  ; N/A      ; N/A     ; -3.222              ;
-+------------------+-------+------+----------+---------+---------------------+
++----------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                              ;
++------------------+----------+---------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold    ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+---------+----------+---------+---------------------+
+; Worst-case Slack ; -5.583   ; -3.062  ; N/A      ; N/A     ; -1.222              ;
+;  SW[17]          ; -5.583   ; -3.062  ; N/A      ; N/A     ; -1.222              ;
+; Design-wide TNS  ; -277.111 ; -44.718 ; 0.0      ; 0.0     ; -118.222            ;
+;  SW[17]          ; -277.111 ; -44.718 ; N/A      ; N/A     ; -118.222            ;
++------------------+----------+---------+----------+---------+---------------------+
 
 
-+-----------------------------------------------------------------------+
-; Setup Times                                                           ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; SW[*]     ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; 3.490 ; 3.490 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Setup Times                                                             ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; SW[*]     ; SW[17]     ; 5.763  ; 5.763  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; -0.076 ; -0.076 ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; -0.170 ; -0.170 ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; -0.173 ; -0.173 ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 4.054  ; 4.054  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; 5.763  ; 5.763  ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; 5.565  ; 5.565  ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-------------------------------------------------------------------------+
@@ -371,20 +1019,25 @@ No paths to report.
 +-----------+------------+--------+--------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
 +-----------+------------+--------+--------+------------+-----------------+
-; SW[*]     ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
-;  SW[16]   ; SW[17]     ; -2.007 ; -2.007 ; Rise       ; SW[17]          ;
+; SW[*]     ; SW[17]     ; 2.280  ; 2.280  ; Rise       ; SW[17]          ;
+;  SW[10]   ; SW[17]     ; 0.386  ; 0.386  ; Rise       ; SW[17]          ;
+;  SW[11]   ; SW[17]     ; 2.280  ; 2.280  ; Rise       ; SW[17]          ;
+;  SW[12]   ; SW[17]     ; 2.254  ; 2.254  ; Rise       ; SW[17]          ;
+;  SW[14]   ; SW[17]     ; 0.367  ; 0.367  ; Rise       ; SW[17]          ;
+;  SW[15]   ; SW[17]     ; -1.875 ; -1.875 ; Rise       ; SW[17]          ;
+;  SW[16]   ; SW[17]     ; -0.535 ; -0.535 ; Rise       ; SW[17]          ;
 +-----------+------------+--------+--------+------------+-----------------+
 
 
-+-----------------------------------------------------------------------+
-; Clock to Output Times                                                 ;
-+-----------+------------+-------+-------+------------+-----------------+
-; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
-+-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 8.234 ; 8.234 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 7.610 ; 7.610 ; Rise       ; SW[17]          ;
-+-----------+------------+-------+-------+------------+-----------------+
++-------------------------------------------------------------------------+
+; Clock to Output Times                                                   ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; LEDR[*]   ; SW[17]     ; 11.266 ; 11.266 ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 9.334  ; 9.334  ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 11.266 ; 11.266 ; Rise       ; SW[17]          ;
++-----------+------------+--------+--------+------------+-----------------+
 
 
 +-----------------------------------------------------------------------+
@@ -392,9 +1045,9 @@ No paths to report.
 +-----------+------------+-------+-------+------------+-----------------+
 ; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
 +-----------+------------+-------+-------+------------+-----------------+
-; LEDR[*]   ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
-;  LEDR[14] ; SW[17]     ; 4.393 ; 4.393 ; Rise       ; SW[17]          ;
-;  LEDR[15] ; SW[17]     ; 4.063 ; 4.063 ; Rise       ; SW[17]          ;
+; LEDR[*]   ; SW[17]     ; 4.837 ; 4.837 ; Rise       ; SW[17]          ;
+;  LEDR[16] ; SW[17]     ; 4.837 ; 4.837 ; Rise       ; SW[17]          ;
+;  LEDR[17] ; SW[17]     ; 5.889 ; 5.889 ; Rise       ; SW[17]          ;
 +-----------+------------+-------+-------+------------+-----------------+
 
 
@@ -403,10 +1056,8 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 5.405 ;    ;    ; 5.405 ;
-; SW[1]      ; LEDR[3]     ; 5.676 ;    ;    ; 5.676 ;
-; SW[2]      ; LEDR[4]     ; 5.507 ;    ;    ; 5.507 ;
-; SW[16]     ; LEDR[17]    ; 9.596 ;    ;    ; 9.596 ;
+; SW[15]     ; HEX7[6]     ; 9.115 ;    ;    ; 9.115 ;
+; SW[16]     ; HEX0[6]     ; 9.777 ;    ;    ; 9.777 ;
 +------------+-------------+-------+----+----+-------+
 
 
@@ -415,17 +1066,29 @@ No paths to report.
 +------------+-------------+-------+----+----+-------+
 ; Input Port ; Output Port ; RR    ; RF ; FR ; FF    ;
 +------------+-------------+-------+----+----+-------+
-; SW[0]      ; LEDR[2]     ; 2.923 ;    ;    ; 2.923 ;
-; SW[1]      ; LEDR[3]     ; 3.053 ;    ;    ; 3.053 ;
-; SW[2]      ; LEDR[4]     ; 2.990 ;    ;    ; 2.990 ;
-; SW[16]     ; LEDR[17]    ; 5.508 ;    ;    ; 5.508 ;
+; SW[15]     ; HEX7[6]     ; 5.180 ;    ;    ; 5.180 ;
+; SW[16]     ; HEX0[6]     ; 5.568 ;    ;    ; 5.568 ;
 +------------+-------------+-------+----+----+-------+
 
 
--------------------
-; Clock Transfers ;
--------------------
-Nothing to report.
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SW[17]     ; SW[17]   ; 1792     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; SW[17]     ; SW[17]   ; 1792     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
 
 
 ---------------
@@ -447,10 +1110,10 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 +---------------------------------+-------+------+
 ; Illegal Clocks                  ; 0     ; 0    ;
 ; Unconstrained Clocks            ; 0     ; 0    ;
-; Unconstrained Input Ports       ; 4     ; 4    ;
-; Unconstrained Input Port Paths  ; 6     ; 6    ;
-; Unconstrained Output Ports      ; 6     ; 6    ;
-; Unconstrained Output Port Paths ; 6     ; 6    ;
+; Unconstrained Input Ports       ; 6     ; 6    ;
+; Unconstrained Input Port Paths  ; 62    ; 62   ;
+; Unconstrained Output Ports      ; 4     ; 4    ;
+; Unconstrained Output Port Paths ; 4     ; 4    ;
 +---------------------------------+-------+------+
 
 
@@ -460,7 +1123,7 @@ No dedicated SERDES Receiver circuitry present in device or used in design
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
     Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Thu Jun 28 21:28:15 2018
+    Info: Processing started: Fri Jun 29 11:16:13 2018
 Info: Command: quartus_sta PraticaIV -c PraticaIV
 Info: qsta_default_script.tcl version: #1
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -472,33 +1135,44 @@ Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name SW[17] SW[17]
 Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow Model
-Info (332140): No fmax paths to report
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -5.583
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -5.583      -277.111 SW[17] 
+Info (332146): Worst-case hold slack is -3.062
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -3.062       -44.718 SW[17] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -1.222
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.222        -3.222 SW[17] 
+    Info (332119):    -1.222      -118.222 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info: Analyzing Fast Model
-Info (332140): No Setup paths to report
-Info (332140): No Hold paths to report
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.305
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.305       -82.495 SW[17] 
+Info (332146): Worst-case hold slack is -1.517
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.517       -31.035 SW[17] 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Critical Warning (332148): Timing requirements not met
 Info (332146): Worst-case minimum pulse width slack is -1.222
     Info (332119):     Slack End Point TNS Clock 
     Info (332119): ========= ============= =====================
-    Info (332119):    -1.222        -3.222 SW[17] 
+    Info (332119):    -1.222      -118.222 SW[17] 
 Info (332001): The selected device family is not supported by the report_metastability command.
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
     Info: Peak virtual memory: 463 megabytes
-    Info: Processing ended: Thu Jun 28 21:28:16 2018
+    Info: Processing ended: Fri Jun 29 11:16:14 2018
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
