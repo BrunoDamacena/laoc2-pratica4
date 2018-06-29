@@ -1,6 +1,6 @@
 Analysis & Synthesis report for PraticaIV
-Fri Jun 29 11:15:54 2018
-Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
+Fri Jun 29 12:39:50 2018
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
 ---------------------
@@ -24,10 +24,8 @@ Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
  16. Port Connectivity Checks: "bus:bus|cpu:cpu1|sm_bus:sm_bus1"
  17. Port Connectivity Checks: "bus:bus|cpu:cpu1|sm_cpu:sm_cb2"
  18. Port Connectivity Checks: "bus:bus|cpu:cpu1|sm_cpu:sm_cb1"
- 19. Port Connectivity Checks: "bcd_7seg:display_data2"
- 20. Port Connectivity Checks: "bcd_7seg:display_data1"
- 21. Elapsed Time Per Partition
- 22. Analysis & Synthesis Messages
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -50,24 +48,24 @@ applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                    ;
-+------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 29 11:15:54 2018      ;
-; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
-; Revision Name                      ; PraticaIV                                  ;
-; Top-level Entity Name              ; PraticaIV                                  ;
-; Family                             ; Cyclone II                                 ;
-; Total logic elements               ; 283                                        ;
-;     Total combinational functions  ; 253                                        ;
-;     Dedicated logic registers      ; 117                                        ;
-; Total registers                    ; 117                                        ;
-; Total pins                         ; 96                                         ;
-; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0                                          ;
-; Embedded Multiplier 9-bit elements ; 0                                          ;
-; Total PLLs                         ; 0                                          ;
-+------------------------------------+--------------------------------------------+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Fri Jun 29 12:39:50 2018           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; PraticaIV                                       ;
+; Top-level Entity Name              ; PraticaIV                                       ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 435                                             ;
+;     Total combinational functions  ; 381                                             ;
+;     Dedicated logic registers      ; 214                                             ;
+; Total registers                    ; 214                                             ;
+; Total pins                         ; 96                                              ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
 
 
 +----------------------------------------------------------------------------------------------------------------------+
@@ -166,20 +164,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
-; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v   ;         ;
-; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v      ;         ;
-; bcd_7seg.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v    ;         ;
-; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v      ;         ;
-; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v ;         ;
-; cpu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v         ;         ;
-; bus.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v         ;         ;
-; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v      ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------+---------+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                          ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
+; PraticaIV.v                      ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v   ;         ;
+; sm_cpu.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v      ;         ;
+; bcd_7seg.v                       ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v    ;         ;
+; memory.v                         ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/memory.v      ;         ;
+; cache_block.v                    ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v ;         ;
+; cpu.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v         ;         ;
+; bus.v                            ; yes             ; User Verilog HDL File        ; C:/Users/Aluno/Documents/laoc2-pratica4/bus.v         ;         ;
+; sm_bus.v                         ; yes             ; Auto-Found Verilog HDL File  ; C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v      ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------+---------+
 
 
 +------------------------------------------------------+
@@ -187,53 +185,57 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+--------+
 ; Resource                                    ; Usage  ;
 +---------------------------------------------+--------+
-; Estimated Total logic elements              ; 283    ;
+; Estimated Total logic elements              ; 435    ;
 ;                                             ;        ;
-; Total combinational functions               ; 253    ;
+; Total combinational functions               ; 381    ;
 ; Logic element usage by number of LUT inputs ;        ;
-;     -- 4 input functions                    ; 160    ;
-;     -- 3 input functions                    ; 67     ;
+;     -- 4 input functions                    ; 228    ;
+;     -- 3 input functions                    ; 127    ;
 ;     -- <=2 input functions                  ; 26     ;
 ;                                             ;        ;
 ; Logic elements by mode                      ;        ;
-;     -- normal mode                          ; 253    ;
+;     -- normal mode                          ; 381    ;
 ;     -- arithmetic mode                      ; 0      ;
 ;                                             ;        ;
-; Total registers                             ; 117    ;
-;     -- Dedicated logic registers            ; 117    ;
+; Total registers                             ; 214    ;
+;     -- Dedicated logic registers            ; 214    ;
 ;     -- I/O registers                        ; 0      ;
 ;                                             ;        ;
 ; I/O pins                                    ; 96     ;
 ; Embedded Multiplier 9-bit elements          ; 0      ;
 ; Maximum fan-out node                        ; SW[17] ;
-; Maximum fan-out                             ; 85     ;
-; Total fan-out                               ; 1208   ;
-; Average fan-out                             ; 2.59   ;
+; Maximum fan-out                             ; 166    ;
+; Total fan-out                               ; 1932   ;
+; Average fan-out                             ; 2.80   ;
 +---------------------------------------------+--------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                 ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
-; |PraticaIV                 ; 253 (0)           ; 117 (0)      ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV                                  ;              ;
-;    |bus:bus|               ; 253 (23)          ; 117 (21)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus                          ;              ;
-;       |cpu:cpu1|           ; 115 (89)          ; 48 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1                 ;              ;
-;          |cache_block:cb1| ; 0 (0)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|cache_block:cb1 ;              ;
-;          |cache_block:cb2| ; 0 (0)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|cache_block:cb2 ;              ;
-;          |sm_bus:sm_bus1|  ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_bus:sm_bus1  ;              ;
-;          |sm_bus:sm_bus2|  ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_bus:sm_bus2  ;              ;
-;          |sm_cpu:sm_cb1|   ; 10 (10)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_cpu:sm_cb1   ;              ;
-;          |sm_cpu:sm_cb2|   ; 10 (10)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_cpu:sm_cb2   ;              ;
-;       |cpu:cpu2|           ; 115 (89)          ; 48 (24)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2                 ;              ;
-;          |cache_block:cb1| ; 0 (0)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|cache_block:cb1 ;              ;
-;          |cache_block:cb2| ; 0 (0)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|cache_block:cb2 ;              ;
-;          |sm_bus:sm_bus1|  ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_bus:sm_bus1  ;              ;
-;          |sm_bus:sm_bus2|  ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_bus:sm_bus2  ;              ;
-;          |sm_cpu:sm_cb1|   ; 10 (10)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_cpu:sm_cb1   ;              ;
-;          |sm_cpu:sm_cb2|   ; 10 (10)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_cpu:sm_cb2   ;              ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                  ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; Compilation Hierarchy Node  ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                         ; Library Name ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
+; |PraticaIV                  ; 381 (8)           ; 214 (0)      ; 0           ; 0            ; 0       ; 0         ; 96   ; 0            ; |PraticaIV                                  ; work         ;
+;    |bcd_7seg:display_data0| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bcd_7seg:display_data0           ; work         ;
+;    |bcd_7seg:display_data1| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bcd_7seg:display_data1           ; work         ;
+;    |bcd_7seg:display_data2| ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bcd_7seg:display_data2           ; work         ;
+;    |bus:bus|                ; 352 (42)          ; 214 (34)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus                          ; work         ;
+;       |cpu:cpu1|            ; 130 (108)         ; 72 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1                 ; work         ;
+;          |cache_block:cb1|  ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|cache_block:cb1 ; work         ;
+;          |cache_block:cb2|  ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|cache_block:cb2 ; work         ;
+;          |sm_bus:sm_bus1|   ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_bus:sm_bus1  ; work         ;
+;          |sm_bus:sm_bus2|   ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_bus:sm_bus2  ; work         ;
+;          |sm_cpu:sm_cb1|    ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_cpu:sm_cb1   ; work         ;
+;          |sm_cpu:sm_cb2|    ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu1|sm_cpu:sm_cb2   ; work         ;
+;       |cpu:cpu2|            ; 128 (106)         ; 72 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2                 ; work         ;
+;          |cache_block:cb1|  ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|cache_block:cb1 ; work         ;
+;          |cache_block:cb2|  ; 0 (0)             ; 9 (9)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|cache_block:cb2 ; work         ;
+;          |sm_bus:sm_bus1|   ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_bus:sm_bus1  ; work         ;
+;          |sm_bus:sm_bus2|   ; 3 (3)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_bus:sm_bus2  ; work         ;
+;          |sm_cpu:sm_cb1|    ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_cpu:sm_cb1   ; work         ;
+;          |sm_cpu:sm_cb2|    ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|cpu:cpu2|sm_cpu:sm_cb2   ; work         ;
+;       |memory:memory|       ; 52 (52)           ; 36 (36)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |PraticaIV|bus:bus|memory:memory            ; work         ;
++-----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -286,13 +288,14 @@ Encoding Type:  One-Hot
 ; bus:bus|cpu:cpu1|sm_bus:sm_bus2|writeBack ; Merged with bus:bus|cpu:cpu1|sm_bus:sm_bus2|abortMemoryAccess ;
 ; bus:bus|cpu:cpu1|sm_bus:sm_bus1|writeBack ; Merged with bus:bus|cpu:cpu1|sm_bus:sm_bus1|abortMemoryAccess ;
 ; bus:bus|cpu:cpu2|bus_out[12]              ; Merged with bus:bus|cpu:cpu2|bus_out[11]                      ;
+; bus:bus|cpu:cpu1|bus_out[12]              ; Merged with bus:bus|cpu:cpu1|bus_out[11]                      ;
 ; bus:bus|state~6                           ; Lost fanout                                                   ;
 ; bus:bus|state~7                           ; Lost fanout                                                   ;
 ; bus:bus|cpu:cpu2|state~4                  ; Lost fanout                                                   ;
 ; bus:bus|cpu:cpu2|state~5                  ; Lost fanout                                                   ;
 ; bus:bus|cpu:cpu1|state~4                  ; Lost fanout                                                   ;
 ; bus:bus|cpu:cpu1|state~5                  ; Lost fanout                                                   ;
-; Total Number of Removed Registers = 11    ;                                                               ;
+; Total Number of Removed Registers = 12    ;                                                               ;
 +-------------------------------------------+---------------------------------------------------------------+
 
 
@@ -301,12 +304,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 117   ;
+; Total registers                              ; 214   ;
 ; Number of registers using Synchronous Clear  ; 6     ;
 ; Number of registers using Synchronous Load   ; 6     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 61    ;
+; Number of registers using Clock Enable       ; 117   ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -331,21 +334,27 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|memory_address[2]      ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu2[9]         ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PraticaIV|bus:bus|memory_address[1]      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu2[7]         ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu2[4]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu1[9]         ;
-; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu1[6]         ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|bus_out[9]    ;
-; 7:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|bus_out[8]    ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 6 LEs                ; 15 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|address_cb[0] ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 6 LEs                ; 15 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|address_cb[0] ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu1[7]         ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu1[4]         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu2[3]         ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |PraticaIV|bus:bus|bus_in_cpu1[2]         ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|data_out[2]   ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 4 LEs                ; 8 LEs                  ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|data_out[3]   ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|bus_out[3]    ;
+; 10:1               ; 4 bits    ; 24 LEs        ; 8 LEs                ; 16 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|bus_out[0]    ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|address_cb[2] ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 6 LEs                ; 18 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|address_cb[0] ;
 ; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|bus_out[5]    ;
-; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|bus_out[5]    ;
+; 12:1               ; 3 bits    ; 24 LEs        ; 9 LEs                ; 15 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|bus_out[6]    ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu2|data_cb[3]    ;
+; 13:1               ; 4 bits    ; 32 LEs        ; 8 LEs                ; 24 LEs                 ; Yes        ; |PraticaIV|bus:bus|cpu:cpu1|data_cb[2]    ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |PraticaIV|bus:bus|state                  ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |PraticaIV|bus:bus|state                  ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |PraticaIV|bus:bus|cpu:cpu2|Selector15    ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |PraticaIV|bus:bus|cpu:cpu1|Selector13    ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |PraticaIV|bus:bus|cpu:cpu1|Selector15    ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------+
 
 
@@ -385,24 +394,6 @@ Encoding Type:  One-Hot
 +-----------+--------+----------+-------------------------------------------------------------------------------------+
 
 
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bcd_7seg:display_data2"                                                                ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; SSEG_CA ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
-+-------------------------------------------------------------------------------------------------------------------+
-; Port Connectivity Checks: "bcd_7seg:display_data1"                                                                ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; Port    ; Type   ; Severity ; Details                                                                             ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-; SSEG_CA ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
-+---------+--------+----------+-------------------------------------------------------------------------------------+
-
-
 +-------------------------------+
 ; Elapsed Time Per Partition    ;
 +----------------+--------------+
@@ -417,8 +408,8 @@ Encoding Type:  One-Hot
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
-    Info: Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
-    Info: Processing started: Fri Jun 29 11:15:51 2018
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Fri Jun 29 12:39:47 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PraticaIV -c PraticaIV
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 1 design units, including 1 entities, in source file praticaiv.v
@@ -437,18 +428,14 @@ Info (12021): Found 1 design units, including 1 entities, in source file cpu.v
     Info (12023): Found entity 1: cpu
 Info (12021): Found 1 design units, including 1 entities, in source file bus.v
     Info (12023): Found entity 1: bus
-Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(37): created implicit net for "execute_"
-Warning (10236): Verilog HDL Implicit Net warning at PraticaIV.v(38): created implicit net for "miss_cpu"
 Warning (10236): Verilog HDL Implicit Net warning at cache.v(38): created implicit net for "adrress"
 Warning (10236): Verilog HDL Implicit Net warning at cpu.v(84): created implicit net for "writeBack_sm_cb1"
 Warning (10236): Verilog HDL Implicit Net warning at cpu.v(85): created implicit net for "writeBack_sm_cb2"
 Info (12127): Elaborating entity "PraticaIV" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at PraticaIV.v(37): object "execute_" assigned a value but never read
-Warning (10036): Verilog HDL or VHDL warning at PraticaIV.v(38): object "miss_cpu" assigned a value but never read
-Warning (10230): Verilog HDL assignment warning at PraticaIV.v(35): truncated value with size 4 to match size of target (3)
-Warning (10034): Output port "LEDR[15..0]" at PraticaIV.v(11) has no driver
+Warning (10034): Output port "LEDR[15]" at PraticaIV.v(11) has no driver
+Warning (10034): Output port "LEDR[11..0]" at PraticaIV.v(11) has no driver
 Warning (10034): Output port "LEDG" at PraticaIV.v(12) has no driver
-Info (12128): Elaborating entity "bcd_7seg" for hierarchy "bcd_7seg:display_data1"
+Info (12128): Elaborating entity "bcd_7seg" for hierarchy "bcd_7seg:display_data0"
 Info (12128): Elaborating entity "bus" for hierarchy "bus:bus"
 Info (12128): Elaborating entity "cpu" for hierarchy "bus:bus|cpu:cpu1"
 Warning (10036): Verilog HDL or VHDL warning at cpu.v(27): object "message_sent" assigned a value but never read
@@ -462,21 +449,17 @@ Info (12128): Elaborating entity "sm_bus" for hierarchy "bus:bus|cpu:cpu1|sm_bus
 Info (12128): Elaborating entity "memory" for hierarchy "bus:bus|memory:memory"
 Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus2" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
 Warning (12030): Port "ordered port 7" on the entity instantiation of "sm_bus1" is connected to a signal of width 1. The formal width of the signal in the module is 2.  The extra bits will be left dangling without any fan-out logic.
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "bus:bus|memory:memory|memory_data" is uninferred due to inappropriate RAM size
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "HEX0[5]" is stuck at GND
-    Warning (13410): Pin "HEX0[4]" is stuck at GND
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC
     Warning (13410): Pin "HEX0[3]" is stuck at GND
-    Warning (13410): Pin "HEX0[2]" is stuck at GND
-    Warning (13410): Pin "HEX0[1]" is stuck at GND
-    Warning (13410): Pin "HEX0[0]" is stuck at GND
-    Warning (13410): Pin "HEX1[6]" is stuck at VCC
-    Warning (13410): Pin "HEX1[5]" is stuck at VCC
-    Warning (13410): Pin "HEX1[4]" is stuck at VCC
-    Warning (13410): Pin "HEX1[3]" is stuck at GND
-    Warning (13410): Pin "HEX1[2]" is stuck at VCC
-    Warning (13410): Pin "HEX1[1]" is stuck at VCC
-    Warning (13410): Pin "HEX1[0]" is stuck at VCC
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC
     Warning (13410): Pin "HEX2[6]" is stuck at VCC
     Warning (13410): Pin "HEX2[5]" is stuck at VCC
     Warning (13410): Pin "HEX2[4]" is stuck at VCC
@@ -505,19 +488,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "HEX5[2]" is stuck at VCC
     Warning (13410): Pin "HEX5[1]" is stuck at VCC
     Warning (13410): Pin "HEX5[0]" is stuck at VCC
-    Warning (13410): Pin "HEX6[6]" is stuck at VCC
-    Warning (13410): Pin "HEX6[5]" is stuck at VCC
-    Warning (13410): Pin "HEX6[4]" is stuck at VCC
-    Warning (13410): Pin "HEX6[3]" is stuck at GND
-    Warning (13410): Pin "HEX6[2]" is stuck at VCC
-    Warning (13410): Pin "HEX6[1]" is stuck at VCC
-    Warning (13410): Pin "HEX6[0]" is stuck at VCC
-    Warning (13410): Pin "HEX7[5]" is stuck at GND
-    Warning (13410): Pin "HEX7[4]" is stuck at GND
-    Warning (13410): Pin "HEX7[3]" is stuck at GND
-    Warning (13410): Pin "HEX7[2]" is stuck at GND
-    Warning (13410): Pin "HEX7[1]" is stuck at GND
-    Warning (13410): Pin "HEX7[0]" is stuck at GND
     Warning (13410): Pin "LEDR[0]" is stuck at GND
     Warning (13410): Pin "LEDR[1]" is stuck at GND
     Warning (13410): Pin "LEDR[2]" is stuck at GND
@@ -530,9 +500,6 @@ Warning (13024): Output pins are stuck at VCC or GND
     Warning (13410): Pin "LEDR[9]" is stuck at GND
     Warning (13410): Pin "LEDR[10]" is stuck at GND
     Warning (13410): Pin "LEDR[11]" is stuck at GND
-    Warning (13410): Pin "LEDR[12]" is stuck at GND
-    Warning (13410): Pin "LEDR[13]" is stuck at GND
-    Warning (13410): Pin "LEDR[14]" is stuck at GND
     Warning (13410): Pin "LEDR[15]" is stuck at GND
     Warning (13410): Pin "LEDG[4]" is stuck at GND
     Warning (13410): Pin "LEDG[5]" is stuck at GND
@@ -541,7 +508,7 @@ Warning (13024): Output pins are stuck at VCC or GND
 Info (17049): 6 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 11 input pin(s) that do not drive logic
+Warning (21074): Design contains 7 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[0]"
     Warning (15610): No output dependent on input pin "SW[1]"
     Warning (15610): No output dependent on input pin "SW[2]"
@@ -549,18 +516,14 @@ Warning (21074): Design contains 11 input pin(s) that do not drive logic
     Warning (15610): No output dependent on input pin "SW[4]"
     Warning (15610): No output dependent on input pin "SW[5]"
     Warning (15610): No output dependent on input pin "SW[6]"
-    Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[8]"
-    Warning (15610): No output dependent on input pin "SW[9]"
-    Warning (15610): No output dependent on input pin "SW[13]"
-Info (21057): Implemented 379 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 563 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
     Info (21059): Implemented 78 output pins
-    Info (21061): Implemented 283 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 105 warnings
-    Info: Peak virtual memory: 532 megabytes
-    Info: Processing ended: Fri Jun 29 11:15:54 2018
+    Info (21061): Implemented 467 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 75 warnings
+    Info: Peak virtual memory: 530 megabytes
+    Info: Processing ended: Fri Jun 29 12:39:50 2018
     Info: Elapsed time: 00:00:03
-    Info: Total CPU time (on all processors): 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 

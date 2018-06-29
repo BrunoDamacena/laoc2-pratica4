@@ -71,7 +71,7 @@ module bus(clock,
 					state = 2'b01;
 				end
 				else
-				if(bus_out_cpu2[12] | bus_out_cpu2[11]) // read/write miss cpu 2
+				if(bus_out_cpu2[12] | bus_out_cpu2[9]) // read/write miss cpu 2
 				begin
 					memory_write = bus_out_cpu2[12]; // update memory in case of write-back
 					memory_address = bus_out_cpu2[6:4];

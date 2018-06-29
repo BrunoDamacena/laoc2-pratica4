@@ -106,12 +106,12 @@ module cpu(
 		case(state)
 			2'b00: // Verify state machine
 			begin
+				bus_out = 10'b0000000000;
 				if (execute_instruction)
 				begin
 					instruction_reg = instruction;
 					address_reg = address;
 					data_in_reg = data_in;
-					bus_out = 10'b0000000000;
 					state = 2'b01;
 					done = 0;
 					message_sent = 0;
@@ -137,6 +137,7 @@ module cpu(
 							state = 2'b10;
 						end
 					end
+					else
 					if (bus_in[6:4] == current_address_cb2)
 					begin
 						bus_out[12] = write_back_bus_cb2;
@@ -155,11 +156,15 @@ module cpu(
 							state = 2'b10;
 						end				
 					end
+					else
+					begin						
+						bus_out = 10'b0010000000;
+					end
 				end
 			end
 			2'b01:
 			begin				
-				if(readMiss | writeMiss | invalidate) // if any message must be send in the bus, add one cycle to send it
+				if(readMiss | writeMiss | invalidate) // if any message must be sent in the bus, add one cycle to send it
 				begin
 					bus_out[10] = 1;
 					bus_out[9] = readMiss;
@@ -205,7 +210,7 @@ module cpu(
 			2'b11:
 			begin
 				bus_out = 10'b0000000000;
-				if(bus_in[10])
+				if(bus_in[10] | instruction_reg) 
 				begin
 					write_cb1 = ~address_reg[0];
 					write_cb2 = address_reg[0];			
