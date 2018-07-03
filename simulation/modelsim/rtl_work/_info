@@ -2,165 +2,165 @@ m255
 K3
 13
 cModel Technology
-Z0 dC:\Users\Aluno\Documents\laoc2-pratica4\simulation\modelsim
+Z0 dC:\Users\Gabriel\Documents\git\laoc2-pratica4\simulation\modelsim
 vbcd_7seg
-IB?W1^_YYfnT[AEN31ZB?K3
+I4PX2bbi>C=8lXjOfYggd>3
 VR>`DTFlnd=5J_^18KkNc[2
-Z1 dC:\Users\Aluno\Documents\laoc2-pratica4\simulation\modelsim
-Z2 w1530287681
-8C:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v
+Z1 dC:\Users\Gabriel\Documents\git\laoc2-pratica4\simulation\modelsim
+w1529940097
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v
 L0 21
-Z3 OV;L;10.1d;51
+Z2 OV;L;10.1d;51
 r1
 31
-Z4 o-vlog01compat -work work -O0
-Z5 !s92 -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 -O0
+Z3 o-vlog01compat -work work -O0
+Z4 !s92 -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 -O0
 !i10b 1
-!s100 TF7fYSA0V]7Czl5hFeWP31
+!s100 OJi7kg8K9FlFTjcD`eRmi3
 !s85 0
-!s108 1530290946.752000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v|
+!s108 1530645843.350000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v|
 !s101 -O0
 vbus
-II[6L27EWBAm@8;[mJO=;B1
+IUSRC<=a:UURCj`S4kjmG80
 V<hL7i;F4V`>nF@E>PiC]I0
 R1
-w1530290206
-8C:/Users/Aluno/Documents/laoc2-pratica4/bus.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/bus.v
+w1530645808
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v
 L0 1
-R3
+R2
 r1
 31
+R3
 R4
-R5
 !i10b 1
-!s100 Z[F[cI36d`jhaY_]zzlFU1
+!s100 @F_J53;Q6m=kEKYZD>j8T3
 !s85 0
-!s108 1530290947.220000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/bus.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/bus.v|
+!s108 1530645843.678000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v|
 !s101 -O0
 vcache_block
-IGY`AkYj5kZD0bchObVl832
+IZL[4?@V4N[Vf5bOcif8:z3
 VQl[6YYkaVlVHk@[`JoGK>0
 R1
-R2
-8C:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v
+w1530231199
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v
 L0 1
-R3
+R2
 r1
 31
+R3
 R4
-R5
 !i10b 1
-!s100 Ai;95EC9IL^:dgFjRkoDE1
+!s100 KDAX=ZiPmk>cek=YM_Y5M2
 !s85 0
-!s108 1530290947.049000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v|
+!s108 1530645843.506000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v|
 !s101 -O0
 vcpu
-I<AbX2oV_41GfjoNf@3VAk0
+I7U?XCiKzYNR>]LUfDzQ;j1
 VNgiHQT1^5bC3NU7@oQmXc1
 R1
-w1530290880
-8C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/cpu.v
+w1530644187
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v
 L0 1
-R3
+R2
 r1
 31
+R3
 R4
-R5
 !i10b 1
-!s100 @Z<SE8D6S8XYj1a?``8UO2
+!s100 II@j0<:KXn9081Jz_@QjI3
 !s85 0
-!s108 1530290947.127000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v|
+!s108 1530645843.600000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v|
 !s101 -O0
 vmemory
-I7^B?afd85lg^16;5Ro1PA0
+I[PD;f5E;lSOZhOiQSc8A`2
 V1XjZPSh64Wfh5ES1EaOS31
 R1
-R2
-8C:/Users/Aluno/Documents/laoc2-pratica4/memory.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/memory.v
+Z5 w1530643869
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v
 L0 1
-R3
+R2
 r1
 31
+R3
 R4
-R5
 !i10b 1
-!s100 c5JZnYKDJ>[FAZYU__o>S3
+!s100 nz]hfLhjW3^IFY3Ra^MmM0
 !s85 0
-!s108 1530290946.845000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/memory.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/memory.v|
+!s108 1530645843.428000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v|
 !s101 -O0
 vPraticaIV
-Ie5`XRHY^@Q0iCC=I=P^6;3
+Iz16@;kAO_5a6kVF4YmnRY2
 VkLi=BCPZPcReHIo]3G;g<3
 R1
-w1530289873
-8C:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v
+R5
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v
 L0 1
-R3
+R2
 r1
 31
-R4
+R3
 n@pratica@i@v
-R5
+R4
 !i10b 1
-!s100 GbQ^K_5gOeBjH7gHA@V0i2
+!s100 QGezUhQ=[DRVOeB:XmV>A0
 !s85 0
-!s108 1530290946.439000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v|
+!s108 1530645843.162000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v|
 !s101 -O0
 vsm_bus
 !i10b 1
-!s100 lH>aCoBXYlRabBRWG<Xo13
-IZaGALn_iU?49[daD39Na51
+!s100 Lj8NFN]ZkL@S[BHRJRjXe0
+I6X^`eDZ`08>DW;HFGRAMB1
 Vb06YoGE@ki5AK81lXFXfk2
 R1
-R2
-8C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v
+w1530230848
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v
 L0 1
-R3
+R2
 r1
 !s85 0
 31
-!s108 1530290947.299000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v|
+!s108 1530645843.756000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v|
 !s101 -O0
+R3
 R4
-R5
 vsm_cpu
-IbcbjQFAFDhdM<m3NJZAbz2
+IT;eg:g5[z[hZ?lVfXA@c20
 VkVdeZ9j5VViT>jUGK4?[>3
 R1
-R2
-8C:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v
-FC:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v
+w1530104852
+8C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v
+FC:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v
 L0 1
-R3
+R2
 r1
 31
+R3
 R4
-R5
 !i10b 1
-!s100 fhMg5;<laYl22B;`D2?T[0
+!s100 Tz=SElEUc_V=XXHj?Tj>`2
 !s85 0
-!s108 1530290946.658000
-!s107 C:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v|
-!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Aluno/Documents/laoc2-pratica4|C:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v|
+!s108 1530645843.256000
+!s107 C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4|C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v|
 !s101 -O0

@@ -1,62 +1,58 @@
-# Reading C:/altera/13.0sp1/modelsim_ase/tcl/vsim/pref.tcl 
+# Reading C:/altera/13.0/modelsim_ase/tcl/vsim/pref.tcl 
 # do PraticaIV_run_msim_rtl_verilog.do 
 # if {[file exists rtl_work]} {
 # 	vdel -lib rtl_work -all
 # }
 # vlib rtl_work
 # vmap work rtl_work
-# Copying C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
+# Copying C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
-# ** Warning: Copied C:\altera\13.0sp1\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
+# ** Warning: Copied C:\altera\13.0\modelsim_ase\win32aloem/../modelsim.ini to modelsim.ini.
 #          Updated modelsim.ini.
 # 
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/PraticaIV.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/PraticaIV.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module PraticaIV
 # 
 # Top level modules:
 # 	PraticaIV
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/sm_cpu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_cpu.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_cpu
 # 
 # Top level modules:
 # 	sm_cpu
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/bcd_7seg.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/bcd_7seg.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module bcd_7seg
 # 
 # Top level modules:
 # 	bcd_7seg
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/memory.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/memory.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module memory
 # 
 # Top level modules:
 # 	memory
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/cache_block.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/cache_block.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module cache_block
 # 
 # Top level modules:
 # 	cache_block
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module cpu
 # 
 # Top level modules:
 # 	cpu
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/bus.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/bus.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module bus
-# ** Warning: C:/Users/Aluno/Documents/laoc2-pratica4/bus.v(84): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
-# ** Warning: C:/Users/Aluno/Documents/laoc2-pratica4/bus.v(99): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
-# 
 # 
 # Top level modules:
 # 	bus
-# vlog -vlog01compat -work work +incdir+C:/Users/Aluno/Documents/laoc2-pratica4 {C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v}
+# vlog -vlog01compat -work work +incdir+C:/Users/Gabriel/Documents/git/laoc2-pratica4 {C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v}
 # Model Technology ModelSim ALTERA vlog 10.1d Compiler 2012.11 Nov  2 2012
 # -- Compiling module sm_bus
 # 
@@ -71,19 +67,19 @@ vsim work.bus
 # Loading work.cache_block
 # Loading work.sm_bus
 # Loading work.memory
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
+# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v(9).
 # 
 #         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
+# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v(9).
 # 
 #         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
+# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v(9).
 # 
 #         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
+# ** Warning: (vsim-3015) C:/Users/Gabriel/Documents/git/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Gabriel/Documents/git/laoc2-pratica4/sm_bus.v(9).
 # 
 #         Region: /bus/cpu2/sm_bus2
-do C:/Users/Aluno/Documents/laoc2-pratica4/simulation/modelsim/wave.do
+do C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do
 # .main_pane.wave.interior.cs.body.pw.wf
 # 1
 # 1
@@ -92,14 +88,19 @@ add wave -position end  sim:/bus/data_out_cpu1
 add wave -position end  sim:/bus/data_out_cpu2
 add wave -position end  sim:/bus/done_cpu1
 add wave -position end  sim:/bus/done_cpu2
-add wave -position end  sim:/bus/state
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+# 
+#           File in use by: Aluno  Hostname: DECOM_188  ProcessID: 8056
+# 
+#           Attempting to use alternate WLF file "./wlfthnmrev".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+# 
+#           Using alternate file: ./wlfthnmrev
+# 
 add wave -position end  sim:/bus/bus_in_cpu1
 add wave -position end  sim:/bus/bus_in_cpu2
 add wave -position end  sim:/bus/bus_out_cpu1
 add wave -position end  sim:/bus/bus_out_cpu2
-add wave -position end  sim:/bus/cpu1/state
-add wave -position end  sim:/bus/cpu1/current_state_cb1
-add wave -position end  sim:/bus/cpu1/current_data_cb1
 run
 run
 run
@@ -108,132 +109,6 @@ run
 run
 run
 run
-# WARNING: No extended dataflow license exists
-add wave -position end  sim:/bus/cpu1/current_address_cb1
-restart
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus2
+# Can't move the Now cursor.
 run
-run
-run
-run
-run
-run
-run
-run
-restart
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus2
-wave modify -driver freeze -pattern constant -value St1 -starttime 425ps -endtime 475ps Edit:/bus/instruction
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-add wave -position end  sim:/bus/memory/memory_data
-restart
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus2
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-run
-# 
-# Internal Error: In tclprim_ApplyStimulus for /bus/clock "Time value must be greater than "now": 1000 ps
-# ** Error: (vsim-4004) The -cancel option requires a time period argument.
-# Usage: force [-deposit | -drive | -freeze] [-cancel <period>] [-repeat <period>] <item_name> <value> [<time>] [, <value> <time> ...]"
-# Internal Error: In tclprim_ApplyStimulus for /bus/execute_instruction_cpu1 ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/execute_instruction_cpu2 ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/instruction ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/address ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/data_in ""
-run
-run
-# 
-# Internal Error: In tclprim_ApplyStimulus for /bus/clock "Time value must be greater than "now": 1000 ps
-# ** Error: (vsim-4004) The -cancel option requires a time period argument.
-# Usage: force [-deposit | -drive | -freeze] [-cancel <period>] [-repeat <period>] <item_name> <value> [<time>] [, <value> <time> ...]"
-# Internal Error: In tclprim_ApplyStimulus for /bus/execute_instruction_cpu1 ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/execute_instruction_cpu2 ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/instruction ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/address ""
-# Internal Error: In tclprim_ApplyStimulus for /bus/data_in ""
-restart
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus2
-wave modify -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 1000ps Edit:/bus/execute_instruction_cpu1
-wave modify -driver freeze -pattern constant -value 0 -starttime 0ps -endtime 1000ps Edit:/bus/instruction
-restart
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu1/sm_bus2
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(98): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus1
-# ** Warning: (vsim-3015) C:/Users/Aluno/Documents/laoc2-pratica4/cpu.v(99): [PCDPC] - Port size (2 or 2) does not match connection size (1) for port 'currentState'. The port definition is at: C:/Users/Aluno/Documents/laoc2-pratica4/sm_bus.v(9).
-# 
-#         Region: /bus/cpu2/sm_bus2
-wave modify -driver freeze -pattern constant -value 1 -starttime 25ps -endtime 75ps Edit:/bus/execute_instruction_cpu1
-run
-run
-run
-run
-run
-run
-wave modify -driver freeze -pattern constant -value 1 -starttime 25ps -endtime 75ps Edit:/bus/instruction
+wave editwrite -file C:/Users/Gabriel/Documents/git/laoc2-pratica4/simulation/modelsim/wave.do

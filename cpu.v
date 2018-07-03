@@ -60,7 +60,7 @@ module cpu(
 	
 	initial begin
 		data_out = 4'b0000;
-		bus_out = 10'b0000000000;
+		bus_out = 13'b0000000000000;
 		state = 2'b00;
 		write_cb1 = 0;
 		write_cb2 = 0;
@@ -106,7 +106,7 @@ module cpu(
 		case(state)
 			2'b00: // Verify state machine
 			begin
-				bus_out = 10'b0000000000;
+				bus_out = 13'b0000000000000;
 				if (execute_instruction)
 				begin
 					instruction_reg = instruction;
@@ -118,7 +118,7 @@ module cpu(
 				end
 				if (bus_in[9] | bus_in[8] | bus_in[7])
 				begin
-					bus_out = 12'b001000000000;
+					bus_out = 13'b0010000000000;
 					if ((bus_in[6:4] == current_address_cb1) & ~bus_in[4])
 					begin
 						bus_out[12] = write_back_bus_cb1;
@@ -204,7 +204,7 @@ module cpu(
 			end
 			2'b11:
 			begin
-				bus_out = 10'b0000000000;
+				bus_out = 13'b0000000000000;
 				if(bus_in[10] | instruction_reg) 
 				begin
 					write_cb1 = ~address_reg[0];

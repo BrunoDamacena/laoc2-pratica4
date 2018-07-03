@@ -39,8 +39,8 @@ module bus(clock,
 	
 	initial begin
 		state = 2'b00;
-		bus_in_cpu1 = 10'b0000000000;
-		bus_in_cpu2 = 10'b0000000000;
+		bus_in_cpu1 = 13'b0000000000000;
+		bus_in_cpu2 = 13'b0000000000000;
 		memory_write = 0;
 		memory_address = 3'b000;
 		memory_data_in = 4'b0000;	
@@ -81,7 +81,7 @@ module bus(clock,
 			end
 			2'b01: // read miss cpu 1 - cycle 2
 			begin
-				bus_in_cpu1[12:7] = 4'b001000;
+				bus_in_cpu1[12:7] = 6'b001000;
 				bus_in_cpu1[6:4] = memory_address;
 				if(bus_out_cpu2[11] & bus_out_cpu2[6:4] == memory_address) // abort memory access: solved from cache
 				begin
@@ -96,7 +96,7 @@ module bus(clock,
 			
 			2'b10: // read miss cpu 2 - cycle 2
 			begin
-				bus_in_cpu2[12:7] = 4'b001000;
+				bus_in_cpu2[12:7] = 6'b001000;
 				bus_in_cpu2[6:4] = memory_address;
 				if(bus_out_cpu1[11] & bus_out_cpu1[6:4] == memory_address) // abort memory access: solved from cache
 				begin
@@ -110,6 +110,8 @@ module bus(clock,
 			end
 			2'b11:
 			begin
+				bus_in_cpu1 = 13'b0000000000000;
+				bus_in_cpu2 = 13'b0000000000000;
 				state = 2'b00;
 			end
 		endcase
